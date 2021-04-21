@@ -1,10 +1,4 @@
-<p align="center">
-  <a href="https://www.chromatic.com/">
-    <img alt="Chromatic" src="https://upload.wikimedia.org/wikipedia/tr/3/32/TurkNet_logo.png" height="80" />
-  </a>
-</p>
-
-<h1 align="center">
+<h1>
    Design Systems
 </h1>
 
