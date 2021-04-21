@@ -7,7 +7,8 @@
     "build": "build-storybook -s public",
     "build-library": "tsc --project tsconfig.library.json",
     "format": "prettier --write src/**/*.{js,ts}{,x}",
-    "lint": "tsc --noEmit && eslint src/**/*.{js,ts}{,x} --fix"
+    "lint": "tsc --noEmit && eslint src/**/*.{js,ts}{,x} --fix",
+    "chromatic": "npx chromatic --exit-zero-on-changes"
   },
   "husky": {
     "hooks": {
@@ -57,16 +58,17 @@
     "@types/styled-system": "^5.1.11",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "chromatic": "^5.6.2",
     "eslint": "^7.24.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.2.0",
     "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-jest": "^24.3.5",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "7.21.5",
     "eslint-plugin-react-hooks": "1.7.0",
-    "eslint-plugin-jest": "^24.3.5",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
