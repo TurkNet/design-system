@@ -1,0 +1,5 @@
+dist
+public
+build
+node_modules
+yarn.lock
