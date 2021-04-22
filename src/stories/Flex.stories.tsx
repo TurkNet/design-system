@@ -16,6 +16,6 @@ const Template: Story<FlexProps> = args => (
 
 export const Standart = Template.bind({});
 Standart.args = {
-  width: '200px',
+  width: '300px',
   flexDirection: 'column',
 };
