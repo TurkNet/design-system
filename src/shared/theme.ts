@@ -44,7 +44,7 @@ export const theme = {
       dark: '#214baf',
     },
   },
-  fontWeight: {
+  fontWeights: {
     light: '300',
     regular: '400',
     'semi-bold': '600',
