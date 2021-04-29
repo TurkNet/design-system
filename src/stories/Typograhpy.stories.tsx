@@ -14,4 +14,5 @@ Standart.args = {
   color: 'primary.normal',
   m: '10px',
   p: 'xl',
+  fontWeight: 'bold',
 };
