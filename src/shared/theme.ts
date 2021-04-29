@@ -1,10 +1,4 @@
 export const theme = {
-  breakpoints: {
-    sm: '576px',
-    md: '768px',
-    lg: '992px',
-    xl: '1200px',
-  },
   colors: {
     primary: {
       light: '#71a6da',
@@ -51,10 +45,11 @@ export const theme = {
     },
   },
   fontWeight: {
+    light: '300',
     regular: '400',
+    'semi-bold': '600',
     bold: '700',
-    extrabold: '800',
-    black: '900',
+    'extra-bold': '800',
   },
   borderRadius: {
     small: 2,
