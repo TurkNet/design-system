@@ -9,7 +9,7 @@
     "build-library": "tsc --project tsconfig.library.json",
     "format": "prettier --write src/**/*.{js,ts}{,x}",
     "lint": "tsc --noEmit && eslint src/**/*.{js,ts}{,x} --fix",
-    "chromatic": "npx chromatic",
+    "chromatic": "chromatic",
     "release": "auto shipit --base-branch=master"
   },
   "husky": {
