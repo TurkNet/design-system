@@ -5,17 +5,20 @@ on: push
 
 # What the action will do
 jobs:
-  test:
-    # The operating system it will run on
-    runs-on: ubuntu-latest
-    # The list of steps that the action will go through
+  chromatic-deployment:
     steps:
-      - uses: actions/checkout@v1
-      - run: yarn
-        #👇 Adds Chromatic as a step in the workflow
-      - uses: chromaui/action@v1
-        # Options required for Chromatic's GitHub Action
+      # 👇 Version 2 of the action
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
-          #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/review/ to obtain it
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          fetch-depth: 0 # 👈 Required to retrieve git history
+      - name: Install dependencies
+        run: yarn
+        # 👇 Adds Chromatic as a step in the workflow
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        # Options required to the GitHub Chromatic Action
+        with:
           token: ${{ secrets.GH_TOKEN }}
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
