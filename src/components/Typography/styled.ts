@@ -9,28 +9,9 @@ import {
   variant,
 } from 'styled-system';
 
-export type IVariant = keyof typeof variants;
-export type IKind = keyof typeof kind;
-
-export interface TypographyStyledProps
-  extends TypographyProps,
-    ColorProps,
-    SpaceProps {
-  variant?: IVariant;
-  kind?: IKind;
-}
-
 const variants = {
-  'display-big': {
-    fontSize: '64',
-    fontWeight: 'bold',
-  },
-  'display-small': {
-    fontSize: '56',
-    fontWeight: 'regular',
-  },
   h1: {
-    fontSize: '40',
+    fontSize: '36',
     fontWeight: 'semi-bold',
   },
   h2: {
@@ -38,59 +19,65 @@ const variants = {
     fontWeight: 'semi-bold',
   },
   h3: {
-    fontSize: '28',
-    fontWeight: 'semi-bold',
+    fontSize: '30',
+    fontWeight: 'bold',
   },
   h4: {
-    fontSize: '24',
-    fontWeight: 'semi-bold',
+    fontSize: '26',
+    fontWeight: 'bold',
   },
   h5: {
-    fontSize: '20',
+    fontSize: '22',
     fontWeight: 'semi-bold',
   },
   h6: {
-    fontSize: '16',
+    fontSize: '18',
     fontWeight: 'semi-bold',
   },
-  'body-big': {
-    fontSize: '16',
-    fontWeight: 'semi-bold',
-  },
-  'body-small': {
-    fontSize: '14',
-    fontWeight: 'regular',
-  },
-  subtitle: {
+  subtitle1: {
     fontSize: '16',
     fontWeight: 'regular',
   },
-  'subtitle-small': {
+  subtitle2: {
     fontSize: '14',
     fontWeight: 'semi-bold',
   },
-  caption: {
+  paragraph1: {
+    fontSize: '15',
+    fontWeight: 'semi-bold',
+  },
+  paragraph2: {
+    fontSize: '13',
+  },
+  caption1: {
+    fontSize: '12',
+  },
+  caption2: {
     fontSize: '12',
     fontWeight: 'semi-bold',
   },
-  overline: {
-    fontSize: '10',
-    fontWeight: 'semi-bold',
+  label: {
+    fontSize: '12',
+    fontWeight: 'bold',
   },
 };
 
-const kind = {
-  dark: {
-    color: 'grey.1000',
-  },
-  light: {
-    color: 'text',
-  },
-};
+export type IVariant = keyof typeof variants;
+
+export interface TypographyStyledProps
+  extends TypographyProps,
+    SpaceProps,
+    ColorProps {
+  variant?: IVariant;
+  color?: string;
+}
 
 export const TypographyStyled = styled('div')<TypographyStyledProps>(
+  {
+    padding: 0,
+    margin: 0,
+  },
   variant({ variants }),
-  variant({ prop: 'kind', variants: kind }),
   typography,
   color,
   space
