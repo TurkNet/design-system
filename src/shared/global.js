@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   font-family: 'Open Sans', sans-serif;
   font-size: ${theme.fontSizes[14]};
   color: ${theme.colors.text};
+  line-height: 1.3;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
