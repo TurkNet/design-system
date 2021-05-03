@@ -13,7 +13,7 @@ export const Standart = Template.bind({});
 Standart.args = {
   height: '100px',
   width: '100px',
-  bg: 'secondary.normal',
+  bg: 'primary.normal',
   m: 'xs',
   paddingTop: 'xl',
 };
