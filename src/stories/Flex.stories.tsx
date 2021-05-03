@@ -9,8 +9,8 @@ export default {
 
 const Template: Story<FlexProps> = args => (
   <Flex {...args}>
-    <Box height="100px" width={1} bg="primary.normal" />
     <Box height="100px" width={1} bg="secondary.normal" />
+    <Box height="100px" width={1} bg="primary.normal" />
   </Flex>
 );
 
