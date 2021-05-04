@@ -35,11 +35,11 @@ const variants = {
     fontWeight: 'semi-bold',
   },
   subtitle1: {
-    fontSize: '16',
+    fontSize: '15',
     fontWeight: 'regular',
   },
   subtitle2: {
-    fontSize: '14',
+    fontSize: '13',
     fontWeight: 'semi-bold',
   },
   paragraph1: {
