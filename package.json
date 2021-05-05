@@ -1,6 +1,6 @@
 {
   "name": "@turk.net/design-system",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": "https://github.com/recepkoseoglu/design-system.git",
   "author": "Recep Köseoğlu <recepkoseoglu@hotmail.com>",
   "main": "./dist/index.js",
