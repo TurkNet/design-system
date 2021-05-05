@@ -1,5 +1,5 @@
 {
-  "name": "design-system",
+  "name": "@turk.net/design-system",
   "version": "0.1.0",
   "main": "./dist/index.js",
   "repository": "https://github.com/recepkoseoglu/design-system.git",
