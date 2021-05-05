@@ -1,10 +1,4 @@
 export const theme = {
-  breakpoints: {
-    sm: '576px',
-    md: '768px',
-    lg: '992px',
-    xl: '1200px',
-  },
   colors: {
     primary: {
       light: '#71a6da',
@@ -50,11 +44,12 @@ export const theme = {
       dark: '#214baf',
     },
   },
-  fontWeight: {
+  fontWeights: {
+    light: '300',
     regular: '400',
+    'semi-bold': '600',
     bold: '700',
-    extrabold: '800',
-    black: '900',
+    'extra-bold': '800',
   },
   borderRadius: {
     small: 2,
@@ -72,12 +67,18 @@ export const theme = {
     10: '10px',
     12: '12px',
     14: '14px',
+    13: '13px',
     15: '15px',
     16: '16px',
+    18: '18px',
     20: '20px',
+    22: '22px',
     24: '24px',
+    26: '26px',
     28: '28px',
+    30: '30px',
     32: '32px',
+    36: '36px',
     40: '40px',
     56: '56px',
     64: '64px',
