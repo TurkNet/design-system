@@ -1,3 +1,15 @@
+# v0.1.3 (Wed May 05 2021)
+
+#### 🐛 Bug Fix
+
+- npm ignore files [#42](https://github.com/TurkNet/design-system/pull/42) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.2 (Wed May 05 2021)
 
 #### 🐛 Bug Fix
