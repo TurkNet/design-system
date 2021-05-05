@@ -1,3 +1,15 @@
+# v0.1.2 (Wed May 05 2021)
+
+#### 🐛 Bug Fix
+
+- npm release bugfix [#40](https://github.com/TurkNet/design-system/pull/40) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.1 (Wed May 05 2021)
 
 #### 🐛 Bug Fix
