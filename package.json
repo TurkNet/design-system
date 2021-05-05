@@ -22,7 +22,6 @@
     "src/**/*.{js,jsx,ts,tsx}": [
       "yarn lint",
       "yarn format",
-      "yarn build-library",
       "git add"
     ],
     "package.json": "sort-package-json"
