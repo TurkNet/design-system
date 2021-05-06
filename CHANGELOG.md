@@ -1,3 +1,15 @@
+# v0.1.4 (Thu May 06 2021)
+
+#### 🐛 Bug Fix
+
+- Code quality configs [#46](https://github.com/TurkNet/design-system/pull/46) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.3 (Wed May 05 2021)
 
 #### 🐛 Bug Fix
