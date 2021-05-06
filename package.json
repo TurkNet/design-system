@@ -5,25 +5,28 @@
   "author": "Recep Köseoğlu <recepkoseoglu@hotmail.com>",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "files": [
+    "package.json",
+    "dist",
+    "LICENSE",
+    "CHANGELOG"
+  ],
   "scripts": {
     "start": "start-storybook -p 6006 -s public",
     "build": "build-storybook -s public",
     "build-library": "tsc --project tsconfig.library.json",
-    "format": "prettier --write src/**/*.{js,ts}{,x}",
-    "lint": "tsc --noEmit && eslint src/**/*.{js,ts}{,x} --fix",
+    "clean": "rm -rf node_modules dist yarn.lock && yarn cache clean && yarn",
+    "format": "prettier --write .",
+    "lint": "tsc --noEmit && eslint . --fix",
     "chromatic": "npx chromatic",
-    "release": "auto shipit --base-branch=master"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "release": "auto shipit --base-branch=master",
+    "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx}": [
       "yarn lint",
       "yarn format",
-      "git add"
+      "git add ."
     ],
     "package.json": "sort-package-json"
   },
@@ -77,11 +80,5 @@
     "prettier": "2.2.1",
     "sort-package-json": "1.49.0",
     "typescript": "4.2.4"
-  },
-  "files": [
-    "package.json",
-    "dist",
-    "LICENSE",
-    "CHANGELOG"
-  ]
+  }
 }
