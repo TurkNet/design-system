@@ -5,8 +5,6 @@ name: Release
 on:
   push:
     branches: [master]
-    branches-ignore:
-      - '*-config' # 👈 Excludes the config branch
 
 # what the action will do
 jobs:
