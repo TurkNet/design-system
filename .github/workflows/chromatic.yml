@@ -1,7 +1,10 @@
 # Name of our action
 name: 'Chromatic'
 # The event that will trigger the action
-on: push
+on:
+  push:
+    branches-ignore: 
+      - '*-config' # 👈 Excludes the example branch
 
 # What the action will do
 jobs:
@@ -19,3 +22,28 @@ jobs:
           #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/review/ to obtain it
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GH_TOKEN }}
+
+jobs:
+  chromatic-deployment:
+    steps:
+      # Other steps
+
+      # 👇 Checks if the branch is not master and runs Chromatic
+      - name: Publish to Chromatic
+        if: github.ref != 'refs/heads/master'
+        uses: chromaui/action@v1
+        # Required options for the Chromatic GitHub Action
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        # 👇 Checks if the branch is master and accepts all changes in Chromatic
+      - name: Publish to Chromatic and auto accept changes
+        if: github.ref == 'refs/heads/master'
+        uses: chromaui/action@v1
+        # Required options for the Chromatic GitHub Action
+        with:
+          token: ${{ secrets.GH_TOKEN }}
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          autoAcceptChanges: true # 👈 Option to accept all changes
