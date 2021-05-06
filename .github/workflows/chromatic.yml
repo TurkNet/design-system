@@ -4,11 +4,11 @@ name: 'Chromatic'
 on:
   push:
     branches-ignore:
-      - '*-config' # 👈 Excludes the example branch
+      - '*-config' # 👈 Excludes the config branch
 
 # What the action will do
 jobs:
-  test:
+  chromatic-deployment:
     # The operating system it will run on
     runs-on: ubuntu-latest
     # The list of steps that the action will go through
