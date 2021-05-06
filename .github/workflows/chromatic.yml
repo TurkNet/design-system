@@ -3,7 +3,7 @@ name: 'Chromatic'
 # The event that will trigger the action
 on:
   push:
-    branches-ignore: 
+    branches-ignore:
       - '*-config' # 👈 Excludes the example branch
 
 # What the action will do
@@ -22,12 +22,6 @@ jobs:
           #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/review/ to obtain it
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           token: ${{ secrets.GH_TOKEN }}
-
-jobs:
-  chromatic-deployment:
-    steps:
-      # Other steps
-
       # 👇 Checks if the branch is not master and runs Chromatic
       - name: Publish to Chromatic
         if: github.ref != 'refs/heads/master'
