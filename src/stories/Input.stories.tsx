@@ -13,4 +13,5 @@ export const Standart = Template.bind({})
 Standart.args = {
   placeholder: 'placeholder',
   defaultValue: '',
+  disabled: false,
 }
