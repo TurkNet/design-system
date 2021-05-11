@@ -23,6 +23,11 @@ export const theme = {
       1000: '#151a30',
       1100: '#101426',
     },
+    sky: {
+      light: '#e4e9f2',
+      normal: '#c5cee0',
+      dark: '#8f9bb3',
+    },
     warning: {
       light: '#fbdc64',
       normal: '#f4b400',

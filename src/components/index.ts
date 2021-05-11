@@ -1,4 +1,5 @@
 export * from './Flex'
 export * from './Box'
-export * from './Typography'
 export * from './Card'
+export * from './Checkbox'
+export * from './Typography'
