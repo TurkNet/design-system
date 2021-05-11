@@ -52,7 +52,7 @@ const variantStyle = (color1: string, color2?: string) => {
   `
 }
 
-const variants = {
+export const variants = {
   success: variantStyle('success'),
   danger: variantStyle('danger'),
   info: variantStyle('info'),
@@ -85,6 +85,7 @@ export const CheckboxStyled = styled.input<CheckboxStyledProps>`
     width: 18px;
     border-radius: ${theme('borderRadius.small')};
     border: 2px solid;
+    transition: 0.3s;
   }
 
   :checked:before {
