@@ -1,19 +1,19 @@
-import React from 'react';
-import { Story } from '@storybook/react';
-import styled from 'styled-components';
-import { Flex, Typography, TypographyProps } from '../components';
+import React from 'react'
+import { Story } from '@storybook/react'
+import styled from 'styled-components'
+import { Flex, Typography, TypographyProps } from '../components'
 
 export default {
   title: 'Desing System/Typography',
   component: Typography,
-};
+}
 
 const GridLine = styled(Flex)`
   > * {
     border-bottom: 1px solid #eee;
     margin-bottom: 20px;
   }
-`;
+`
 
 const Template: Story<TypographyProps> = args => (
   <GridLine flexDirection="column">
@@ -57,10 +57,10 @@ const Template: Story<TypographyProps> = args => (
       LABEL
     </Typography>
   </GridLine>
-);
+)
 
-export const Standart = Template.bind({});
+export const Standart = Template.bind({})
 Standart.args = {
   color: 'grey.800',
   textAlign: 'left',
-};
+}

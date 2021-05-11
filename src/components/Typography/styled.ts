@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 import {
   typography,
   color,
@@ -7,7 +7,7 @@ import {
   ColorProps,
   TypographyProps,
   variant,
-} from 'styled-system';
+} from 'styled-system'
 
 const variants = {
   h1: {
@@ -60,16 +60,16 @@ const variants = {
     fontSize: '12',
     fontWeight: 'bold',
   },
-};
+}
 
-export type IVariant = keyof typeof variants;
+export type IVariant = keyof typeof variants
 
 export interface TypographyStyledProps
   extends TypographyProps,
     SpaceProps,
     ColorProps {
-  variant?: IVariant;
-  color?: string;
+  variant?: IVariant
+  color?: string
 }
 
 export const TypographyStyled = styled('div')<TypographyStyledProps>(
@@ -81,4 +81,4 @@ export const TypographyStyled = styled('div')<TypographyStyledProps>(
   typography,
   color,
   space
-);
+)
