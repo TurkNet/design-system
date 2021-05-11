@@ -7,7 +7,7 @@ export interface InputStyledProps extends SpaceProps {
   variant?: keyof typeof variants
 }
 
-const styleByVariant = (variant: string) => ({
+const variantStyle = (variant: string) => ({
   borderColor: `${variant}.light`,
   ':enabled:focus,:enabled:active': {
     borderColor: `${variant}.normal`,
@@ -15,10 +15,10 @@ const styleByVariant = (variant: string) => ({
 })
 
 const variants = {
-  success: styleByVariant('success'),
-  info: styleByVariant('info'),
-  danger: styleByVariant('danger'),
-  warning: styleByVariant('warning'),
+  success: variantStyle('success'),
+  info: variantStyle('info'),
+  danger: variantStyle('danger'),
+  warning: variantStyle('warning'),
 }
 
 export const InputStyled = styled.input<InputStyledProps>`
