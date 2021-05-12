@@ -11,7 +11,7 @@ export const Toggle: FC<ToggleProps> = ({
   ...props
 }) => {
   return (
-    <LabelStyled htmlFor={name}>
+    <LabelStyled>
       <ToggleStyled type="checkbox" {...props} variant={variant} name={name} />
       <span>{children}</span>
     </LabelStyled>

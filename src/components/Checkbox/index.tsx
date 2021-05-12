@@ -11,7 +11,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   ...props
 }) => {
   return (
-    <LabelStyled htmlFor={name}>
+    <LabelStyled>
       <CheckboxStyled
         type="checkbox"
         {...props}

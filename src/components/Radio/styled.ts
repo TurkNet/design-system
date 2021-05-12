@@ -5,12 +5,13 @@ const variantStyle = (color1: string, color2?: string) => {
   return css`
     :enabled {
       :after {
-        background-color: ${theme(`colors.${color2 || color1}.light`)};
+        background-color: ${theme(`colors.grey.100`)};
         border-color: ${theme(`colors.${color2 || color1}.normal`)};
       }
 
       :hover:after {
         border-color: ${theme(`colors.${color1}.dark`)};
+        background-color: ${theme(`colors.${color2 || color1}.light`)};
       }
 
       :focus:after,
@@ -22,31 +23,45 @@ const variantStyle = (color1: string, color2?: string) => {
 
     :enabled:checked {
       :after {
+        background-color: ${theme(`colors.grey.100`)};
+        border-color: ${theme(`colors.${color1}.normal`)};
+      }
+
+      :before {
         background-color: ${theme(`colors.${color1}.normal`)};
-        border-color: transparent;
       }
 
       :hover:after {
+        border-color: ${theme(`colors.${color1}.light`)};
+      }
+
+      :hover:before {
         background-color: ${theme(`colors.${color1}.light`)};
-        border-color: transparent;
       }
 
       :focus:after,
       :active:after {
-        background-color: ${theme(`colors.${color1}.normal`)};
         border-color: ${theme(`colors.${color1}.dark`)};
+      }
+
+      :focus:before,
+      :active:before {
+        background-color: ${theme(`colors.${color1}.dark`)};
       }
     }
 
     :disabled {
       :after {
-        background-color: ${theme(`colors.${color1}.light`)};
-        border-color: ${theme(`colors.${color1}.dark`)};
+        background-color: ${theme(`colors.${color2 || color1}.light`)};
+        border-color: ${theme(`colors.${color2 || color1}.dark`)};
       }
 
       :checked:after {
-        background-color: ${theme(`colors.${color1}.dark`)};
-        border-color: transparent;
+        background-color: ${theme(`colors.grey.100`)};
+      }
+
+      :checked:before {
+        background-color: ${theme(`colors.${color2 || color1}.dark`)};
       }
     }
   `
@@ -61,14 +76,13 @@ export const variants = {
   standart: variantStyle('primary', 'sky'),
 }
 
-export interface CheckboxStyledProps {
+export interface RadioStyledProps {
   variant?: keyof typeof variants
 }
 
-export const CheckboxStyled = styled.input<CheckboxStyledProps>`
+export const RadioStyled = styled.input<RadioStyledProps>`
   position: relative;
   user-select: none;
-  cursor: pointer;
   height: 16px;
   width: 18px;
   margin: 2px 4px 2px 0;
@@ -85,20 +99,15 @@ export const CheckboxStyled = styled.input<CheckboxStyledProps>`
   :after {
     height: 18px;
     width: 18px;
-    border-radius: ${theme('borderRadius.small')};
+    border-radius: 50%;
     border: 2px solid;
-    transition: 0.3s;
   }
 
   :checked:before {
-    width: 5px;
-    height: 8px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    margin-top: -1px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
     z-index: 1;
-    transform: translate(-50%, -50%) rotate(45deg);
-    border-radius: 1px;
   }
 
   :disabled {

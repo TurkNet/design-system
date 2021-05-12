@@ -1,6 +1,65 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { theme, switchProp } from 'styled-tools'
-import { variants } from '../Checkbox/styled'
+
+const variantStyle = (color1: string, color2?: string) => {
+  return css`
+    :enabled {
+      :after {
+        background-color: ${theme(`colors.${color2 || color1}.light`)};
+        border-color: ${theme(`colors.${color2 || color1}.normal`)};
+      }
+
+      :hover:after {
+        border-color: ${theme(`colors.${color1}.dark`)};
+      }
+
+      :focus:after,
+      :active:after {
+        background-color: ${theme(`colors.${color2 || color1}.light`)};
+        border-color: ${theme(`colors.${color2 || color1}.dark`)};
+      }
+    }
+
+    :enabled:checked {
+      :after {
+        background-color: ${theme(`colors.${color1}.normal`)};
+        border-color: transparent;
+      }
+
+      :hover:after {
+        background-color: ${theme(`colors.${color1}.light`)};
+        border-color: transparent;
+      }
+
+      :focus:after,
+      :active:after {
+        background-color: ${theme(`colors.${color1}.normal`)};
+        border-color: ${theme(`colors.${color1}.dark`)};
+      }
+    }
+
+    :disabled {
+      :after {
+        background-color: ${theme(`colors.${color2 || color1}.light`)};
+        border-color: ${theme(`colors.${color1}.dark`)};
+      }
+
+      :before,
+      :checked:before {
+        background-color: ${theme(`colors.${color2 || color1}.normal`)};
+      }
+    }
+  `
+}
+
+export const variants = {
+  success: variantStyle('success'),
+  danger: variantStyle('danger'),
+  info: variantStyle('info'),
+  warning: variantStyle('warning'),
+  primary: variantStyle('primary'),
+  standart: variantStyle('primary', 'sky'),
+}
 
 export interface ToggleStyledProps {
   variant?: keyof typeof variants
@@ -10,10 +69,10 @@ export const ToggleStyled = styled.input<ToggleStyledProps>`
   position: relative;
   user-select: none;
   cursor: pointer;
-  margin-right: ${theme('space.xs')};
+  margin: 2px 4px 2px 0;
   width: 52px;
   height: 30px;
-  border-radius: 100&;
+  border-radius: 50%;
 
   :after,
   :before {
@@ -46,7 +105,7 @@ export const ToggleStyled = styled.input<ToggleStyledProps>`
   }
 
   :disabled {
-    opacity: 0.48;
+    opacity: 0.46;
     cursor: default;
   }
 
@@ -56,5 +115,6 @@ export const ToggleStyled = styled.input<ToggleStyledProps>`
 export const LabelStyled = styled.label`
   display: flex;
   align-items: center;
+  cursor: pointer;
   font-size: ${theme('fontSizes.13')};
 `
