@@ -69,7 +69,7 @@ export const ToggleStyled = styled.input<ToggleStyledProps>`
   position: relative;
   user-select: none;
   cursor: pointer;
-  margin: 2px 4px 2px 0;
+  margin: 2px 6px 2px 0;
   width: 52px;
   height: 30px;
   border-radius: 50%;

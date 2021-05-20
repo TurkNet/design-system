@@ -85,7 +85,7 @@ export const RadioStyled = styled.input<RadioStyledProps>`
   user-select: none;
   height: 16px;
   width: 18px;
-  margin: 2px 4px 2px 0;
+  margin: 2px 6px 2px 0;
 
   :after,
   :before {
