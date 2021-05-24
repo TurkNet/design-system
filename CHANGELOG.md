@@ -1,3 +1,15 @@
+# v0.1.7 (Mon May 24 2021)
+
+#### 🐛 Bug Fix
+
+- add input components [#49](https://github.com/TurkNet/design-system/pull/49) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.6 (Mon May 24 2021)
 
 #### 🐛 Bug Fix
