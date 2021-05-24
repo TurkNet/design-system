@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
-import type { SpaceProps, LayoutProps, ColorProps } from 'styled-system';
-import { BoxStyled } from './styled';
+import React, { FC } from 'react'
+import type { SpaceProps, LayoutProps, ColorProps } from 'styled-system'
+import { BoxStyled } from './styled'
 
 export interface BoxProps extends SpaceProps, LayoutProps, ColorProps {
-  color?: string;
+  color?: string
 }
 
-export const Box: FC<BoxProps> = props => <BoxStyled {...props} />;
+export const Box: FC<BoxProps> = props => <BoxStyled {...props} />

@@ -52,8 +52,8 @@ export const theme = {
     'extra-bold': '800',
   },
   borderRadius: {
-    small: 2,
-    default: 4,
+    small: '2px',
+    normal: '4px',
   },
   space: {
     xxs: '4px',
@@ -83,4 +83,4 @@ export const theme = {
     56: '56px',
     64: '64px',
   },
-};
+}

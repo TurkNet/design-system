@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import { TypographyStyled, TypographyStyledProps } from './styled';
+import React, { FC } from 'react'
+import { TypographyStyled, TypographyStyledProps } from './styled'
 
-export type TypographyProps = TypographyStyledProps;
+export type TypographyProps = TypographyStyledProps
 
 const tags = {
   h1: 'h1',
@@ -17,7 +17,7 @@ const tags = {
   caption1: 'span',
   caption2: 'span',
   label: 'label',
-};
+}
 
 export const Typography: FC<TypographyProps> = ({
   variant = 'paragraph1',
@@ -25,5 +25,5 @@ export const Typography: FC<TypographyProps> = ({
 }) => {
   return (
     <TypographyStyled as={tags[variant] as any} variant={variant} {...props} />
-  );
-};
+  )
+}
