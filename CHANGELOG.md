@@ -1,3 +1,15 @@
+# v0.1.6 (Mon May 24 2021)
+
+#### 🐛 Bug Fix
+
+- add checkbox, toggle, radio components [#50](https://github.com/TurkNet/design-system/pull/50) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.5 (Mon May 24 2021)
 
 #### 🐛 Bug Fix
