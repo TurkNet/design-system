@@ -51,6 +51,7 @@
     "styled-tools": "1.7.2"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "6.2.8",
     "@storybook/addon-actions": "6.2.8",
     "@storybook/addon-essentials": "6.2.8",
     "@storybook/addon-links": "6.2.8",
