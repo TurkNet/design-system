@@ -1,3 +1,15 @@
+# v0.1.5 (Mon May 24 2021)
+
+#### 🐛 Bug Fix
+
+- add card componnet [#51](https://github.com/TurkNet/design-system/pull/51) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.4 (Thu May 06 2021)
 
 #### 🐛 Bug Fix
