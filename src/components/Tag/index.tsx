@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { TagStyled, TagStyledProps, IconStyled } from './styled'
+import { TagStyled, TagStyledProps } from './styled'
 
 export interface TagProps extends TagStyledProps {
   label?: string
@@ -16,8 +16,8 @@ export const Tag: FC<TagProps> = ({
 }) => {
   return (
     <TagStyled {...props} variant={variant} color={color}>
-      {label || children}
-      <IconStyled>{icon}</IconStyled>
+      <span>{label || children}</span>
+      {icon}
     </TagStyled>
   )
 }

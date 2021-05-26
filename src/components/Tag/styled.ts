@@ -22,7 +22,7 @@ const variants = {
   `,
 }
 
-export const TagStyled = styled.span<TagStyledProps>`
+export const TagStyled = styled.div<TagStyledProps>`
   position: relative;
   color: ${theme('colors.grey.100')};
   height: 24px;
@@ -39,12 +39,13 @@ export const TagStyled = styled.span<TagStyledProps>`
   * {
     color: currentColor;
   }
-`
 
-export const IconStyled = styled.span`
-  margin-left: 9px;
-  margin-right: -6px;
-  :empty {
-    display: none;
+  > :last-child {
+    margin-left: 9px;
+    margin-right: -6px;
+  }
+
+  > :first-child {
+    margin: 0;
   }
 `
