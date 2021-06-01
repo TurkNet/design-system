@@ -41,8 +41,8 @@ export const TagStyled = styled.div<TagStyledProps>`
   }
 
   > :last-child {
-    margin-left: 9px;
-    margin-right: -6px;
+    margin-left: 6px;
+    margin-right: -12px;
   }
 
   > :first-child {
