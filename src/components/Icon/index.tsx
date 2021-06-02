@@ -9,12 +9,7 @@ export interface IconProps
   color?: string
 }
 
-export const Icon: FC<IconProps> = ({
-  name,
-  size = 24,
-  color = 'grey.800',
-  ...props
-}) => {
+export const Icon: FC<IconProps> = ({ name, size = 24, color, ...props }) => {
   return (
     <IconStyled
       className="material-icons"
