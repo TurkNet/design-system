@@ -1,25 +1,27 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { Tag, TagProps } from '../components'
+import { Tag, TagProps, Icon } from '../components'
 
 export default {
   title: 'Desing System/Tag',
   component: Tag,
 }
 
-const Template: Story<TagProps> = args => (
+const Template: Story<TagProps> = ({ icon, ...args }) => (
   <>
-    <Tag {...args}>Option</Tag>
+    <Tag {...args} />
     <br />
     <br />
-    <Tag {...args} label="Option" icon={<span>X</span>} />
+    <Tag {...args} icon={<Icon name={icon as string} size={16} />} />
   </>
 )
 
 export const Standart = Template.bind({})
 Standart.args = {
+  label: 'Option',
   variant: 'fill',
   color: 'primary',
+  icon: 'close',
 }
 
 Standart.argTypes = {
@@ -33,6 +35,12 @@ Standart.argTypes = {
     control: {
       type: 'radio',
       options: ['fill', 'outline'],
+    },
+  },
+  icon: {
+    control: {
+      type: 'select',
+      options: ['close', 'edit'],
     },
   },
 }
