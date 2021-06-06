@@ -1,125 +1,125 @@
 import styled, { css } from 'styled-components'
-import { switchProp } from 'styled-tools'
+import { theme, switchProp } from 'styled-tools'
 
 export const variants = {
   topCenter: css`
     :before {
       bottom: 100%;
-      border-bottom-width: 0;
-      border-top-color: #c7bdbd; // buralarda theme den alınacak.
+      transform: translate(-50%, -3px) rotate(180deg);
+      border-width: 0 7px 7px 7px;
     }
     :after {
       bottom: calc(100% + 5px);
+      transform: translate(-50%, -4px);
     }
     :before,
     :after {
       left: 50%;
-      transform: translate(-50%, -4px);
     }
   `,
   topLeft: css`
     :before {
       bottom: 100%;
-      border-bottom-width: 0;
-      border-top-color: #c7bdbd; // buralarda theme den alınacak.
+      transform: translate(16px, -3px) rotate(180deg);
+      border-width: 0 7px 7px 7px;
     }
     :after {
       bottom: calc(100% + 5px);
+      transform: translate(0px, -4px);
     }
     :before,
     :after {
-      left: 50%;
-      transform: translate(-50%, -4px);
+      left: 0px;
     }
   `,
   topRight: css`
     :before {
       bottom: 100%;
-      border-bottom-width: 0;
-      border-top-color: #c7bdbd; // buralarda theme den alınacak.
+      transform: translate(-16px, -3px) rotate(180deg);
+      border-width: 0 7px 7px 7px;
     }
     :after {
       bottom: calc(100% + 5px);
+      transform: translate(0px, -4px);
     }
     :before,
     :after {
-      left: 50%;
-      transform: translate(-50%, -4px);
+      right: 0px;
     }
   `,
   right: css`
     :before {
-      top: 50%;
-      border-left-width: 0;
-      border-right-color: red;
-      right: calc(0em - 5px);
-
-      transform: translate(8px, -50%);
+      right: calc(0em - 12px);
+      transform: translate(8px, -50%) rotate(45deg);
+      border-width: 0 10px 10px 0px;
     }
     :after {
-      top: 50%;
       left: calc(100% + 5px);
-
       transform: translate(8px, -50%);
+    }
+    :before,
+    :after {
+      top: 50%;
     }
   `,
   bottomCenter: css`
     :before {
-      top: 100%;
-      border-top-width: 0;
-      border-bottom-color: #c7bdbd;
+      top: 89%;
+      transform: translate(-50%, 8px);
+      border-width: 0 7px 7px 7px;
     }
     :after {
       top: calc(100% + 5px);
+      transform: translate(-50%, 7px);
     }
     :before,
     :after {
       left: 50%;
-      transform: translate(-50%, 8px);
     }
   `,
   bottomLeft: css`
     :before {
-      bottom: 100%;
-      border-bottom-width: 0;
-      border-top-color: #c7bdbd; // buralarda theme den alınacak.
+      top: 89%;
+      transform: translate(16px, 8px);
+      border-width: 0 7px 7px 7px;
     }
     :after {
-      bottom: calc(100% + 5px);
+      top: calc(100% + 5px);
+      transform: translate(0px, 7px);
     }
     :before,
     :after {
-      left: 50%;
-      transform: translate(-50%, -4px);
+      left: 0px;
     }
   `,
   bottomRight: css`
     :before {
-      bottom: 100%;
-      border-bottom-width: 0;
-      border-top-color: #c7bdbd; // buralarda theme den alınacak.
+      top: 89%;
+      transform: translate(-16px, 8px);
+      border-width: 0 7px 7px 7px;
     }
     :after {
-      bottom: calc(100% + 5px);
+      top: calc(100% + 5px);
+      transform: translate(0px, 7px);
     }
     :before,
     :after {
-      left: 50%;
-      transform: translate(-50%, -4px);
+      right: 0px;
     }
   `,
   left: css`
     :before {
-      top: 50%;
-      border-right-width: 0;
-      border-left-color: #4621ff;
-      left: calc(0em - 5px);
-      transform: translate(-8px, -50%);
+      left: calc(0em - 28px);
+      transform: translate(8px, -50%) rotate(225deg);
+      border-width: 0 10px 10px 0px;
     }
     :after {
-      top: 50%;
       right: calc(100% + 5px);
       transform: translate(-8px, -50%);
+    }
+    :before,
+    :after {
+      top: 50%;
     }
   `,
 }
@@ -131,38 +131,38 @@ export interface TooltipStyledProps {
 export const TooltipStyled = styled.span<TooltipStyledProps>`
   position: relative;
   cursor: pointer;
+  /* top: 100px;
+  left: 150px; */
 
   :before,
   :after {
     line-height: 1;
-    font-size: 0.9em;
+    font-size: ${theme('fontSizes.12')};
     pointer-events: none;
     position: absolute;
     box-sizing: border-box;
     display: none;
-    opacity: 0;
   }
   :before {
     content: '';
-    border: 5px solid transparent;
-    z-index: 1;
+    border: solid transparent;
+    z-index: 2;
+    border-bottom-color: ${theme(`colors.grey.100`)};
   }
   :after {
     content: attr(data-tooltip);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
     text-align: center;
-    min-width: 3em;
-    max-width: 21em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 6px 6px;
-    border-radius: 4px;
-    background: #fff;
-    color: black;
+    min-width: 121px;
+    max-width: 500px;
+    min-height: 28px;
+    padding: 8px 6px;
+    border-radius: ${theme('borderRadius.normal')};
+    background: ${theme(`colors.grey.100`)};
+    color: ${theme(`colors.grey.1100`)};
     z-index: 1;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   }
+
   :hover:before,
   :hover:after {
     display: block;
