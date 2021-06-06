@@ -27,6 +27,7 @@ export const HeaderStyled = styled.div`
 
 export const TitleStyled = styled.div`
   font-size: ${theme('fontSizes.18')};
+  line-height: 24px;
   font-weight: ${theme('fontWeights.semi-bold')};
 `
 
@@ -41,6 +42,8 @@ export const SubtitleStyled = styled.div`
 
 export const ContentStyled = styled.div`
   padding: 14px 24px;
+  font-size: ${theme('fontSizes.15')};
+  line-height: 20px;
 `
 
 export const FooterStyled = styled.div`

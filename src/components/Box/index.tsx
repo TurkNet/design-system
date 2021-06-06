@@ -1,7 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC, HTMLAttributes } from 'react'
 import { BoxStyled, BoxStyledProps } from './styled'
 
-export interface BoxProps extends BoxStyledProps {
+export interface BoxProps
+  extends BoxStyledProps,
+    HTMLAttributes<HTMLDivElement> {
   color?: string
 }
 
