@@ -10,7 +10,7 @@ export default {
 const Template: Story<TooltipProps> = ({ ...args }) => {
   return (
     <>
-      <Tooltip {...args}>Tooltip göster lorem ipsum dolor</Tooltip>
+      <Tooltip {...args}>Tooltip göster</Tooltip>
     </>
   )
 }

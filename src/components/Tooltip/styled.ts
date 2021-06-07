@@ -136,7 +136,7 @@ export const TooltipStyled = styled.span<TooltipStyledProps>`
 
   :before,
   :after {
-    line-height: 1;
+    line-height: 16px;
     font-size: ${theme('fontSizes.12')};
     pointer-events: none;
     position: absolute;
@@ -155,7 +155,7 @@ export const TooltipStyled = styled.span<TooltipStyledProps>`
     min-width: 121px;
     max-width: 500px;
     min-height: 28px;
-    padding: 8px 6px;
+    padding: 6px 6px;
     border-radius: ${theme('borderRadius.normal')};
     background: ${theme(`colors.grey.100`)};
     color: ${theme(`colors.grey.1100`)};
