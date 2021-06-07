@@ -1,3 +1,15 @@
+# v0.1.8 (Tue Jun 01 2021)
+
+#### 🐛 Bug Fix
+
+- add tag component [#54](https://github.com/TurkNet/design-system/pull/54) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.7 (Mon May 24 2021)
 
 #### 🐛 Bug Fix

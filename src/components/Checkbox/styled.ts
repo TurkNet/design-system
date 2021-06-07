@@ -40,12 +40,12 @@ const variantStyle = (color1: string, color2?: string) => {
 
     :disabled {
       :after {
-        background-color: ${theme(`colors.${color1}.light`)};
-        border-color: ${theme(`colors.${color1}.dark`)};
+        background-color: ${theme(`colors.${color2 || color1}.light`)};
+        border-color: ${theme(`colors.${color2 || color1}.dark`)};
       }
 
       :checked:after {
-        background-color: ${theme(`colors.${color1}.dark`)};
+        background-color: ${theme(`colors.${color2 || color1}.dark`)};
         border-color: transparent;
       }
     }
