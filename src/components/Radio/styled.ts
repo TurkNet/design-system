@@ -111,7 +111,7 @@ export const RadioStyled = styled.input<RadioStyledProps>`
   }
 
   :disabled {
-    opacity: 0.48;
+    opacity: ${theme('opacity.normal')};
     cursor: default;
   }
 

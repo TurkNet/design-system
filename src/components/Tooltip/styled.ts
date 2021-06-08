@@ -131,8 +131,6 @@ export interface TooltipStyledProps {
 export const TooltipStyled = styled.span<TooltipStyledProps>`
   position: relative;
   cursor: pointer;
-  /* top: 100px;
-  left: 150px; */
 
   :before,
   :after {
@@ -160,13 +158,12 @@ export const TooltipStyled = styled.span<TooltipStyledProps>`
     background: ${theme(`colors.grey.100`)};
     color: ${theme(`colors.grey.1100`)};
     z-index: 1;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, ${theme('opacity.normal')});
   }
 
   :hover:before,
   :hover:after {
     display: block;
-    opacity: 1;
   }
 
   ${switchProp('variant', variants)}

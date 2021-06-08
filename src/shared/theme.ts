@@ -88,4 +88,8 @@ export const theme = {
     56: '56px',
     64: '64px',
   },
+  opacity: {
+    normal: '0.48',
+    dark: '1',
+  },
 }

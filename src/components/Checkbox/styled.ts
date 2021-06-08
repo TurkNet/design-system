@@ -102,7 +102,7 @@ export const CheckboxStyled = styled.input<CheckboxStyledProps>`
   }
 
   :disabled {
-    opacity: 0.48;
+    opacity: ${theme('opacity.normal')};
     cursor: default;
   }
 

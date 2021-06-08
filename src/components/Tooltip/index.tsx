@@ -13,7 +13,7 @@ export const Tooltip: FC<TooltipProps> = ({
 }) => {
   return (
     <TooltipStyled {...props} variant={variant} data-tooltip={title}>
-      <span>{children}</span>
+      {children}
     </TooltipStyled>
   )
 }
