@@ -1,3 +1,16 @@
+# v0.1.9 (Thu Jun 10 2021)
+
+#### 🐛 Bug Fix
+
+- add desktop footer [#58](https://github.com/TurkNet/design-system/pull/58) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- add icon components [#57](https://github.com/TurkNet/design-system/pull/57) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.8 (Tue Jun 01 2021)
 
 #### 🐛 Bug Fix
