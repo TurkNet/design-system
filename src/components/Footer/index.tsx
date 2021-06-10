@@ -40,7 +40,7 @@ export const DesktopFooter: FC<FooterProps> = ({
       <ContentStyled>
         <Flex justifyContent="space-between">
           {links.map(i => (
-            <Box flex="1">
+            <Box key={i.title} flex="1">
               <TitleStyled>{i.title}</TitleStyled>
               <Box>
                 {i.items?.map(item => (
