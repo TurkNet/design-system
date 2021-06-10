@@ -53,7 +53,6 @@ const variants = {
   paragraph1: {
     fontSize: '15',
     lineHeight: '20px',
-    fontWeight: 'semi-bold',
   },
   paragraph2: {
     fontSize: '13',
