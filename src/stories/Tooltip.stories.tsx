@@ -8,11 +8,7 @@ export default {
 }
 
 const Template: Story<TooltipProps> = ({ ...args }) => {
-  return (
-    <>
-      <Tooltip {...args}>Tooltip göster</Tooltip>
-    </>
-  )
+  return <Tooltip {...args}>Tooltip göster</Tooltip>
 }
 
 export const Standart = Template.bind({})
