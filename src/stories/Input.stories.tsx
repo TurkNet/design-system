@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { Input, InputProps } from '../components'
 
 export default {
-  title: 'Desing System/Input',
+  title: 'Design System/Input',
   component: Input,
 }
 

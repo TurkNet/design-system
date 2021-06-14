@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { Flex, Icon, IconProps } from '../components'
 
 export default {
-  title: 'Desing System/Icon',
+  title: 'Design System/Icon',
   component: Icon,
 }
 

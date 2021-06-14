@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Flex, Typography, TypographyProps } from '../components'
 
 export default {
-  title: 'Desing System/Typography',
+  title: 'Design System/Typography',
   component: Typography,
 }
 

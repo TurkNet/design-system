@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { Toggle, ToggleProps } from '../components'
 
 export default {
-  title: 'Desing System/Toggle',
+  title: 'Design System/Toggle',
   component: Toggle,
 }
 

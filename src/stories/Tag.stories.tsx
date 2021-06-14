@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { Tag, TagProps, Icon } from '../components'
 
 export default {
-  title: 'Desing System/Tag',
+  title: 'Design System/Tag',
   component: Tag,
 }
 

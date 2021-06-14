@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { Card, CardProps } from '../components'
 
 export default {
-  title: 'Desing System/Card',
+  title: 'Design System/Card',
   component: Card,
 }
 

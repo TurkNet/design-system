@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { Flex, FlexProps, Box } from '../components'
 
 export default {
-  title: 'Desing System/Flex',
+  title: 'Design System/Flex',
   component: Flex,
 }
 
