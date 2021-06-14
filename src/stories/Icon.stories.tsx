@@ -1,6 +1,6 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { Flex, Icon, IconProps, Typography } from '../components'
+import { Flex, Icon, IconProps } from '../components'
 
 export default {
   title: 'Desing System/Icon',
