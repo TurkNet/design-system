@@ -105,7 +105,7 @@ export const ToggleStyled = styled.input<ToggleStyledProps>`
   }
 
   :disabled {
-    opacity: ${theme('opacity.normal')};
+    opacity: ${theme('opacity.48')};
     cursor: default;
   }
 

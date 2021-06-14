@@ -158,7 +158,7 @@ export const TooltipStyled = styled.span<TooltipStyledProps>`
     background: ${theme(`colors.grey.100`)};
     color: ${theme(`colors.grey.1100`)};
     z-index: 1;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, ${theme('opacity.normal')});
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, ${theme('opacity.48')});
   }
 
   :hover:before,
