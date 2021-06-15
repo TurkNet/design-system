@@ -36,7 +36,7 @@ export const Controlled = props => {
     <Accordion {...props}>
       <AccordionItem
         id="acc-1"
-        summary={<Typography fontWeight="bold">Başlık 1</Typography>}
+        summary="Başlık 1"
         onExpand={handleExpand}
         expandedId={expanded}
       >
@@ -45,7 +45,7 @@ export const Controlled = props => {
       </AccordionItem>
       <AccordionItem
         id="acc-2"
-        summary={<Typography fontWeight="bold">Başlık 2</Typography>}
+        summary="Başlık 2"
         onExpand={handleExpand}
         expandedId={expanded}
       >
@@ -54,7 +54,7 @@ export const Controlled = props => {
       </AccordionItem>
       <AccordionItem
         id="acc-3"
-        summary={<Typography fontWeight="bold">Başlık 3</Typography>}
+        summary="Başlık 3"
         onExpand={handleExpand}
         expandedId={expanded}
       >
