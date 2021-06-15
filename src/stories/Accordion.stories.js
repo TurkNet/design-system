@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Accordion, AccordionItem, Typography } from '../components'
+import { Accordion, AccordionItem } from '../components'
 
 export default {
   title: 'Design System/Accordion',

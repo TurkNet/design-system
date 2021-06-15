@@ -4,7 +4,6 @@ import { Icon } from '../Icon'
 import { FlexProps } from '../Flex'
 import { SummaryStyled, BorderStyled } from './styled'
 import { noop } from '../../utility'
-import { Box } from '../Box'
 
 interface AccordionItemProps extends FlexProps {
   defaultExpanded?: boolean
@@ -24,6 +23,10 @@ const AccordionItem: FC<AccordionItemProps> = ({
   ...props
 }) => {
   const [expanded, setExpanded] = useState(defaultExpanded)
+
+  useEffect(() => {
+    setExpanded(defaultExpanded)
+  }, [defaultExpanded])
 
   useEffect(() => {
     if (expandedId && id) setExpanded(expandedId === id)
