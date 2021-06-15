@@ -34,7 +34,7 @@ export const InputStyled = styled.input<InputStyledProps>`
   :-ms-input-placeholder,
   ::-ms-input-placeholder {
     color: ${theme('colors.grey.600')};
-    opacity: 1;
+    opacity: ${theme('opacity.100')};
   }
 
   :enabled:focus,
@@ -43,7 +43,7 @@ export const InputStyled = styled.input<InputStyledProps>`
   }
 
   :disabled {
-    opacity: 0.48;
+    opacity: ${theme('opacity.48')};
     background-color: ${theme('colors.grey.200')};
   }
 `
