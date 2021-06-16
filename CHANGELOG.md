@@ -1,3 +1,21 @@
+# v0.1.9 (Wed Jun 16 2021)
+
+#### 🐛 Bug Fix
+
+- 6 buttons [#68](https://github.com/TurkNet/design-system/pull/68) ([@talatatac](https://github.com/talatatac))
+- 18 tooltips [#59](https://github.com/TurkNet/design-system/pull/59) ([@ermanzohre](https://github.com/ermanzohre))
+- add collapse component [#61](https://github.com/TurkNet/design-system/pull/61) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- add desktop footer [#58](https://github.com/TurkNet/design-system/pull/58) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- add icon components [#57](https://github.com/TurkNet/design-system/pull/57) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 3
+
+- Erman ([@ermanzohre](https://github.com/ermanzohre))
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- TALAT ATAÇ ([@talatatac](https://github.com/talatatac))
+
+---
+
 # v0.1.8 (Tue Jun 01 2021)
 
 #### 🐛 Bug Fix
