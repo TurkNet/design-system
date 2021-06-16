@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { Collapse, CollapseProps } from '../components'
 
 export default {
-  title: 'Desing System/Collapse',
+  title: 'Design System/Collapse',
   component: Collapse,
 }
 
@@ -20,6 +20,6 @@ const Template: Story<CollapseProps> = args => (
 
 export const Standart = Template.bind({})
 Standart.args = {
-  opened: true,
+  expanded: true,
   padding: 'xl',
 }

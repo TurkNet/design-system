@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { Radio, RadioProps } from '../components'
 
 export default {
-  title: 'Desing System/Radio',
+  title: 'Design System/Radio',
   component: Radio,
 }
 

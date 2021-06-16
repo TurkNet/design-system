@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { Box, BoxProps } from '../components'
 
 export default {
-  title: 'Desing System/Box',
+  title: 'Design System/Box',
   component: Box,
 }
 

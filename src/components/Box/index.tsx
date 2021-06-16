@@ -6,6 +6,12 @@ export interface BoxProps
     HTMLAttributes<HTMLDivElement> {
   color?: string
   flex?: string
+  hidden?: boolean
 }
 
-export const Box: FC<BoxProps> = props => <BoxStyled {...props} />
+export const Box: FC<BoxProps> = ({ hidden, ...props }) => {
+  if (hidden) {
+    return null
+  }
+  return <BoxStyled {...props} />
+}

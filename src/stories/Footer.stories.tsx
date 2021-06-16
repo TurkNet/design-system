@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { DesktopFooter, FooterProps } from '../components'
 
 export default {
-  title: 'Desing System/Footer',
+  title: 'Design System/Footer',
   component: DesktopFooter,
 }
 

@@ -3,18 +3,22 @@ import { Box, BoxProps } from '../Box'
 import { CollapseStyled } from './styled'
 
 export interface CollapseProps extends BoxProps {
-  opened?: boolean
+  expanded?: boolean
 }
 
-export const Collapse: FC<CollapseProps> = ({ children, opened, ...props }) => {
+export const Collapse: FC<CollapseProps> = ({
+  children,
+  expanded,
+  ...props
+}) => {
   const ref = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (ref.current) {
-      ref.current.style.maxHeight = opened
+      ref.current.style.maxHeight = expanded
         ? `${ref.current?.scrollHeight}px`
         : '0px'
     }
-  }, [opened])
+  }, [expanded])
 
   return (
     <CollapseStyled ref={ref}>
