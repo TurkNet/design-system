@@ -1,24 +1,21 @@
 import styled, { css } from 'styled-components'
 import { theme, switchProp, withProp } from 'styled-tools'
-import Color from 'color'
+import { themeColor, alphaColor } from '../../utility/styled'
 
 export interface TagStyledProps {
   variant?: keyof typeof variants
   color?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'sky'
 }
 
-const themeColor = ({ color, theme }: any) => theme.colors[color].normal
-const alphaColor = (color: any): any => Color(color).alpha(0.08)
-
 const variants = {
   fill: css`
-    background-color: ${themeColor};
-    border-color: ${themeColor};
+    background-color: ${themeColor('normal')};
+    border-color: ${themeColor('normal')};
   `,
   outline: css`
-    background-color: ${withProp(themeColor, alphaColor)};
-    border-color: ${themeColor};
-    color: ${themeColor};
+    background-color: ${withProp(themeColor('normal'), alphaColor(0.08))};
+    border-color: ${themeColor('normal')};
+    color: ${themeColor('normal')};
   `,
 }
 
