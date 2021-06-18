@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { Button, ButtonProps, Icon } from '../components'
 
 export default {
-  title: 'Desing System/Button',
+  title: 'Design System/Button',
   component: Button,
 }
 

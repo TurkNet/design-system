@@ -1,6 +1,12 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { DesktopFooter, FooterProps } from '../components'
+import {
+  Box,
+  DesktopFooter,
+  DesktopFooterProps,
+  MobileFooter,
+  MobileFooterProps,
+} from '../components'
 
 export default {
   title: 'Design System/Footer',
@@ -9,7 +15,7 @@ export default {
 
 const links = [
   {
-    title: 'Biz Kimiz',
+    title: 'Biz Kimiz?',
     items: [
       { title: 'Bizi Tanıyın', link: '/link' },
       { title: 'Şeffaflık raporu', link: '/link' },
@@ -96,10 +102,22 @@ const accounts = [
   },
 ]
 
-const Template: Story<FooterProps> = args => <DesktopFooter {...args} />
+const DesktopTemplate: Story<DesktopFooterProps> = args => (
+  <DesktopFooter {...args} />
+)
 
-export const Standart = Template.bind({})
-Standart.args = {
+export const Desktop = DesktopTemplate.bind({})
+Desktop.args = {
+  links,
+  accounts,
+}
+
+const MobileTemplate: Story<MobileFooterProps> = args => (
+  <MobileFooter {...args} />
+)
+
+export const Mobile = MobileTemplate.bind({})
+Mobile.args = {
   links,
   accounts,
 }

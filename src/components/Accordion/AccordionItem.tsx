@@ -5,20 +5,22 @@ import { FlexProps } from '../Flex'
 import { SummaryStyled, BorderStyled } from './styled'
 import { noop } from '../../utility'
 
-interface AccordionItemProps extends FlexProps {
-  defaultExpanded?: boolean
+export interface AccordionItemProps extends FlexProps {
   id?: string
   expandedId?: string
   summary: ReactNode
-  onExpand: () => void
+  underline?: boolean
+  defaultExpanded?: boolean
+  onExpand?: (expandedId: string) => void
 }
 
 const AccordionItem: FC<AccordionItemProps> = ({
+  id,
   summary,
   children,
-  defaultExpanded = false,
   expandedId,
-  id,
+  defaultExpanded = false,
+  underline = false,
   onExpand = noop,
   ...props
 }) => {
@@ -47,7 +49,7 @@ const AccordionItem: FC<AccordionItemProps> = ({
         <Icon name={expanded ? 'expand_less' : 'expand_more'} />
       </SummaryStyled>
       <Collapse expanded={expanded}>{children}</Collapse>
-      <BorderStyled expanded={expanded} />
+      <BorderStyled expanded={expanded} hidden={!underline} />
     </>
   )
 }

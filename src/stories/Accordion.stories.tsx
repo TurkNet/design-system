@@ -1,35 +1,36 @@
 import React, { useState } from 'react'
-import { Accordion, AccordionItem } from '../components'
+import { Story } from '@storybook/react'
+import { Accordion, AccordionProps, AccordionItem } from '../components'
 
 export default {
   title: 'Design System/Accordion',
   component: Accordion,
 }
 
-export const Standard = props => {
-  return (
-    <Accordion {...props}>
-      <AccordionItem defaultExpanded summary="Başlık 1">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
-        voluptate distinctio hic esse suscipit porro officiis et dolores minima.
-      </AccordionItem>
-      <AccordionItem summary="Başlık 2">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
-        voluptate distinctio hic esse suscipit porro officiis et dolores minima.
-      </AccordionItem>
-      <AccordionItem summary="Başlık 3">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
-        voluptate distinctio hic esse suscipit porro officiis et dolores minima.
-      </AccordionItem>
-    </Accordion>
-  )
-}
+const StandartTemplate: Story<AccordionProps> = props => (
+  <Accordion {...props}>
+    <AccordionItem defaultExpanded summary="Başlık 1">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
+      voluptate distinctio hic esse suscipit porro officiis et dolores minima.
+    </AccordionItem>
+    <AccordionItem summary="Başlık 2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
+      voluptate distinctio hic esse suscipit porro officiis et dolores minima.
+    </AccordionItem>
+    <AccordionItem summary="Başlık 3">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
+      voluptate distinctio hic esse suscipit porro officiis et dolores minima.
+    </AccordionItem>
+  </Accordion>
+)
 
-export const Controlled = props => {
+export const Standart = StandartTemplate.bind({})
+
+const ControlledTemplate: Story<AccordionProps> = props => {
   const [expanded, setExpanded] = useState('acc-1')
 
-  const handleExpand = accordionId => {
-    setExpanded(accordionId === expanded ? null : accordionId)
+  const handleExpand = (expandedId: string) => {
+    setExpanded(expandedId === expanded ? '' : expandedId)
   }
 
   return (
@@ -66,3 +67,5 @@ export const Controlled = props => {
     </Accordion>
   )
 }
+
+export const Controlled = ControlledTemplate.bind({})
