@@ -1,3 +1,15 @@
+# v0.1.16 (Tue Jun 22 2021)
+
+#### 🐛 Bug Fix
+
+- Remove Footer [#74](https://github.com/TurkNet/design-system/pull/74) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.9 (Wed Jun 16 2021)
 
 #### 🐛 Bug Fix
