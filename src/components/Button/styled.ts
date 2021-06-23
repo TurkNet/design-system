@@ -1,7 +1,13 @@
 import styled, { css } from 'styled-components'
 import { variant } from 'styled-system'
-import { switchProp, theme, withProp, ifProp } from 'styled-tools'
-import { themeColor, alphaColor } from '../../utility/styled'
+import {
+  propColor,
+  color,
+  borderRadius,
+  fontWeight,
+  switchProp,
+  ifProp,
+} from '../../utility/styled'
 
 const sizes = {
   giant: {
@@ -28,52 +34,52 @@ const sizes = {
 
 const variants = {
   fill: css`
-    background-color: ${themeColor('normal')};
+    background-color: ${propColor('normal')};
     border: none;
-    color: ${theme('colors.grey.100')};
+    color: ${color('grey.100')};
     &:hover {
-      background-color: ${themeColor('light')};
+      background-color: ${propColor('light')};
     }
     &:active,
     &:focus {
-      background-color: ${themeColor('dark')};
+      background-color: ${propColor('dark')};
     }
     &:disabled {
-      background-color: ${theme('colors.grey.600')};
+      background-color: ${color('grey.600')};
     }
   `,
   outline: css`
-    background-color: ${theme('colors.grey.100')};
-    border: solid 2px ${themeColor('normal')};
-    color: ${themeColor('normal')};
+    background-color: ${color('grey.100')};
+    border: solid 2px ${propColor('normal')};
+    color: ${propColor('normal')};
     &:hover {
-      background-color: ${withProp(themeColor('normal'), alphaColor(0.16))};
+      background-color: ${propColor('normal', 0.16)};
     }
     &:active,
     &:focus {
-      background-color: ${withProp(themeColor('normal'), alphaColor(0.24))};
+      background-color: ${propColor('normal', 0.24)};
     }
     &:disabled {
-      background-color: ${withProp('theme.colors.grey.600', alphaColor(0.01))};
-      border-color: ${withProp('theme.colors.grey.600', alphaColor(0.24))};
+      background-color: ${color('grey.600', 0.01)};
+      border-color: ${color('grey.600', 0.24)};
     }
   `,
   ghost: css`
-    background-color: ${theme('colors.grey.100')};
+    background-color: ${color('grey.100')};
     border: none;
-    color: ${themeColor('normal')};
+    color: ${propColor('normal')};
     &:hover {
-      background-color: ${withProp('theme.colors.grey.600', alphaColor(0.08))};
+      background-color: ${color('grey.600', 0.08)};
     }
     &:active {
-      background-color: ${withProp('theme.colors.grey.600', alphaColor(0.16))};
+      background-color: ${color('grey.600', 0.16)};
     }
     &:focus {
-      background-color: ${withProp(themeColor('normal'), alphaColor(0.16))};
-      border: solid 2px ${withProp('theme.colors.grey.600', alphaColor(0.4))};
+      background-color: ${propColor('normal', 0.16)};
+      border: solid 2px ${color('grey.600', 0.4)};
     }
     &:disabled {
-      background-color: ${withProp('theme.colors.grey.600', alphaColor(0.16))};
+      background-color: ${color('grey.600', 0.16)};
     }
   `,
 }
@@ -115,8 +121,8 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   span:only-child {
     margin: 0;
   }
-  border-radius: ${theme('borderRadius.normal')};
-  font-weight: ${theme('fontWeights.semi-bold')};
+  border-radius: ${borderRadius('normal')};
+  font-weight: ${fontWeight('semi-bold')};
   width: ${ifProp({ fullWidth: true }, '100%')};
   ${variant({ prop: 'size', variants: sizes })};
   ${switchProp('variant', variants)};

@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
-import { theme, switchProp, withProp } from 'styled-tools'
-import { themeColor, alphaColor } from '../../utility/styled'
+import { propColor, color, switchProp } from '../../utility/styled'
 
 export interface TagStyledProps {
   variant?: keyof typeof variants
@@ -9,19 +8,19 @@ export interface TagStyledProps {
 
 const variants = {
   fill: css`
-    background-color: ${themeColor('normal')};
-    border-color: ${themeColor('normal')};
+    background-color: ${propColor('normal')};
+    border-color: ${propColor('normal')};
   `,
   outline: css`
-    background-color: ${withProp(themeColor('normal'), alphaColor(0.08))};
-    border-color: ${themeColor('normal')};
-    color: ${themeColor('normal')};
+    background-color: ${propColor('normal', 0.08)};
+    border-color: ${propColor('normal')};
+    color: ${propColor('normal')};
   `,
 }
 
 export const TagStyled = styled.div<TagStyledProps>`
   position: relative;
-  color: ${theme('colors.grey.100')};
+  color: ${color('grey.100')};
   height: 24px;
   padding: 0 16px;
   font-size: 12px;

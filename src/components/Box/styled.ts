@@ -7,7 +7,7 @@ import {
   LayoutProps,
   ColorProps,
 } from 'styled-system'
-import { prop } from 'styled-tools'
+import { prop } from '../../utility/styled'
 
 export type BoxStyledProps = SpaceProps & LayoutProps & ColorProps
 
