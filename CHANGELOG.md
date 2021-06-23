@@ -1,3 +1,15 @@
+# v0.1.17 (Wed Jun 23 2021)
+
+#### 🐛 Bug Fix
+
+- Styled utility [#76](https://github.com/TurkNet/design-system/pull/76) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.16 (Tue Jun 22 2021)
 
 #### 🐛 Bug Fix
