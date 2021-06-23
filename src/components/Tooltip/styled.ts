@@ -1,5 +1,11 @@
 import styled, { css } from 'styled-components'
-import { theme, switchProp } from 'styled-tools'
+import {
+  borderRadius,
+  color,
+  fontSize,
+  opacity,
+  switchProp,
+} from '../../utility/styled'
 
 export const variants = {
   topCenter: css`
@@ -135,7 +141,7 @@ export const TooltipStyled = styled.span<TooltipStyledProps>`
   :before,
   :after {
     line-height: 16px;
-    font-size: ${theme('fontSizes.12')};
+    font-size: ${fontSize('12')};
     pointer-events: none;
     position: absolute;
     box-sizing: border-box;
@@ -145,7 +151,7 @@ export const TooltipStyled = styled.span<TooltipStyledProps>`
     content: '';
     border: solid transparent;
     z-index: 2;
-    border-bottom-color: ${theme(`colors.grey.100`)};
+    border-bottom-color: ${color(`grey.100`)};
   }
   :after {
     content: attr(data-tooltip);
@@ -154,11 +160,11 @@ export const TooltipStyled = styled.span<TooltipStyledProps>`
     max-width: 500px;
     min-height: 28px;
     padding: 6px 6px;
-    border-radius: ${theme('borderRadius.normal')};
-    background: ${theme(`colors.grey.100`)};
-    color: ${theme(`colors.grey.1100`)};
+    border-radius: ${borderRadius('normal')};
+    background: ${color(`grey.100`)};
+    color: ${color(`grey.1100`)};
     z-index: 1;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, ${theme('opacity.48')});
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, ${opacity('48')});
   }
 
   :hover:before,

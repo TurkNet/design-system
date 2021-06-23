@@ -63,9 +63,9 @@ export const theme = {
   space: {
     xxs: '4px',
     xs: '8px',
-    s: '12px',
-    m: '16px',
-    l: '20px',
+    small: '12px',
+    medium: '16px',
+    large: '20px',
     xl: '24px',
   },
   fontSizes: {
