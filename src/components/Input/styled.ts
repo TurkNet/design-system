@@ -1,14 +1,21 @@
 import styled, { css } from 'styled-components'
 import type { SpaceProps } from 'styled-system'
-import { space } from 'styled-system'
-import { switchProp, theme } from 'styled-tools'
+import { space as systemSpace } from 'styled-system'
+import {
+  borderRadius,
+  color,
+  fontSize,
+  opacity,
+  space,
+  switchProp,
+} from '../../utility/styled'
 
 export interface InputStyledProps extends SpaceProps {
   variant?: keyof typeof variants
 }
 
 const variantStyle = (variant: string) => css`
-  border-color: ${theme(`colors.${variant}.normal`)};
+  border-color: ${color(`${variant}.normal`)};
 `
 
 const variants = {
@@ -20,21 +27,21 @@ const variants = {
 }
 
 export const InputStyled = styled.input<InputStyledProps>`
-  ${space}
+  ${systemSpace}
   height: 48px;
   width: 100%;
-  border-radius: ${theme('borderRadius.normal')};
-  border: 2px solid ${theme('colors.grey.400')};
-  background-color: ${theme('colors.grey.100')};
-  font-size: ${theme('fontSizes.15')};
-  padding: ${theme('space.m')};
-  color: ${theme('colors.grey.800')};
+  border-radius: ${borderRadius('normal')};
+  border: 2px solid ${color('grey.400')};
+  background-color: ${color('grey.100')};
+  font-size: ${fontSize('15')};
+  padding: ${space('medium')};
+  color: ${color('grey.800')};
 
   ::placeholder,
   :-ms-input-placeholder,
   ::-ms-input-placeholder {
-    color: ${theme('colors.grey.600')};
-    opacity: ${theme('opacity.100')};
+    color: ${color('grey.600')};
+    opacity: ${opacity('100')};
   }
 
   :enabled:focus,
@@ -43,7 +50,7 @@ export const InputStyled = styled.input<InputStyledProps>`
   }
 
   :disabled {
-    opacity: ${theme('opacity.48')};
-    background-color: ${theme('colors.grey.200')};
+    opacity: ${opacity('48')};
+    background-color: ${color('grey.200')};
   }
 `

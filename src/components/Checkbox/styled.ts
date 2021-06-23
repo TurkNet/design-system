@@ -1,51 +1,57 @@
 import styled, { css } from 'styled-components'
-import { theme, switchProp } from 'styled-tools'
+import {
+  borderRadius,
+  switchProp,
+  color,
+  fontSize,
+  opacity,
+} from '../../utility/styled'
 
 const variantStyle = (color1: string, color2?: string) => {
   return css`
     :enabled {
       :after {
-        background-color: ${theme(`colors.${color2 || color1}.light`)};
-        border-color: ${theme(`colors.${color2 || color1}.normal`)};
+        background-color: ${color(`${color2 || color1}.light`)};
+        border-color: ${color(`${color2 || color1}.normal`)};
       }
 
       :hover:after {
-        border-color: ${theme(`colors.${color1}.dark`)};
+        border-color: ${color(`${color1}.dark`)};
       }
 
       :focus:after,
       :active:after {
-        background-color: ${theme(`colors.${color2 || color1}.light`)};
-        border-color: ${theme(`colors.${color2 || color1}.dark`)};
+        background-color: ${color(`${color2 || color1}.light`)};
+        border-color: ${color(`${color2 || color1}.dark`)};
       }
     }
 
     :enabled:checked {
       :after {
-        background-color: ${theme(`colors.${color1}.normal`)};
+        background-color: ${color(`${color1}.normal`)};
         border-color: transparent;
       }
 
       :hover:after {
-        background-color: ${theme(`colors.${color1}.light`)};
+        background-color: ${color(`${color1}.light`)};
         border-color: transparent;
       }
 
       :focus:after,
       :active:after {
-        background-color: ${theme(`colors.${color1}.normal`)};
-        border-color: ${theme(`colors.${color1}.dark`)};
+        background-color: ${color(`${color1}.normal`)};
+        border-color: ${color(`${color1}.dark`)};
       }
     }
 
     :disabled {
       :after {
-        background-color: ${theme(`colors.${color2 || color1}.light`)};
-        border-color: ${theme(`colors.${color2 || color1}.dark`)};
+        background-color: ${color(`${color2 || color1}.light`)};
+        border-color: ${color(`${color2 || color1}.dark`)};
       }
 
       :checked:after {
-        background-color: ${theme(`colors.${color2 || color1}.dark`)};
+        background-color: ${color(`${color2 || color1}.dark`)};
         border-color: transparent;
       }
     }
@@ -85,7 +91,7 @@ export const CheckboxStyled = styled.input<CheckboxStyledProps>`
   :after {
     height: 18px;
     width: 18px;
-    border-radius: ${theme('borderRadius.small')};
+    border-radius: ${borderRadius('small')};
     border: 2px solid;
     transition: 0.3s;
   }
@@ -102,7 +108,7 @@ export const CheckboxStyled = styled.input<CheckboxStyledProps>`
   }
 
   :disabled {
-    opacity: ${theme('opacity.48')};
+    opacity: ${opacity('48')};
     cursor: default;
   }
 
@@ -113,5 +119,5 @@ export const LabelStyled = styled.label`
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-size: ${theme('fontSizes.13')};
+  font-size: ${fontSize('13')};
 `

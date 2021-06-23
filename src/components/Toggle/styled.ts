@@ -1,52 +1,52 @@
 import styled, { css } from 'styled-components'
-import { theme, switchProp } from 'styled-tools'
+import { color, fontSize, opacity, switchProp } from '../../utility/styled'
 
 const variantStyle = (color1: string, color2?: string) => {
   return css`
     :enabled {
       :after {
-        background-color: ${theme(`colors.${color2 || color1}.light`)};
-        border-color: ${theme(`colors.${color2 || color1}.normal`)};
+        background-color: ${color(`${color2 || color1}.light`)};
+        border-color: ${color(`${color2 || color1}.normal`)};
       }
 
       :hover:after {
-        border-color: ${theme(`colors.${color1}.dark`)};
+        border-color: ${color(`${color1}.dark`)};
       }
 
       :focus:after,
       :active:after {
-        background-color: ${theme(`colors.${color2 || color1}.light`)};
-        border-color: ${theme(`colors.${color2 || color1}.dark`)};
+        background-color: ${color(`${color2 || color1}.light`)};
+        border-color: ${color(`${color2 || color1}.dark`)};
       }
     }
 
     :enabled:checked {
       :after {
-        background-color: ${theme(`colors.${color1}.normal`)};
+        background-color: ${color(`${color1}.normal`)};
         border-color: transparent;
       }
 
       :hover:after {
-        background-color: ${theme(`colors.${color1}.light`)};
+        background-color: ${color(`${color1}.light`)};
         border-color: transparent;
       }
 
       :focus:after,
       :active:after {
-        background-color: ${theme(`colors.${color1}.normal`)};
-        border-color: ${theme(`colors.${color1}.dark`)};
+        background-color: ${color(`${color1}.normal`)};
+        border-color: ${color(`${color1}.dark`)};
       }
     }
 
     :disabled {
       :after {
-        background-color: ${theme(`colors.${color2 || color1}.light`)};
-        border-color: ${theme(`colors.${color1}.dark`)};
+        background-color: ${color(`${color2 || color1}.light`)};
+        border-color: ${color(`${color1}.dark`)};
       }
 
       :before,
       :checked:before {
-        background-color: ${theme(`colors.${color2 || color1}.normal`)};
+        background-color: ${color(`${color2 || color1}.normal`)};
       }
     }
   `
@@ -94,7 +94,7 @@ export const ToggleStyled = styled.input<ToggleStyledProps>`
   :before {
     width: 28px;
     height: 28px;
-    background-color: ${theme('colors.grey.100')};
+    background-color: ${color('grey.100')};
     border-radius: 100%;
     z-index: 1;
     left: calc(25% + 3px);
@@ -105,7 +105,7 @@ export const ToggleStyled = styled.input<ToggleStyledProps>`
   }
 
   :disabled {
-    opacity: ${theme('opacity.48')};
+    opacity: ${opacity('48')};
     cursor: default;
   }
 
@@ -116,5 +116,5 @@ export const LabelStyled = styled.label`
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-size: ${theme('fontSizes.13')};
+  font-size: ${fontSize('13')};
 `

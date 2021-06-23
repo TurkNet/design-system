@@ -1,11 +1,17 @@
 import styled from 'styled-components'
-import { space, layout } from 'styled-system'
-import { theme } from 'styled-tools'
+import { space as systemSpace, layout } from 'styled-system'
+import {
+  color,
+  borderRadius,
+  fontSize,
+  fontWeight,
+  space,
+} from '../../utility/styled'
 
 export const CardStyled = styled.div`
-  border: 2px solid ${theme('colors.grey.400')};
-  border-radius: ${theme('borderRadius.normal')};
-  ${space}
+  border: 2px solid ${color('grey.400')};
+  border-radius: ${borderRadius('normal')};
+  ${systemSpace}
   ${layout}
 `
 
@@ -22,19 +28,19 @@ export const ImageStyled = styled.div`
 
 export const HeaderStyled = styled.div`
   padding: 16px 24px;
-  border-bottom: 1px solid ${theme('colors.grey.300')};
+  border-bottom: 1px solid ${color('grey.300')};
 `
 
 export const TitleStyled = styled.div`
-  font-size: ${theme('fontSizes.18')};
+  font-size: ${fontSize('18')};
   line-height: 24px;
-  font-weight: ${theme('fontWeights.semi-bold')};
+  font-weight: ${fontWeight('semi-bold')};
 `
 
 export const SubtitleStyled = styled.div`
-  font-size: ${theme('fontSizes.13')};
-  font-weight: ${theme('fontWeights.semi-bold')};
-  margin-top: ${theme('space.xxs')};
+  font-size: ${fontSize('13')};
+  font-weight: ${fontWeight('semi-bold')};
+  margin-top: ${space('space.xxs')};
   :empty {
     margin-top: 0;
   }
@@ -42,15 +48,15 @@ export const SubtitleStyled = styled.div`
 
 export const ContentStyled = styled.div`
   padding: 14px 24px;
-  font-size: ${theme('fontSizes.15')};
+  font-size: ${fontSize('15')};
   line-height: 20px;
 `
 
 export const FooterStyled = styled.div`
   padding: 14px 24px;
-  border-top: 1px solid ${theme('colors.grey.300')};
-  font-size: ${theme('fontSizes.12')};
-  font-weight: ${theme('fontWeights.semi-bold')};
+  border-top: 1px solid ${color('grey.300')};
+  font-size: ${fontSize('12')};
+  font-weight: ${fontWeight('semi-bold')};
   :empty {
     display: none;
   }

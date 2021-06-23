@@ -1,67 +1,67 @@
 import styled, { css } from 'styled-components'
-import { theme, switchProp } from 'styled-tools'
+import { color, fontSize, opacity, switchProp } from '../../utility/styled'
 
 const variantStyle = (color1: string, color2?: string) => {
   return css`
     :enabled {
       :after {
-        background-color: ${theme(`colors.grey.100`)};
-        border-color: ${theme(`colors.${color2 || color1}.normal`)};
+        background-color: ${color(`grey.100`)};
+        border-color: ${color(`${color2 || color1}.normal`)};
       }
 
       :hover:after {
-        border-color: ${theme(`colors.${color1}.dark`)};
-        background-color: ${theme(`colors.${color2 || color1}.light`)};
+        border-color: ${color(`${color1}.dark`)};
+        background-color: ${color(`${color2 || color1}.light`)};
       }
 
       :focus:after,
       :active:after {
-        background-color: ${theme(`colors.${color2 || color1}.light`)};
-        border-color: ${theme(`colors.${color2 || color1}.dark`)};
+        background-color: ${color(`${color2 || color1}.light`)};
+        border-color: ${color(`${color2 || color1}.dark`)};
       }
     }
 
     :enabled:checked {
       :after {
-        background-color: ${theme(`colors.grey.100`)};
-        border-color: ${theme(`colors.${color1}.normal`)};
+        background-color: ${color(`grey.100`)};
+        border-color: ${color(`${color1}.normal`)};
       }
 
       :before {
-        background-color: ${theme(`colors.${color1}.normal`)};
+        background-color: ${color(`${color1}.normal`)};
       }
 
       :hover:after {
-        border-color: ${theme(`colors.${color1}.light`)};
+        border-color: ${color(`${color1}.light`)};
       }
 
       :hover:before {
-        background-color: ${theme(`colors.${color1}.light`)};
+        background-color: ${color(`${color1}.light`)};
       }
 
       :focus:after,
       :active:after {
-        border-color: ${theme(`colors.${color1}.dark`)};
+        border-color: ${color(`${color1}.dark`)};
       }
 
       :focus:before,
       :active:before {
-        background-color: ${theme(`colors.${color1}.dark`)};
+        background-color: ${color(`${color1}.dark`)};
       }
     }
 
     :disabled {
       :after {
-        background-color: ${theme(`colors.${color2 || color1}.light`)};
-        border-color: ${theme(`colors.${color2 || color1}.dark`)};
+        background-color: ${color(`${color2 || color1}.light`)};
+        border-color: ${color(`${color2 || color1}.dark`)};
       }
 
       :checked:after {
-        background-color: ${theme(`colors.grey.100`)};
+        background-color: ${color(`grey.100`)};
       }
 
       :checked:before {
-        background-color: ${theme(`colors.${color2 || color1}.dark`)};
+        background-color: ${color(`${color2 || color1}.dark`)};
       }
     }
   `
@@ -111,7 +111,7 @@ export const RadioStyled = styled.input<RadioStyledProps>`
   }
 
   :disabled {
-    opacity: ${theme('opacity.48')};
+    opacity: ${opacity('48')};
     cursor: default;
   }
 
@@ -122,5 +122,5 @@ export const LabelStyled = styled.label`
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-size: ${theme('fontSizes.13')};
+  font-size: ${fontSize('13')};
 `
