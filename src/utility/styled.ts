@@ -1,8 +1,12 @@
 import Color from 'color'
 import { theme, withProp, ifProp, prop, switchProp } from 'styled-tools'
 
-export const themeColor = (variant: string) => ({ color, theme }: any) => {
-  return theme.colors[color][variant]
+export const themeColor = (variant: string) => ({
+  color,
+  severity,
+  theme,
+}: any) => {
+  return theme.colors[color || severity][variant]
 }
 
 export const alphaColor = (alpha: number) => (color: any): any => {
