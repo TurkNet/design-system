@@ -1,3 +1,15 @@
+# v0.1.18 (Thu Jun 24 2021)
+
+#### 🐛 Bug Fix
+
+- add alert components [#75](https://github.com/TurkNet/design-system/pull/75) ([@talatatac](https://github.com/talatatac))
+
+#### Authors: 1
+
+- TALAT ATAÇ ([@talatatac](https://github.com/talatatac))
+
+---
+
 # v0.1.17 (Wed Jun 23 2021)
 
 #### 🐛 Bug Fix
