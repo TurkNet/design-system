@@ -13,13 +13,21 @@ export const alphaColor = (alpha: number) => (color: any): any => {
   return Color(color).alpha(alpha)
 }
 
+export const themeMulti = (path: string, values: any[]) => (props: any) => {
+  return values.map(r => theme(`${path}.${r}`, r)(props)).join(' ')
+}
+
 export const fontSize = (size: string) => theme(`fontSizes.${size}`)
 
 export const fontWeight = (weight: string) => theme(`fontWeights.${weight}`)
 
-export const borderRadius = (radius: string) => theme(`borderRadius.${radius}`)
+export const borderRadius = (...radius: string[]) => {
+  return themeMulti('borderRadius', radius)
+}
 
-export const space = (space: string) => theme(`space.${space}`)
+export const space = (...space: string[]) => {
+  return themeMulti('space', space)
+}
 
 export const opacity = (opaticy: string) => theme(`opacity.${opaticy}`)
 

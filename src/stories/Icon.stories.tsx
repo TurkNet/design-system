@@ -42,7 +42,7 @@ Standart.argTypes = {
   name: {
     control: {
       type: 'select',
-      options: ['dashboard', 'edit'],
+      options: ['dashboard', 'edit', 'loading'],
     },
   },
 }
