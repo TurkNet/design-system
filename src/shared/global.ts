@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
  body {
   font-family: 'Roboto', sans-serif;
   font-size: ${theme.fontSizes[14]};
-  color: ${theme.colors.text};
+  color: ${theme.colors.grey['800']};
   line-height: 1.3;
 
   -webkit-font-smoothing: antialiased;
