@@ -1,15 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 import { theme } from './theme'
 
-export const fontUrl =
-  'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap'
-
-export const fontIcon =
-  'https://fonts.googleapis.com/icon?family=Material+Icons'
-
 export const GlobalStyle = createGlobalStyle`
  body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: ${theme.fontSizes[14]};
   color: ${theme.colors.text};
   line-height: 1.3;
