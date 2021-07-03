@@ -1,3 +1,15 @@
+# v0.1.19 (Sat Jul 03 2021)
+
+#### 🐛 Bug Fix
+
+- Refactoring [#78](https://github.com/TurkNet/design-system/pull/78) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.18 (Thu Jun 24 2021)
 
 #### 🐛 Bug Fix
