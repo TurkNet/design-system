@@ -2,11 +2,12 @@ import styled, { css } from 'styled-components'
 import { color, fontSize, opacity, switchProp } from '../../utility/styled'
 
 const variantStyle = (color1: string, color2?: string) => {
+  const mainColor = color2 || color1
   return css`
     :enabled {
       :after {
-        background-color: ${color(`${color2 || color1}.light`)};
-        border-color: ${color(`${color2 || color1}.normal`)};
+        background-color: ${color(`${mainColor}.light`)};
+        border-color: ${color(`${mainColor}.normal`)};
       }
 
       :hover:after {
@@ -15,8 +16,8 @@ const variantStyle = (color1: string, color2?: string) => {
 
       :focus:after,
       :active:after {
-        background-color: ${color(`${color2 || color1}.light`)};
-        border-color: ${color(`${color2 || color1}.dark`)};
+        background-color: ${color(`${mainColor}.light`)};
+        border-color: ${color(`${mainColor}.dark`)};
       }
     }
 
@@ -40,13 +41,13 @@ const variantStyle = (color1: string, color2?: string) => {
 
     :disabled {
       :after {
-        background-color: ${color(`${color2 || color1}.light`)};
+        background-color: ${color(`${mainColor}.light`)};
         border-color: ${color(`${color1}.dark`)};
       }
 
       :before,
       :checked:before {
-        background-color: ${color(`${color2 || color1}.normal`)};
+        background-color: ${color(`${mainColor}.normal`)};
       }
     }
   `

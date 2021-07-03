@@ -7,8 +7,8 @@ export const ThemeProvider: FC = ({ children }) => {
   return (
     <StyledThemeProvider theme={theme}>
       <>
-        {children}
         <GlobalStyle />
+        {children}
       </>
     </StyledThemeProvider>
   )

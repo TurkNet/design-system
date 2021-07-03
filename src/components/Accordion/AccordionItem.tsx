@@ -6,11 +6,11 @@ import { SummaryStyled, BorderStyled } from './styled'
 import { noop } from '../../utility'
 
 interface AccordionItemProps extends FlexProps {
-  defaultExpanded?: boolean
+  summary: ReactNode
   id?: string
   expandedId?: string
-  summary: ReactNode
-  onExpand: () => void
+  defaultExpanded?: boolean
+  onExpand?: (expandedId: string) => void
 }
 
 const AccordionItem: FC<AccordionItemProps> = ({
