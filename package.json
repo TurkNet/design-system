@@ -19,7 +19,7 @@
     "format": "prettier --write .",
     "lint": "tsc --noEmit && eslint . --fix",
     "chromatic": "npx chromatic",
-    "release": "auto shipit --base-branch=master",
+    "release": "auto shipit --base-branch=main",
     "prepare": "husky install"
   },
   "lint-staged": {
