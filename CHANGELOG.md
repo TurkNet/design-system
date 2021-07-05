@@ -1,3 +1,15 @@
+# v0.1.20 (Mon Jul 05 2021)
+
+#### ⚠️ Pushed to `main`
+
+- use main instead master ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.19 (Sat Jul 03 2021)
 
 #### 🐛 Bug Fix
