@@ -1,6 +1,8 @@
+export * from './styled'
+
 export const noop = (...p: any) => {}
 
-export const get = (obj: any, path: string, defaultValue = undefined) => {
+export const get = (obj: any, path: string, defaultValue: any = undefined) => {
   const paths = path.split('.')
   let current = obj
   for (let i = 0; i < paths.length; i += 1) {

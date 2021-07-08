@@ -1,10 +1,36 @@
-<h1>
-   Design Systems
-</h1>
+# TurkNet Design System
 
-This template ships with the main React configuration files you'll need to get up and running fast.
+## Installation
 
-## 🚅 Quick start
+Install the package in your project directory with:
+
+```shell
+npm install @turk.net/design-system
+
+// or
+
+yarn add @turk.net/design-system
+```
+
+## Usage
+
+```js
+import { Alert } from '@turk.net/design-system'
+
+const SampleComponent = () => {
+  return (
+    <Alert severity="success">
+      Lorem Ipsum has been the industry`s standard dummy text ever since the
+      1500s, when an unknown printer took a galley of type and scrambled it to
+      make a type specimen book.
+    </Alert>
+  )
+}
+```
+
+## Development
+
+### 🚅 Quick start
 
 1.  **Install the dependencies.**
 
@@ -42,7 +68,7 @@ This template ships with the main React configuration files you'll need to get u
 
     ```
 
-## Learning Storybook
+### Learning Storybook
 
 1. Read our introductory tutorial over at [Storybook tutorials](https://storybook.js.org/tutorials/intro-to-storybook/react/en/get-started/).
 2. Learn how to transform your component libraries into design systems in our [Design Systems for Developers](https://storybook.js.org/tutorials/design-systems-for-developers/) tutorial.
