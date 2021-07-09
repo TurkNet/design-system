@@ -1,94 +1,72 @@
 import styled, { css } from 'styled-components'
-import { theme, switchProp } from 'styled-tools'
+import { borderRadius, switchProp } from '../../utility/styled'
 
 export const variants = {
-  topCenter: css``,
-  topLeft: css``,
-  topRight: css``,
-  right: css``,
-  bottomCenter: css``,
-  bottomLeft: css``,
-  bottomRight: css``,
-  left: css``,
+  topCenter: css`
+    bottom: 0;
+    transform: translate(-25%, -40px);
+  `,
+  topLeft: css`
+    bottom: 0;
+    transform: translateY(-40px);
+  `,
+  topRight: css`
+    bottom: 0;
+    transform: translate(-50%, -40px);
+  `,
+  right: css`
+    left: calc(100% + 20px);
+    top: 50%;
+    transform: translateY(-50%);
+  `,
+  bottomCenter: css`
+    top: 0;
+    transform: translate(-25%, 40px);
+  `,
+  bottomLeft: css`
+    top: 0;
+    transform: translateY(40px);
+  `,
+  bottomRight: css`
+    top: 0;
+    transform: translate(-50%, 40px);
+  `,
+  left: css`
+    top: 50%;
+    right: calc(100% + 20px);
+    transform: translateY(-50%);
+  `,
 }
 
 export interface PopoverStyledProps {
   variant?: keyof typeof variants
 }
 
-export const PopoverStyled = styled.span<PopoverStyledProps>`
+export const Overlay = styled.div<PopoverStyledProps>`
+  min-width: 121px;
+  max-width: 500px;
+  min-height: 28px;
+  text-align: center;
+  border-radius: ${borderRadius('normal')};
+  position: absolute;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5); // todo: will be delete
+  z-index: 2;
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.8s;
+
+  ${switchProp('variant', variants)}
+`
+
+export const PopoverStyled = styled.div<PopoverStyledProps>`
   display: inline-block;
   position: relative;
-  border-bottom: 1px dotted #666;
   text-align: left;
   cursor: pointer;
 
-  top: 250px; //delete
-  left: 150px;
-
-  .common {
-    min-width: 121px;
-    max-width: 500px;
-    min-height: 28px;
-    text-align: center;
-    border-radius: 4px;
-    position: absolute;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5); // delete
-    z-index: 99999999;
-    box-sizing: border-box;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.8s;
-  }
-
-  .right {
-    left: 100%;
-    margin-left: 20px;
-    top: 50%;
-    transform: translate(0, -50%);
-  }
-
-  .left {
-    top: 50%;
-    right: 100%;
-    margin-right: 20px;
-    transform: translate(0, -50%);
-  }
-
-  .topLeft {
-    bottom: 0;
-    transform: translate(0, -40px);
-  }
-
-  .topCenter {
-    bottom: 0;
-    transform: translate(-25%, -40px);
-  }
-
-  .topRight {
-    bottom: 0;
-    transform: translate(-50%, -40px);
-  }
-
-  .bottomRight {
-    top: 0;
-    transform: translate(-50%, 40px);
-  }
-
-  .bottomLeft {
-    top: 0;
-    transform: translate(0, 40px);
-  }
-
-  .bottomCenter {
-    top: 0;
-    transform: translate(-25%, 40px);
-  }
-
-  :hover .common {
+  :hover ${Overlay} {
     visibility: visible;
     opacity: 1;
   }
-
-  ${switchProp('variant', variants)}
 `

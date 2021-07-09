@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react'
-import { PopoverStyled, PopoverStyledProps } from './styled'
+import { PopoverStyled, PopoverStyledProps, Overlay } from './styled'
 
 export interface PopoverProps extends PopoverStyledProps {
   title?: string
@@ -16,7 +16,7 @@ export const Popover: FC<PopoverProps> = ({
   return (
     <PopoverStyled {...props}>
       {children}
-      <div className={`common ${variant}`}>{content}</div>
+      <Overlay variant={variant}>{content}</Overlay>
     </PopoverStyled>
   )
 }
