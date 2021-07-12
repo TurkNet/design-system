@@ -66,7 +66,7 @@ const variants = {
   `,
   ghost: css`
     background-color: ${color('grey.100')};
-    border: none;
+    border: 2px solid transparent;
     color: ${propColor('normal')};
     &:hover {
       background-color: ${color('grey.600', 0.08)};
@@ -76,7 +76,7 @@ const variants = {
     }
     &:focus {
       background-color: ${propColor('normal', 0.16)};
-      border: solid 2px ${color('grey.600', 0.4)};
+      border-color: ${color('grey.600', 0.4)};
     }
     &:disabled {
       background-color: ${color('grey.600', 0.16)};
