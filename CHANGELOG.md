@@ -1,3 +1,16 @@
+# v0.1.21 (Mon Jul 12 2021)
+
+#### 🐛 Bug Fix
+
+- Release [#83](https://github.com/TurkNet/design-system/pull/83) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- issue-branch default branch config [#82](https://github.com/TurkNet/design-system/pull/82) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.20 (Mon Jul 05 2021)
 
 #### ⚠️ Pushed to `main`
