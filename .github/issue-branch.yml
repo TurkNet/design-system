@@ -2,3 +2,4 @@ branchName: '${issue.number}-${issue.title,}'
 gitSafeReplacementChar: '-'
 autoCloseIssue: true
 openPR: false
+defaultBranch: 'develop'
