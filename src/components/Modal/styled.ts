@@ -12,7 +12,7 @@ export const CrossIconStyled = styled.span`
 
 export const ModalContentStyled = styled(Box)`
   position: relative;
-  min-width: 420px;
+  min-width: 300px;
   overflow: auto;
   background-color: ${color('grey.100')};
   box-shadow: 0 4px 16px 0 ${color('grey.700')};
