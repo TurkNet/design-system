@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { borderRadius, switchProp } from '../../utility/styled'
+import { borderRadius, switchProp, opacity } from '../../utility/styled'
 
 export const variants = {
   topCenter: css`
@@ -49,12 +49,12 @@ export const Overlay = styled.div<PopoverStyledProps>`
   text-align: center;
   border-radius: ${borderRadius('normal')};
   position: absolute;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5); // todo: will be delete
   z-index: 2;
   box-sizing: border-box;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.8s;
+  box-shadow: 0 2px 4px 0 rgba(16, 20, 38, 0.2);
 
   ${switchProp('variant', variants)}
 `

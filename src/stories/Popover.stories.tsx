@@ -12,10 +12,7 @@ const Template: Story<PopoverProps> = ({ content, title, ...args }) => {
     <Box m={150}>
       <Popover
         {...args}
-        content={
-          <Card title={title} subtitle="subtitle" content={content} />
-          // <Typography p={6}>{content}</Typography>
-        }
+        content={<Card title={title} subtitle="subtitle" content={content} />}
       >
         <Typography>Popover</Typography>
       </Popover>
