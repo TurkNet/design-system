@@ -18,7 +18,7 @@
     "clean": "rm -rf node_modules dist yarn.lock && yarn cache clean && yarn",
     "format": "prettier --write .",
     "lint": "tsc --noEmit && eslint . --fix",
-    "chromatic": "npx chromatic",
+    "chromatic": "chromatic --exit-zero-on-changes",
     "release": "auto shipit --base-branch=main",
     "prepare": "husky install"
   },
