@@ -3,7 +3,7 @@ import { theme } from './theme'
 
 export const GlobalStyle = createGlobalStyle`
  body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: ${theme.fontSizes[14]};
   color: ${theme.colors.grey['800']};
   line-height: 1.3;
