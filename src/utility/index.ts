@@ -18,7 +18,7 @@ export const map = (
   source: Array<any> | number,
   iterator: (item: any, index: number) => any
 ) => {
-  const target = typeof source === 'number' ? [...Array(source)] : source
+  const target = typeof source === 'number' ? [...Array(source).keys()] : source
 
   return target.map(iterator)
 }
