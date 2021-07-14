@@ -6,6 +6,7 @@ import {
   ModalBgStyled,
   ModalContentStyled,
   CrossIconStyled,
+  ModalGlobalStyle,
 } from './styled'
 import { Icon } from '../Icon'
 
@@ -62,21 +63,7 @@ export const Modal: FC<ModalProps> = ({
         </CrossIconStyled>
         {children}
       </ModalContentStyled>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: ` 
-          body { 
-            overflow: hidden; 
-            padding-right: 15px;
-          }
-          @media (max-width: 768px){
-            body { 
-              padding-right: 0;
-            }
-          }
-         `,
-        }}
-      />
+      <ModalGlobalStyle />
     </ModalStyled>,
     modalRoot
   )

@@ -22,7 +22,7 @@ const Template: Story<ModalProps & { showImage: boolean }> = ({
     setShow(!show)
   }
   return (
-    <>
+    <Box height="1000px">
       <Button size="medium" onClick={toggle}>
         Toggle Modal
       </Button>
@@ -57,7 +57,7 @@ const Template: Story<ModalProps & { showImage: boolean }> = ({
           </Flex>
         </Box>
       </Modal>
-    </>
+    </Box>
   )
 }
 
