@@ -1,6 +1,6 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { Tooltip, TooltipProps } from '../components'
+import { Tooltip, TooltipProps, Box } from '../components'
 
 export default {
   title: 'Design System/Tooltip',
@@ -8,7 +8,11 @@ export default {
 }
 
 const Template: Story<TooltipProps> = ({ ...args }) => {
-  return <Tooltip {...args}>Tooltip göster</Tooltip>
+  return (
+    <Box m={150}>
+      <Tooltip {...args}>Tooltip göster</Tooltip>
+    </Box>
+  )
 }
 
 export const Standart = Template.bind({})
