@@ -1,3 +1,19 @@
+# v0.1.22 (Mon Jul 26 2021)
+
+#### 🐛 Bug Fix
+
+- Develop [#86](https://github.com/TurkNet/design-system/pull/86) ([@ermanzohre](https://github.com/ermanzohre) [@recepkoseoglu](https://github.com/recepkoseoglu))
+- 64 Pagination [#85](https://github.com/TurkNet/design-system/pull/85) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- 70 Modal [#81](https://github.com/TurkNet/design-system/pull/81) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- 22 popoever [#79](https://github.com/TurkNet/design-system/pull/79) ([@ermanzohre](https://github.com/ermanzohre))
+
+#### Authors: 2
+
+- Erman ([@ermanzohre](https://github.com/ermanzohre))
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.21 (Mon Jul 12 2021)
 
 #### 🐛 Bug Fix
