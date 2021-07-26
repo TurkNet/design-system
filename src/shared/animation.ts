@@ -13,6 +13,15 @@ export const rotate360 = keyframes`
 	}
 `
 
+export const fadeIn = keyframes`
+  from { opacity: 0; }
+  to   { opacity: 1; }
+`
+export const zoomIn = keyframes`
+  from { transform: scale(0.7, 0.7); }
+  to   { transform: scale(1, 1); }
+`
+
 export const glow = keyframes`
   0%, 100% { opacity: 1; }
   50% { opacity: .4; }
