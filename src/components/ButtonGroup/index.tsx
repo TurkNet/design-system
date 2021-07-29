@@ -1,13 +1,12 @@
 import React, { FC } from 'react'
-import { ButtonGroupStyled } from './styled'
-import { ButtonProps } from '../Button/index'
+import { ButtonGroupStyled, ButtonGroupStyledProps } from './styled'
 
-export type ButtonGroupProps = ButtonProps
+export type ButtonGroupProps = ButtonGroupStyledProps
 
 export const ButtonGroup: FC<ButtonGroupProps> = ({
   size = 'large',
-  variant = 'fill',
   color = 'primary',
+  variant = 'fill',
   children,
 }) => {
   const childrenWithProps = React.Children.map(children, child => {
@@ -21,5 +20,9 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({
     }
     return child
   })
-  return <ButtonGroupStyled>{childrenWithProps}</ButtonGroupStyled>
+  return (
+    <ButtonGroupStyled variant={variant} color={color}>
+      {childrenWithProps}
+    </ButtonGroupStyled>
+  )
 }

@@ -11,6 +11,7 @@ const Template: Story<ButtonGroupProps> = args => (
   <ButtonGroup {...args}>
     <Button>L</Button>
     <Button>M</Button>
+    <Button>M</Button>
     <Button>R</Button>
   </ButtonGroup>
 )
