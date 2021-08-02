@@ -4,13 +4,22 @@ import { theme, withProp, ifProp, prop, switchProp } from 'styled-tools'
 export const themeColor = (variant: string) => ({
   color,
   severity,
-  theme,
+  theme: t,
 }: any) => {
-  return theme.colors[color || severity][variant]
+  return theme(
+    `colors.${[color || severity, variant].filter(i => i).join('.')}`,
+    color || severity
+  )({
+    theme: t,
+  })
 }
 
 export const alphaColor = (alpha: number) => (color: any): any => {
-  return Color(color).alpha(alpha)
+  try {
+    return Color(color).alpha(alpha)
+  } catch (error) {
+    return color
+  }
 }
 
 export const themeMulti = (path: string, values: any[]) => (props: any) => {
