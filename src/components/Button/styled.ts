@@ -69,14 +69,14 @@ const variants = {
     border: 2px solid transparent;
     color: ${propColor('normal')};
     &:hover {
-      background-color: ${color('grey.600', 0.08)};
+      background-color: ${propColor('light', 0.08)};
     }
     &:active {
-      background-color: ${color('grey.600', 0.16)};
+      background-color: ${propColor('light', 0.16)};
     }
     &:focus {
       background-color: ${propColor('normal', 0.16)};
-      border-color: ${color('grey.600', 0.4)};
+      border-color: ${propColor('light', 0.16)};
     }
     &:disabled {
       background-color: ${color('grey.600', 0.16)};
@@ -112,6 +112,7 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   align-items: center;
   justify-content: center;
   padding: 0 20px;
+  user-select: none;
   cursor: pointer;
   * {
     color: currentColor;
