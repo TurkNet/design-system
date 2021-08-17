@@ -1,3 +1,21 @@
+# v0.1.23 (Tue Aug 17 2021)
+
+#### 🐛 Bug Fix
+
+- Release [#90](https://github.com/TurkNet/design-system/pull/90) ([@recepkoseoglu](https://github.com/recepkoseoglu) [@talatatac](https://github.com/talatatac) [@duygusenturk](https://github.com/duygusenturk))
+- 67 Carousel [#89](https://github.com/TurkNet/design-system/pull/89) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- 66 loader [#88](https://github.com/TurkNet/design-system/pull/88) ([@duygusenturk](https://github.com/duygusenturk))
+- add button group components [#77](https://github.com/TurkNet/design-system/pull/77) ([@talatatac](https://github.com/talatatac) [@recepkoseoglu](https://github.com/recepkoseoglu))
+- refactor build library dependencies [#87](https://github.com/TurkNet/design-system/pull/87) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 3
+
+- [@duygusenturk](https://github.com/duygusenturk)
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- TALAT ATAÇ ([@talatatac](https://github.com/talatatac))
+
+---
+
 # v0.1.22 (Mon Jul 26 2021)
 
 #### 🐛 Bug Fix
