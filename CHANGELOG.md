@@ -1,3 +1,16 @@
+# v0.1.24 (Thu Aug 19 2021)
+
+#### 🐛 Bug Fix
+
+- Release [#92](https://github.com/TurkNet/design-system/pull/92) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- Icon flicker fix [#91](https://github.com/TurkNet/design-system/pull/91) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.23 (Tue Aug 17 2021)
 
 #### 🐛 Bug Fix
