@@ -1,5 +1,11 @@
 import styled, { css } from 'styled-components'
-import { propColor, color, switchProp } from '../../utility/styled'
+import {
+  propColor,
+  color,
+  switchProp,
+  fontWeight,
+  fontSize,
+} from '../../utility/styled'
 
 export interface BadgeStyledProps {
   variant?: keyof typeof variants
@@ -23,8 +29,8 @@ export const BadgeStyled = styled.div<BadgeStyledProps>`
   color: ${color('grey.100')};
   height: 24px;
   padding: 0 16px;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: ${fontSize('12')};
+  font-weight: ${fontWeight('semi-bold')};
   border: 2px solid;
   border-radius: 4px;
   display: inline-flex;
