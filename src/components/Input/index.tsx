@@ -1,14 +1,11 @@
-import React, { FC, InputHTMLAttributes } from 'react'
+import React, { InputHTMLAttributes } from 'react'
 import { InputStyled, InputStyledProps } from './styled'
 
-export interface InputProps
-  extends InputStyledProps,
-    InputHTMLAttributes<HTMLInputElement> {
-  inputRef?: React.RefObject<HTMLInputElement>
-}
+export type InputProps = InputStyledProps &
+  InputHTMLAttributes<HTMLInputElement>
 
-export const Input: FC<InputProps> = ({
-  variant = 'primary',
-  inputRef,
-  ...props
-}) => <InputStyled {...props} variant={variant} ref={inputRef} />
+export const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ variant = 'primary', ...props }, ref) => {
+    return <InputStyled {...props} variant={variant} ref={ref} />
+  }
+)

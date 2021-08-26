@@ -1,23 +1,16 @@
-import React, { FC, InputHTMLAttributes } from 'react'
+import React, { InputHTMLAttributes } from 'react'
 import { RadioStyled, LabelStyled, RadioStyledProps } from './styled'
 
-export interface RadioProps
-  extends RadioStyledProps,
-    InputHTMLAttributes<HTMLInputElement> {
-  inputRef?: React.RefObject<HTMLInputElement>
-}
+export type RadioProps = RadioStyledProps &
+  InputHTMLAttributes<HTMLInputElement>
 
-export const Radio: FC<RadioProps> = ({
-  variant = 'standart',
-  children,
-  inputRef,
-
-  ...props
-}) => {
-  return (
-    <LabelStyled>
-      <RadioStyled type="radio" {...props} variant={variant} ref={inputRef} />
-      <span>{children}</span>
-    </LabelStyled>
-  )
-}
+export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
+  ({ variant = 'standart', children, ...props }, ref) => {
+    return (
+      <LabelStyled>
+        <RadioStyled type="radio" {...props} variant={variant} ref={ref} />
+        <span>{children}</span>
+      </LabelStyled>
+    )
+  }
+)
