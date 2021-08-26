@@ -1,13 +1,17 @@
 import React, { FC, InputHTMLAttributes } from 'react'
 import { CheckboxStyled, LabelStyled, CheckboxStyledProps } from './styled'
 
-export type CheckboxProps = CheckboxStyledProps &
-  InputHTMLAttributes<HTMLInputElement>
+export interface CheckboxProps
+  extends CheckboxStyledProps,
+    InputHTMLAttributes<HTMLInputElement> {
+  inputRef?: React.RefObject<HTMLInputElement>
+}
 
 export const Checkbox: FC<CheckboxProps> = ({
   variant = 'standart',
   name,
   children,
+  inputRef,
   ...props
 }) => {
   return (
@@ -17,6 +21,7 @@ export const Checkbox: FC<CheckboxProps> = ({
         {...props}
         variant={variant}
         name={name}
+        ref={inputRef}
       />
       <span>{children}</span>
     </LabelStyled>
