@@ -1,3 +1,16 @@
+# v0.1.27 (Thu Aug 26 2021)
+
+#### 🐛 Bug Fix
+
+- Release [#98](https://github.com/TurkNet/design-system/pull/98) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- Forward inputs ref [#97](https://github.com/TurkNet/design-system/pull/97) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.26 (Thu Aug 26 2021)
 
 #### 🐛 Bug Fix
