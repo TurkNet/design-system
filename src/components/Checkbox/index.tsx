@@ -1,29 +1,22 @@
-import React, { FC, InputHTMLAttributes } from 'react'
+import React, { InputHTMLAttributes } from 'react'
 import { CheckboxStyled, LabelStyled, CheckboxStyledProps } from './styled'
 
-export interface CheckboxProps
-  extends CheckboxStyledProps,
-    InputHTMLAttributes<HTMLInputElement> {
-  inputRef?: React.RefObject<HTMLInputElement>
-}
+export type CheckboxProps = CheckboxStyledProps &
+  InputHTMLAttributes<HTMLInputElement>
 
-export const Checkbox: FC<CheckboxProps> = ({
-  variant = 'standart',
-  name,
-  children,
-  inputRef,
-  ...props
-}) => {
-  return (
-    <LabelStyled>
-      <CheckboxStyled
-        type="checkbox"
-        {...props}
-        variant={variant}
-        name={name}
-        ref={inputRef}
-      />
-      <span>{children}</span>
-    </LabelStyled>
-  )
-}
+export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+  ({ variant = 'standart', name, children, ...props }, ref) => {
+    return (
+      <LabelStyled>
+        <CheckboxStyled
+          type="checkbox"
+          {...props}
+          variant={variant}
+          name={name}
+          ref={ref}
+        />
+        <span>{children}</span>
+      </LabelStyled>
+    )
+  }
+)
