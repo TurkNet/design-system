@@ -1,3 +1,15 @@
+# v0.1.25 (Thu Aug 26 2021)
+
+#### 🐛 Bug Fix
+
+- 93 Badge [#94](https://github.com/TurkNet/design-system/pull/94) ([@duygusenturk](https://github.com/duygusenturk))
+
+#### Authors: 1
+
+- [@duygusenturk](https://github.com/duygusenturk)
+
+---
+
 # v0.1.24 (Thu Aug 19 2021)
 
 #### 🐛 Bug Fix
