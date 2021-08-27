@@ -7,10 +7,16 @@ export default {
   component: Select,
 }
 
+const options = [
+  { value: 'Option 1', id: 1 },
+  { value: 'Option 2', id: 2 },
+  { value: 'Option 3', id: 3 },
+]
+
 const Template: Story<SelectProps> = ({ variant = 'primary', ...args }) => {
   return (
     <>
-      <Select {...args} name="active" variant={variant} placeholder="Choose">
+      <Select {...args} name="active" variant={variant}>
         Place your text
       </Select>
 
@@ -22,4 +28,7 @@ const Template: Story<SelectProps> = ({ variant = 'primary', ...args }) => {
 }
 
 export const Standart = Template.bind({})
-Standart.args = {}
+Standart.args = {
+  defaultValue: 'Select Here',
+  options,
+}
