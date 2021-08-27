@@ -44,7 +44,7 @@ export const Select: FC<SelectProps> = ({
   return (
     <Main>
       <DropDownContainer>
-        <DropDownHeader onClick={toggling}>
+        <DropDownHeader isOpen={isOpen} onClick={toggling}>
           <DropDownHeaderDescription>
             {defaultItem || selectedItem}
           </DropDownHeaderDescription>

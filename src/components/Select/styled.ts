@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import type { SpaceProps } from 'styled-system'
 import { space } from 'styled-system'
-import { switchProp, theme } from 'styled-tools'
+import { switchProp, theme, ifProp } from 'styled-tools'
 
 export interface SelectStyledProps extends SpaceProps {
   variant?: keyof typeof variants
@@ -62,7 +62,11 @@ export const DropDownContainer = styled.div`
 // searchable props
 // input
 
-export const DropDownHeader = styled.div`
+interface DropDownHeaderProps {
+  isOpen: boolean
+}
+
+export const DropDownHeader = styled.div<DropDownHeaderProps>`
   //margin: 4px 0;
   //padding: 0.4em 2em 0.4em 1em;
   //box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
@@ -77,10 +81,12 @@ export const DropDownHeader = styled.div`
   border: solid 2px #e4e9f2;
 
   padding: 0.5em 0 0.5em 20px;
-
-  &:active {
-    border: solid 2px #1a4784;
-  }
+  ${ifProp(
+    'isOpen',
+    css`
+      border: solid 2px #1a4784;
+    `
+  )}
 `
 // update bellow
 export const DropDownHeaderDescription = styled.p`
