@@ -1,3 +1,16 @@
+# v0.1.29 (Wed Sep 01 2021)
+
+#### 🐛 Bug Fix
+
+- Release [#102](https://github.com/TurkNet/design-system/pull/102) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- Badge render children [#101](https://github.com/TurkNet/design-system/pull/101) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.28 (Wed Sep 01 2021)
 
 #### 🐛 Bug Fix
