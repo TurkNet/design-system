@@ -1,3 +1,16 @@
+# v0.1.28 (Wed Sep 01 2021)
+
+#### 🐛 Bug Fix
+
+- Release [#100](https://github.com/TurkNet/design-system/pull/100) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- Input color arrangement [#99](https://github.com/TurkNet/design-system/pull/99) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.27 (Thu Aug 26 2021)
 
 #### 🐛 Bug Fix
