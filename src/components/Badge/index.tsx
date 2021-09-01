@@ -7,13 +7,14 @@ export interface BadgeProps extends BadgeStyledProps {
 
 export const Badge: FC<BadgeProps> = ({
   label,
+  children,
   variant = 'fill',
   color = 'primary',
   ...props
 }) => {
   return (
     <BadgeStyled {...props} variant={variant} color={color}>
-      {label}
+      {label || children}
     </BadgeStyled>
   )
 }
