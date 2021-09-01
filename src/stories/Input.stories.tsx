@@ -10,8 +10,18 @@ export default {
 const Template: Story<InputProps> = args => <Input {...args} />
 
 export const Standart = Template.bind({})
+
 Standart.args = {
   placeholder: 'placeholder',
   defaultValue: '',
   disabled: false,
+}
+
+Standart.argTypes = {
+  variant: {
+    control: {
+      type: 'radio',
+      options: ['primary', 'success', 'info', 'warning', 'danger', 'sky'],
+    },
+  },
 }
