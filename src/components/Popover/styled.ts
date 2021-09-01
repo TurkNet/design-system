@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { borderRadius, switchProp, opacity } from '../../utility/styled'
+import { borderRadius, switchProp } from '../../utility/styled'
 
 export const variants = {
   topCenter: css`
