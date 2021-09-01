@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components'
 import { Box } from '../Box'
 import { color } from '../../utility/styled'
-import { fadeIn, float, jiggle, shake, zoomIn } from '../../shared/animation'
+import { fadeIn, zoomIn } from '../../shared/animation'
 
 export const CrossIconStyled = styled.span`
   position: absolute;
