@@ -14,8 +14,13 @@ export interface InputStyledProps extends SpaceProps {
   variant?: keyof typeof variants
 }
 
-const variantStyle = (variant: string) => css`
-  border-color: ${color(`${variant}.normal`)};
+const variantStyle = (variant: string, secondary?: string) => css`
+  border: 2px solid ${color(`${secondary || variant}.light`)};
+
+  :enabled:focus,
+  :enabled:active {
+    border-color: ${color(`${variant}.normal`)};
+  }
 `
 
 const variants = {
@@ -23,7 +28,7 @@ const variants = {
   info: variantStyle('info'),
   danger: variantStyle('danger'),
   warning: variantStyle('warning'),
-  primary: variantStyle('primary'),
+  primary: variantStyle('primary', 'sky'),
 }
 
 export const InputStyled = styled.input<InputStyledProps>`
@@ -31,7 +36,6 @@ export const InputStyled = styled.input<InputStyledProps>`
   height: 48px;
   width: 100%;
   border-radius: ${borderRadius('normal')};
-  border: 2px solid ${color('grey.400')};
   background-color: ${color('grey.100')};
   font-size: ${fontSize('15')};
   padding: ${space('medium')};
@@ -44,10 +48,7 @@ export const InputStyled = styled.input<InputStyledProps>`
     opacity: ${opacity('100')};
   }
 
-  :enabled:focus,
-  :enabled:active {
-    ${switchProp('variant', variants)};
-  }
+  ${switchProp('variant', variants)};
 
   :disabled {
     opacity: ${opacity('48')};
