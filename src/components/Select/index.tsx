@@ -7,7 +7,6 @@ import {
   Arrow,
   ArrowUp,
   DropDownHeader,
-  Main,
   ArrowDown,
   DropDownListContainer,
   ListItem,
@@ -20,55 +19,46 @@ export const Select: FC<SelectProps> = ({
   variant = 'primary',
   options,
   defaultValue,
-  placeholder = 'choose new',
   ...props
 }) => {
-  const [defaultItem, setdefaultItem] = useState(defaultValue || 'Select')
   const [selectedItem, setselectedItem] = useState('')
   const [isOpen, setIsOpen] = useState(false)
-  const [isDown, setIsDown] = useState(true)
 
   const toggling = () => {
-    console.log('isOpen: ', isOpen, 'isDown', isDown)
     setIsOpen(!isOpen)
-    setIsDown(!isDown)
   }
 
-  const onOptionClicked = (value: string) => {
+  const onOptionSelect = (value: string) => {
     setIsOpen(false)
     setselectedItem(value)
-    console.log('Secilen Deger: ', value)
   }
 
-  console.log('Status isOpen: ', isOpen, 'Status isDown', isDown)
   return (
-    <Main>
-      <DropDownContainer>
-        <DropDownHeader isOpen={isOpen} onClick={toggling}>
-          <DropDownHeaderDescription>
-            {defaultItem || selectedItem}
-          </DropDownHeaderDescription>
+    <DropDownContainer>
+      <DropDownHeader isOpen={isOpen} onClick={toggling} variant={variant}>
+        <DropDownHeaderDescription>
+          {selectedItem || defaultValue}
+        </DropDownHeaderDescription>
 
-          <span>
-            <Arrow>{isOpen ? <ArrowUp /> : <ArrowDown />}</Arrow>
-          </span>
-        </DropDownHeader>
-        {isOpen && (
-          <DropDownListContainer>
-            <DropDownList>
-              {options &&
-                options.map(option => (
-                  <ListItem
-                    key={option.id}
-                    // onClick={onOptionClicked(option.value)}
-                  >
-                    {option.value}
-                  </ListItem>
-                ))}
-            </DropDownList>
-          </DropDownListContainer>
-        )}
-      </DropDownContainer>
-    </Main>
+        <span>
+          <Arrow>{isOpen ? <ArrowUp /> : <ArrowDown />}</Arrow>
+        </span>
+      </DropDownHeader>
+      {isOpen && (
+        <DropDownListContainer>
+          <DropDownList>
+            {options &&
+              options.map(option => (
+                <ListItem
+                  key={option.id}
+                  onClick={() => onOptionSelect(option.value)}
+                >
+                  {option.value}
+                </ListItem>
+              ))}
+          </DropDownList>
+        </DropDownListContainer>
+      )}
+    </DropDownContainer>
   )
 }

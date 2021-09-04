@@ -5,11 +5,8 @@ import { switchProp, theme, ifProp } from 'styled-tools'
 
 export interface SelectStyledProps extends SpaceProps {
   variant?: keyof typeof variants
-  placeholder?: string
   defaultValue?: string
-  selectedItem?: string
   options?: Array<{ value: string; id: number }>
-  searchable?: boolean
 }
 
 const variantStyle = (variant: string) => css`
@@ -25,6 +22,7 @@ const variants = {
 }
 
 export const SelectStyled = styled.select<SelectStyledProps>`
+  ${space}
   height: 55px;
   width: 100%;
   border-radius: ${theme('borderRadius.normal')};
@@ -34,17 +32,6 @@ export const SelectStyled = styled.select<SelectStyledProps>`
   padding: ${theme('space.m')};
   color: ${theme('colors.grey.800')};
   margin-bottom: 10px;
-
-  :enabled:focus,
-  :enabled:active {
-    ${switchProp('variant', variants)};
-  }
-
-  :disabled {
-    opacity: 0.48;
-    background-color: ${theme('colors.grey.200')};
-  }
-  ${switchProp('variant', variants)}
 `
 
 export const OptionStyled = styled.option`
@@ -52,24 +39,18 @@ export const OptionStyled = styled.option`
   cursor: pointer;
   font-size: ${theme('fontSizes.13')};
 `
-export const Main = styled.div``
 
 export const DropDownContainer = styled.div`
   width: 343px;
   position: absolute;
   margin-left: 25px;
 `
-// searchable props
-// input
-
 interface DropDownHeaderProps {
   isOpen: boolean
+  variant?: keyof typeof variants
 }
 
 export const DropDownHeader = styled.div<DropDownHeaderProps>`
-  //margin: 4px 0;
-  //padding: 0.4em 2em 0.4em 1em;
-  //box-shadow: 0 2px 3px rgba(0, 0, 0, 0.15);
   font-weight: 500;
   font-size: 1.3rem;
   //color: #3faffa;
@@ -79,14 +60,22 @@ export const DropDownHeader = styled.div<DropDownHeaderProps>`
   //margin: 23px 34px 5px 31px;
   border-radius: 4px;
   border: solid 2px #e4e9f2;
-
   padding: 0.5em 0 0.5em 20px;
+  :enabled:focus,
+  :enabled:active {
+    ${switchProp('variant', variants)};
+  }
   ${ifProp(
     'isOpen',
     css`
       border: solid 2px #1a4784;
     `
   )}
+
+  :disabled {
+    opacity: 0.48;
+    background-color: ${theme('colors.grey.200')};
+  }
 `
 // update bellow
 export const DropDownHeaderDescription = styled.p`
@@ -151,7 +140,7 @@ export const Arrow = styled.div`
 `
 
 export const ArrowDown = styled.div`
-  border: solid #3faffa;
+  border: solid #8f9bb3;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;
@@ -161,7 +150,7 @@ export const ArrowDown = styled.div`
 `
 
 export const ArrowUp = styled.div`
-  border: solid #3faffa;
+  border: solid #8f9bb3;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 3px;

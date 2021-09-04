@@ -13,22 +13,11 @@ const options = [
   { value: 'Option 3', id: 3 },
 ]
 
-const Template: Story<SelectProps> = ({ variant = 'primary', ...args }) => {
-  return (
-    <>
-      <Select {...args} name="active" variant={variant}>
-        Place your text
-      </Select>
-
-      <Select {...args} name="active" variant="success">
-        Place your text
-      </Select>
-    </>
-  )
-}
+const Template: Story<SelectProps> = args => <Select {...args} />
 
 export const Standart = Template.bind({})
 Standart.args = {
   defaultValue: 'Select Here',
   options,
+  disabled: false,
 }
