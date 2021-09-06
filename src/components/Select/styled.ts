@@ -36,16 +36,13 @@ const variants = {
 
 export const SelectStyled = styled.select<SelectStyledProps>`
   ${systemSpace}
-  height: 55px;
   width: 100%;
-  height: 48px
+  height: 46px
   border-radius: ${borderRadius('normal')};
   background-color: ${color('grey.100')};
   font-size: ${fontSize('15')};
-  padding: ${space('medium')};
+  padding: ${space('small')};
   color: ${color('grey.800')};
-
-  margin-bottom: 10px;
 `
 
 export const OptionStyled = styled.option`
@@ -75,7 +72,7 @@ export const DropDownHeader = styled.div<DropDownHeaderProps>`
   border-radius: ${borderRadius('normal')};
   //   background-color: ${color('grey.100')};
   font-size: ${fontSize('15')};
-  //   padding: ${space('medium')};
+  padding: ${space('small')};
   color: ${color('grey.800')};
 
   ${switchProp('variant', variants)};
@@ -94,15 +91,15 @@ export const DropDownHeader = styled.div<DropDownHeaderProps>`
 `
 // update bellow
 export const DropDownHeaderDescription = styled.p`
-  height: 24px;
-  margin: 0 15px 0 0;
-  font-size: 15px;
+  font-size: ${fontSize('15')};
+
   // font-weight: 600;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.6;
-  letter-spacing: normal;
+  //   line-height: 1.6;
+  //   letter-spacing: normal;
   color: #8f9bb3;
+  margin: 0;
 `
 
 export const DropDownListContainer = styled.div`
