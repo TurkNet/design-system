@@ -38,6 +38,7 @@ export const SelectStyled = styled.select<SelectStyledProps>`
   ${systemSpace}
   height: 55px;
   width: 100%;
+  height: 48px
   border-radius: ${borderRadius('normal')};
   background-color: ${color('grey.100')};
   font-size: ${fontSize('15')};
@@ -50,7 +51,7 @@ export const SelectStyled = styled.select<SelectStyledProps>`
 export const OptionStyled = styled.option`
   align-items: center;
   cursor: pointer;
-  font-size: ${fontSize('13')};
+  font-size: ${fontSize('15')};
 `
 
 export const DropDownContainer = styled.div`
@@ -64,22 +65,12 @@ export interface DropDownHeaderProps {
 }
 
 export const DropDownHeader = styled.div<DropDownHeaderProps>`
-  //   font-weight: 500;
-  //   font-size: 1.3rem;
-  //color: #3faffa;
   ${systemSpace}
 
   user-select: none;
   cursor: pointer;
-  height: 48px;
+  // height: 24px;
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
-
-  //margin: 23px 34px 5px 31px;
-  //   border-radius: 4px;
-  //   border: solid 2px #e4e9f2;
-  //   padding: 0.5em 0 0.5em 20px;
 
   border-radius: ${borderRadius('normal')};
   //   background-color: ${color('grey.100')};
