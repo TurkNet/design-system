@@ -56,16 +56,16 @@ export const SearchableInputStyled = styled.input<SearchableInputStyledProps>`
     background-color: ${color('grey.200')};
   }
 `
-export const SearchableInputContainer = styled.div`
+export const SearchableInputContainerStyled = styled.div`
   width: 100%;
 `
 
-export const DropDownListContainer = styled.div`
+export const DropDownListContainerStyled = styled.div`
   z-index: 100;
   width: 100%;
 `
 
-export const DropDownList = styled.ul`
+export const DropDownListStyled = styled.ul`
   padding: 0;
   margin: 4px 0;
   padding-left: 1em;
@@ -78,7 +78,7 @@ export const DropDownList = styled.ul`
   border-radius: 4px;
 `
 
-export const ListItem = styled.li`
+export const ListItemStyled = styled.li`
   list-style: none;
   padding: 0.8em 0 0.8em 20px;
   color: #222b45;

@@ -1,11 +1,11 @@
-import React, { InputHTMLAttributes, useState, useEffect } from 'react'
+import React, { InputHTMLAttributes, useState } from 'react'
 import {
   SearchableInputStyled,
   SearchableInputStyledProps,
-  SearchableInputContainer,
-  DropDownListContainer,
-  DropDownList,
-  ListItem,
+  SearchableInputContainerStyled,
+  DropDownListContainerStyled,
+  DropDownListStyled,
+  ListItemStyled,
 } from './styled'
 
 export type SearchableInputProps = SearchableInputStyledProps &
@@ -15,19 +15,25 @@ export const SearchableInput = React.forwardRef<
   HTMLInputElement,
   SearchableInputProps
 >(({ variant = 'primary', options, ...props }, ref) => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   const [search, setSearch] = useState('')
 
   const onChange = (value: string) => {
     console.log('gelen value: ', value)
     setSearch(value)
+    if (value) {
+      setIsOpen(true)
+    } else {
+      setIsOpen(false)
+    }
   }
+
   const filteredOptions = options?.filter(
     opt => opt.value.toLowerCase().indexOf(search.toLowerCase()) !== -1
   )
 
   return (
-    <SearchableInputContainer>
+    <SearchableInputContainerStyled>
       <SearchableInputStyled
         {...props}
         variant={variant}
@@ -35,15 +41,15 @@ export const SearchableInput = React.forwardRef<
         onChange={e => onChange(e.target.value)}
       />
       {isOpen && (
-        <DropDownListContainer>
-          <DropDownList>
+        <DropDownListContainerStyled>
+          <DropDownListStyled>
             {filteredOptions &&
               filteredOptions.map(option => (
-                <ListItem key={option.id}>{option.value}</ListItem>
+                <ListItemStyled key={option.id}>{option.value}</ListItemStyled>
               ))}
-          </DropDownList>
-        </DropDownListContainer>
+          </DropDownListStyled>
+        </DropDownListContainerStyled>
       )}
-    </SearchableInputContainer>
+    </SearchableInputContainerStyled>
   )
 })
