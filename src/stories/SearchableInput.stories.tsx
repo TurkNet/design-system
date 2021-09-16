@@ -14,7 +14,14 @@ const options = [
 ]
 
 const Template: Story<SearchableInputProps> = args => (
-  <SearchableInput {...args} />
+  <div>
+    <SearchableInput {...args} />
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel magnam amet
+      ullam aperiam qui voluptatibus, placeat corporis ex earum at veniam modi
+      non, fugiat vitae, repellat dolor recusandae nihil reiciendis?
+    </p>
+  </div>
 )
 
 export const Standart = Template.bind({})

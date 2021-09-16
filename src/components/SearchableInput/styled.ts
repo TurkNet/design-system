@@ -63,6 +63,7 @@ export const SearchableInputContainerStyled = styled.div`
 export const DropDownListContainerStyled = styled.div`
   z-index: 100;
   width: 100%;
+  position: absolute;
 `
 
 export const DropDownListStyled = styled.ul`

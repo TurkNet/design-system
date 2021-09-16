@@ -28,6 +28,20 @@ export const SearchableInput = React.forwardRef<
     }
   }
 
+  const onFocus = () => {
+    if (isOpen) {
+      setIsOpen(false)
+    } else {
+      setIsOpen(true)
+    }
+  }
+
+  const onBlur = () => {
+    if (isOpen) {
+      setIsOpen(false)
+    }
+  }
+
   const filteredOptions = options?.filter(
     opt => opt.value.toLowerCase().indexOf(search.toLowerCase()) !== -1
   )
@@ -39,6 +53,8 @@ export const SearchableInput = React.forwardRef<
         variant={variant}
         ref={ref}
         onChange={e => onChange(e.target.value)}
+        onFocus={onFocus}
+        onBlur={onBlur}
       />
       {isOpen && (
         <DropDownListContainerStyled>
