@@ -1,3 +1,17 @@
+# v0.1.30 (Fri Sep 17 2021)
+
+#### 🐛 Bug Fix
+
+- Release [#108](https://github.com/TurkNet/design-system/pull/108) ([@talatatac](https://github.com/talatatac) [@recepkoseoglu](https://github.com/recepkoseoglu))
+- add overflow menu component [#104](https://github.com/TurkNet/design-system/pull/104) ([@talatatac](https://github.com/talatatac))
+
+#### Authors: 2
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- TALAT ATAÇ ([@talatatac](https://github.com/talatatac))
+
+---
+
 # v0.1.29 (Wed Sep 01 2021)
 
 #### 🐛 Bug Fix
