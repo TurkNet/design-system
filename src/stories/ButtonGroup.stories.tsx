@@ -3,7 +3,7 @@ import { Story } from '@storybook/react'
 import { ButtonGroup, ButtonGroupProps, Button } from '../components'
 
 export default {
-  title: 'Design System/ButtonGroup',
+  title: 'Design System/Button Group',
   component: ButtonGroup,
 }
 
