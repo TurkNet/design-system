@@ -59,7 +59,7 @@ export const SearchableInput = React.forwardRef<
         onFocus={onFocus}
         onBlur={onBlur}
       />
-      {isOpen && (
+      {!isOpen && (
         <DropDownListContainerStyled>
           <DropDownListStyled>
             {filteredOptions &&

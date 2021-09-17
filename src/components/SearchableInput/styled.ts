@@ -45,19 +45,19 @@ export const DropDownListContainerStyled = styled.div`
 export const DropDownListStyled = styled.ul`
   padding: 0;
   margin: 4px 0;
-  padding-left: 1em;
+  padding-left: 16px;
   background: #ffffff;
   border: 2px solid #e4e9f2;
   box-sizing: border-box;
   color: #3faffa;
-  font-size: 1.3rem;
+  font-size: 20px;
   font-weight: 500;
   border-radius: 4px;
 `
 
 export const ListItemStyled = styled.li`
   list-style: none;
-  padding: 0.8em 0 0.8em 20px;
+  padding: 12.8px 0 12.8px 20px;
   color: #222b45;
   user-select: none;
   font-size: 15px;
