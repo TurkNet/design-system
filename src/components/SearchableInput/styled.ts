@@ -32,30 +32,6 @@ const variants = {
   primary: variantStyle('primary', 'sky'),
 }
 
-export const SearchableInputStyled = styled.input<SearchableInputStyledProps>`
-  ${systemSpace}
-  height: 48px;
-  width: 100%;
-  border-radius: ${borderRadius('normal')};
-  background-color: ${color('grey.100')};
-  font-size: ${fontSize('15')};
-  padding: ${space('medium')};
-  color: ${color('grey.800')};
-
-  ::placeholder,
-  :-ms-input-placeholder,
-  ::-ms-input-placeholder {
-    color: ${color('grey.600')};
-    opacity: ${opacity('100')};
-  }
-
-  ${switchProp('variant', variants)};
-
-  :disabled {
-    opacity: ${opacity('48')};
-    background-color: ${color('grey.200')};
-  }
-`
 export const SearchableInputContainerStyled = styled.div`
   width: 100%;
 `

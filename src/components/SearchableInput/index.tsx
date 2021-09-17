@@ -1,12 +1,13 @@
 import React, { InputHTMLAttributes, useState } from 'react'
 import {
-  SearchableInputStyled,
   SearchableInputStyledProps,
   SearchableInputContainerStyled,
   DropDownListContainerStyled,
   DropDownListStyled,
   ListItemStyled,
 } from './styled'
+
+import { Input } from '../Input'
 
 export type SearchableInputProps = SearchableInputStyledProps &
   InputHTMLAttributes<HTMLInputElement>
@@ -19,7 +20,6 @@ export const SearchableInput = React.forwardRef<
   const [search, setSearch] = useState('')
 
   const onChange = (value: string) => {
-    console.log('gelen value: ', value)
     setSearch(value)
     if (value) {
       setIsOpen(true)
@@ -43,16 +43,19 @@ export const SearchableInput = React.forwardRef<
   }
 
   const filteredOptions = options?.filter(
-    opt => opt.value.toLowerCase().indexOf(search.toLowerCase()) !== -1
+    opt =>
+      opt.value
+        .toLocaleLowerCase('tr-TR')
+        .indexOf(search.toLocaleLowerCase('tr-TR')) !== -1
   )
 
   return (
     <SearchableInputContainerStyled>
-      <SearchableInputStyled
+      <Input
         {...props}
         variant={variant}
         ref={ref}
-        onChange={e => onChange(e.target.value)}
+        onChange={(e: any) => onChange(e.target.value)}
         onFocus={onFocus}
         onBlur={onBlur}
       />
