@@ -38,14 +38,15 @@ export const SearchableInputContainerStyled = styled.div`
 
 export const DropDownListContainerStyled = styled.div`
   z-index: 100;
-  width: 100%;
+  width: 99%;
   position: absolute;
+  padding: 0 ${space('large')} ${space('large')} 0px;
 `
 
 export const DropDownListStyled = styled.ul`
   padding: 0;
   margin: ${space('xxs')} 0;
-  padding-left: ${space('medium')};
+  padding-left: ${space('large')};
   background-color: ${color('grey.100')};
   border: 2px solid ${color('grey.400')};
   box-sizing: border-box;
@@ -56,10 +57,10 @@ export const DropDownListStyled = styled.ul`
 
 export const ListItemStyled = styled.li`
   list-style: none;
-  padding: 12.8px 0 12.8px 20px;
-  color: #222b45;
+  padding: ${space('small')} 0 ${space('small')} 20px;
+  color: ${color('grey.800')};
   user-select: none;
-  font-size: 15px;
+  font-size: ${fontSize('15')};
   &:hover {
     color: ${color('grey.100')};
     background: ${color('primary.normal')};
