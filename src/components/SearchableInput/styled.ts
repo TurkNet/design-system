@@ -44,15 +44,14 @@ export const DropDownListContainerStyled = styled.div`
 
 export const DropDownListStyled = styled.ul`
   padding: 0;
-  margin: 4px 0;
-  padding-left: 16px;
-  background: #ffffff;
-  border: 2px solid #e4e9f2;
+  margin: ${space('xxs')} 0;
+  padding-left: ${space('medium')};
+  background-color: ${color('grey.100')};
+  border: 2px solid ${color('grey.400')};
   box-sizing: border-box;
-  color: #3faffa;
-  font-size: 20px;
+  font-size: ${fontSize('20')};
   font-weight: 500;
-  border-radius: 4px;
+  border-radius: ${borderRadius('normal')};
 `
 
 export const ListItemStyled = styled.li`
@@ -62,8 +61,8 @@ export const ListItemStyled = styled.li`
   user-select: none;
   font-size: 15px;
   &:hover {
-    color: #fff;
-    background: #1a4784;
+    color: ${color('grey.100')};
+    background: ${color('primary.normal')};
   }
   cursor: pointer;
   margin-left: -20px;

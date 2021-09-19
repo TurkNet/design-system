@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, useState } from 'react'
+import React, { InputHTMLAttributes, useState, FC } from 'react'
 import {
   SearchableInputStyledProps,
   SearchableInputContainerStyled,
@@ -12,10 +12,11 @@ import { Input } from '../Input'
 export type SearchableInputProps = SearchableInputStyledProps &
   InputHTMLAttributes<HTMLInputElement>
 
-export const SearchableInput = React.forwardRef<
-  HTMLInputElement,
-  SearchableInputProps
->(({ variant = 'primary', options, ...props }, ref) => {
+export const SearchableInput: FC<SearchableInputProps> = ({
+  variant = 'primary',
+  options,
+  ...props
+}) => {
   const [isOpen, setIsOpen] = useState(false)
   const [search, setSearch] = useState('')
 
@@ -54,12 +55,11 @@ export const SearchableInput = React.forwardRef<
       <Input
         {...props}
         variant={variant}
-        ref={ref}
         onChange={(e: any) => onChange(e.target.value)}
         onFocus={onFocus}
         onBlur={onBlur}
       />
-      {!isOpen && (
+      {isOpen && (
         <DropDownListContainerStyled>
           <DropDownListStyled>
             {filteredOptions &&
@@ -71,4 +71,4 @@ export const SearchableInput = React.forwardRef<
       )}
     </SearchableInputContainerStyled>
   )
-})
+}
