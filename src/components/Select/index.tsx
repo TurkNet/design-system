@@ -26,15 +26,13 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
     const [open, setOpen] = useState(false)
 
     const onToggle = () => {
-      setTimeout(() => {
-        setOpen(!open)
-      }, 0)
+      setOpen(!open)
     }
 
     const onBlur = () => {
       setTimeout(() => {
         setOpen(false)
-      }, 150)
+      }, 200)
     }
 
     return (
