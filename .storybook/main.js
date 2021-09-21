@@ -7,4 +7,5 @@ module.exports = {
     '@storybook/addon-storysource',
     '@storybook/preset-create-react-app',
   ],
+  typecheck: false,
 }
