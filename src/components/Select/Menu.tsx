@@ -8,13 +8,7 @@ export interface MenuProps {
   onSelect(value: any): void
 }
 
-const Menu: FC<MenuProps> = ({
-  option = {},
-  labelKey,
-  active,
-  onSelect,
-  ...props
-}) => {
+const Menu: FC<MenuProps> = ({ option = {}, labelKey, active, onSelect }) => {
   const handleSelect = () => {
     onSelect(option)
   }
