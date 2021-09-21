@@ -57,6 +57,7 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
           <OverlayStyled>
             {options.map(option => (
               <OptionStyled
+                key={option[labelKey]}
                 active={value && option[labelKey] === value[labelKey]}
                 onClick={() => onSelect(option)}
               >
