@@ -40,7 +40,7 @@ export const DropDownListContainerStyled = styled.div`
   z-index: 100;
   width: 99%;
   position: absolute;
-  padding: 0 ${space('large')} ${space('large')} 0px;
+  padding: 0 ${space('large')} ${space('large')} 0;
 `
 
 export const DropDownListStyled = styled.ul`
@@ -48,7 +48,7 @@ export const DropDownListStyled = styled.ul`
   margin: ${space('xxs')} 0;
   padding-left: ${space('large')};
   background-color: ${color('grey.100')};
-  border: 2px solid ${color('grey.400')};
+  border: ${borderRadius('small')} solid ${color('grey.400')};
   box-sizing: border-box;
   font-size: ${fontSize('20')};
   font-weight: 500;
@@ -66,5 +66,5 @@ export const ListItemStyled = styled.li`
     background: ${color('primary.normal')};
   }
   cursor: pointer;
-  margin-left: -20px;
+  margin-left: -${space('large')};
 `
