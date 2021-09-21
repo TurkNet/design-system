@@ -12,12 +12,10 @@ export const SelectStyled = styled.div`
 `
 
 export const InputStyled = styled(Input)`
-  && {
-    width: 100%;
-    caret-color: transparent;
-    cursor: pointer;
-    user-select: none;
-  }
+  width: 100%;
+  caret-color: transparent;
+  cursor: pointer;
+  user-select: none;
 `
 
 export const OverlayStyled = styled.ul`
@@ -40,7 +38,7 @@ export const MenuStyled = styled.li<Record<'active', any>>`
   list-style: none;
   font-size: 15px;
   font-weight: 600;
-  padding: 12px 16px 12px 16px;
+  padding: 12px 16px;
   border: none;
   margin: 0;
   cursor: pointer;
