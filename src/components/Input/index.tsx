@@ -3,6 +3,7 @@ import { InputStyled, InputStyledProps } from './styled'
 
 export type InputProps = InputStyledProps &
   InputHTMLAttributes<HTMLInputElement>
+export type { InputStyledProps }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ variant = 'primary', ...props }, ref) => {
