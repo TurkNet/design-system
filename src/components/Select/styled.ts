@@ -33,7 +33,7 @@ export const OverlayStyled = styled.ul`
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03), -5px 5px 5px rgba(0, 0, 0, 0.03);
 `
 
-export const MenuStyled = styled.li<Record<'active', any>>`
+export const OptionStyled = styled.li<Record<'active', any>>`
   padding: 0;
   list-style: none;
   font-size: 15px;

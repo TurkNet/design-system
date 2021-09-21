@@ -53,6 +53,3 @@ const Template: Story<SelectProps> = ({ ...args }) => {
 }
 
 export const Standart = Template.bind({})
-Standart.args = {}
-
-Standart.argTypes = {}

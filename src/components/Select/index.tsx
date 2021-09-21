@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { SelectStyled, InputStyled, OverlayStyled } from './styled'
 import { Icon } from '../Icon'
-import Menu from './Menu'
+import Option from './Option'
 import { InputProps } from '../Input'
 
 export type SelectProps = {
@@ -54,7 +54,7 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
         {open && options.length > 0 && (
           <OverlayStyled>
             {options.map(option => (
-              <Menu
+              <Option
                 key={option[labelKey]}
                 option={option}
                 labelKey={labelKey}
