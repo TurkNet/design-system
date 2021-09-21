@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { SelectStyled, InputStyled, OverlayStyled } from './styled'
 import { Icon } from '../Icon'
-import Option from './Option'
+import Menu from './Menu'
 import { InputProps } from '../Input'
 
 export type SelectProps = {
@@ -26,13 +26,15 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
     const [open, setOpen] = useState(false)
 
     const onToggle = () => {
-      setOpen(!open)
+      setTimeout(() => {
+        setOpen(!open)
+      }, 0)
     }
 
     const onBlur = () => {
       setTimeout(() => {
         setOpen(false)
-      }, 200)
+      }, 150)
     }
 
     return (
@@ -52,7 +54,7 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
         {open && options.length > 0 && (
           <OverlayStyled>
             {options.map(option => (
-              <Option
+              <Menu
                 key={option[labelKey]}
                 option={option}
                 labelKey={labelKey}
