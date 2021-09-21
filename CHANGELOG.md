@@ -1,3 +1,15 @@
+# v0.1.32 (Tue Sep 21 2021)
+
+#### 🐛 Bug Fix
+
+- select key fix [#116](https://github.com/TurkNet/design-system/pull/116) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.31 (Tue Sep 21 2021)
 
 #### 🐛 Bug Fix
