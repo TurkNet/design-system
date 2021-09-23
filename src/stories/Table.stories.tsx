@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Story } from '@storybook/react'
-import { Table, TableProps, Box, Icon } from '../components'
+import { Table, TableProps, Box, Icon, Button, Checkbox } from '../components'
 
 export default {
   title: 'Design System/Table',
   component: Table,
 }
 
-const column = [
+const columns = [
   {
     Header: 'Id',
     accessor: 'id',
@@ -15,24 +15,27 @@ const column = [
   {
     Header: 'Takım Adı',
     accessor: 'teamName',
+    sortable: true,
   },
   {
     Header: 'Statü',
     accessor: 'isActive',
+    custom: true,
   },
   {
     Header: 'Lokasyon',
     accessor: 'locationName',
+    sortable: true,
+    custom: true,
   },
 ]
 
-const row = [
+const rows = [
   {
     id: '6d73b199-dba8-4a8f-41eb-08d960b9b081',
     teamName: 'Updated-Team',
     isActive: true,
     locationName: 'İzmir',
-    status: <Icon name="close" />,
   },
   {
     id: 'd836cfe3-0222-4e71-6c93-08d962defdc7',
@@ -63,7 +66,22 @@ const row = [
 const Template: Story<TableProps> = ({ ...props }) => {
   return (
     <Box height="1000px">
-      <Table {...props} row={row} column={column} />
+      <Table
+        {...props}
+        rows={rows}
+        columns={columns}
+        onSort={console.log}
+        onCheck={console.log}
+        enableAdd
+        selectable
+        onAddClick={console.log}
+        isActive={({ column, row }: any) => (
+          <Icon name={row.isActive ? 'check' : 'close'} />
+        )}
+        locationName={({ column, row }: any) => (
+          <Button onClick={() => console.log(row)}>Sil</Button>
+        )}
+      />
     </Box>
   )
 }

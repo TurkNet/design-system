@@ -1,33 +1,54 @@
 import styled from 'styled-components'
-import { color } from '../../utility/styled'
+import { color, fontSize, fontWeight, ifProp } from '../../utility/styled'
+
+export const Wrapped = styled.div`
+  border: 2px solid ${color('grey.400')};
+  border-radius: 8px;
+  overflow: hidden;
+`
 
 export const TableStyled = styled.table`
-  border: 2px solid ${color('grey.400')};
-  min-width: 900px;
-  // min-height: 600px;
+  width: 100%;
+  border-collapse: collapse;
 `
+export const TableThStyled = styled.th<Record<string, any>>`
+  position: relative;
+  height: 64px;
+  padding: 16px;
+  font-size: ${fontSize('15')};
+  font-weight: ${fontWeight('semi-bold')};
+  background-color: ${color('grey.100')};
+  text-align: left;
+  border-style: solid;
+  border-color: ${color('grey.400')};
+  border-width: 0 2px 2px 0;
+  user-select: none;
+  cursor: ${ifProp('sortable', 'pointer', 'inherit')};
 
-export const TableHeadStyled = styled.thead`
-  // background-color: white;
+  :last-of-type {
+    border-right-width: 0;
+  }
+
+  .material-icons {
+    position: absolute;
+    right: 16px;
+    top: 20px;
+  }
 `
-
-export const TableBodyStyled = styled.tbody``
 
 export const TableTrStyled = styled.tr`
   :nth-child(odd) {
-    background-color: #f2f2f2;
+    background-color: ${color('grey.200')};
   }
-  :hover {
-    background-color: #ddd;
-  }
-`
-
-export const TableThStyled = styled.th`
-  border: 2px solid ${color('grey.400')};
-  background-color: white;
-  height: 64px;
 `
 
 export const TableTdStyled = styled.td`
   height: 48px;
+  padding: 16px;
+`
+
+export const TableBodyStyled = styled.tbody``
+
+export const TableHeadStyled = styled.thead`
+  overflow: hidden;
 `
