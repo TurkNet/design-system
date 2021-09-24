@@ -59,6 +59,7 @@ export const theme = {
   borderRadius: {
     small: '2px',
     normal: '4px',
+    large: '8px',
   },
   space: {
     xxs: '4px',

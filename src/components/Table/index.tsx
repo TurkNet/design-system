@@ -76,6 +76,7 @@ export const Table: FC<TableProps> = ({
       onCheck({ ...mapsdsd, all: true })
     }
   }
+
   return (
     <Wrapped>
       <TableStyled>
@@ -115,9 +116,10 @@ export const Table: FC<TableProps> = ({
         <TableBodyStyled>
           {enableAdd && (
             <TableTrStyled>
-              <TableTdStyled colSpan={columns.length}>
+              <TableTdStyled colSpan={columns.length + 1}>
                 <Flex justifyContent="center" width={1}>
                   <Button
+                    fullWidth
                     variant="ghost"
                     onClick={onAddClick}
                     icon={<Icon name="add" />}
@@ -130,7 +132,6 @@ export const Table: FC<TableProps> = ({
             </TableTrStyled>
           )}
           {rows?.map((row: any) => {
-            console.log(checked, checked[row.id], checked.all, false)
             return (
               <TableTrStyled key={row.id}>
                 {selectable && (

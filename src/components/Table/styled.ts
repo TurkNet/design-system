@@ -1,9 +1,15 @@
 import styled from 'styled-components'
-import { color, fontSize, fontWeight, ifProp } from '../../utility/styled'
+import {
+  borderRadius,
+  color,
+  fontSize,
+  fontWeight,
+  ifProp,
+} from '../../utility/styled'
 
 export const Wrapped = styled.div`
   border: 2px solid ${color('grey.400')};
-  border-radius: 8px;
+  border-radius: ${borderRadius('large')};
   overflow: hidden;
 `
 
@@ -37,14 +43,14 @@ export const TableThStyled = styled.th<Record<string, any>>`
 `
 
 export const TableTrStyled = styled.tr`
-  :nth-child(odd) {
+  :nth-child(even) {
     background-color: ${color('grey.200')};
   }
 `
 
 export const TableTdStyled = styled.td`
   height: 48px;
-  padding: 16px;
+  padding: 0 16px 0 16px;
 `
 
 export const TableBodyStyled = styled.tbody``
