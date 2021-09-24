@@ -1,74 +1,80 @@
 import React, { InputHTMLAttributes, useState, FC } from 'react'
 import {
   SearchableInputStyledProps,
-  SearchableInputContainerStyled,
-  DropDownListContainerStyled,
-  DropDownListStyled,
+  SearchableInputStyled,
+  DropDownStyled,
   ListItemStyled,
 } from './styled'
 
 import { Input } from '../Input'
 
-export type SearchableInputProps = SearchableInputStyledProps &
-  InputHTMLAttributes<HTMLInputElement>
+export type SearchableInputProps = {
+  value: Record<string, any> | undefined
+  labelKey?: string
+  options?: Array<Record<string, any>>
+  onSelect?(value: Record<string, any> | undefined): void
+} & SearchableInputStyledProps &
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'onSelect' | 'value'>
 
 export const SearchableInput: FC<SearchableInputProps> = ({
   variant = 'primary',
   options,
+  onSelect,
+  value,
+  labelKey = 'label',
   ...props
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [search, setSearch] = useState('')
 
-  const onChange = (value: string) => {
-    setSearch(value)
-    if (value) {
-      setIsOpen(true)
-    } else {
-      setIsOpen(false)
-    }
-  }
-
   const onFocus = () => {
-    if (isOpen) {
-      setIsOpen(false)
-    } else {
-      setIsOpen(true)
-    }
+    setTimeout(() => {
+      setIsOpen(!isOpen)
+    }, 0)
   }
 
   const onBlur = () => {
-    if (isOpen) {
+    setTimeout(() => {
       setIsOpen(false)
-    }
+    }, 150)
   }
 
   const filteredOptions = options?.filter(
-    opt =>
-      opt.value
+    (opt: Record<string, any>) =>
+      opt[labelKey]
         .toLocaleLowerCase('tr-TR')
         .indexOf(search.toLocaleLowerCase('tr-TR')) !== -1
   )
 
+  const selectOption = (option: Record<string, any>) => {
+    setSearch(option[labelKey])
+    if (onSelect) onSelect(option)
+  }
+
   return (
-    <SearchableInputContainerStyled>
+    <SearchableInputStyled>
       <Input
         {...props}
         variant={variant}
-        onChange={(e: any) => onChange(e.target.value)}
+        onChange={(e: any) => setSearch(e.target.value)}
         onFocus={onFocus}
         onBlur={onBlur}
+        defaultValue={value && value[labelKey]}
+        value={search}
       />
       {isOpen && (
-        <DropDownListContainerStyled>
-          <DropDownListStyled>
-            {filteredOptions &&
-              filteredOptions.map(option => (
-                <ListItemStyled key={option.id}>{option.value}</ListItemStyled>
-              ))}
-          </DropDownListStyled>
-        </DropDownListContainerStyled>
+        <DropDownStyled>
+          {filteredOptions &&
+            filteredOptions.map((option: Record<string, any>) => (
+              <ListItemStyled
+                key={option.id}
+                onClick={() => selectOption(option)}
+              >
+                {option[labelKey]}
+              </ListItemStyled>
+            ))}
+        </DropDownStyled>
       )}
-    </SearchableInputContainerStyled>
+    </SearchableInputStyled>
   )
 }
