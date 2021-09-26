@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components'
 import type { SpaceProps } from 'styled-system'
-import { space as systemSpace } from 'styled-system'
 import { borderRadius, color, fontSize, space } from '../../utility/styled'
 
 export interface SearchableInputStyledProps extends SpaceProps {
@@ -34,25 +33,14 @@ export const SearchableInputStyled = styled.div`
 `
 
 export const DropDownStyled = styled.ul`
-  // padding: 0;
-  // margin: ${space('xxs')} 0;
-  // padding-left: ${space('large')};
-  // background-color: ${color('grey.100')};
-  // border: ${borderRadius('small')} solid ${color('grey.400')};
-  // box-sizing: border-box;
-  // font-size: ${fontSize('20')};
-  // font-weight: 500;
-  // border-radius: ${borderRadius('normal')};
   padding: 0 0 0 ${space('large')};
-
   width: 100%;
-  margin: 4px 0 0 0;
-  border-radius: 4px;
+  margin: ${space('xxs')} 0 0 0;
+  border-radius: ${borderRadius('normal')};
   border: solid 2px ${color('sky.light')};
   position: absolute;
   left: 0;
   top: 100%;
-  // padding: 0;
   overflow: hidden;
   background-color: ${color('grey.100')};
   z-index: 100;
