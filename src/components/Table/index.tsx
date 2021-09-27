@@ -73,9 +73,13 @@ export const Table: FC<TableProps> = ({
       setChecked({ all: false })
       onCheck({ all: false })
     } else {
-      const mapsdsd = rows.reduce((obj, r) => ({ ...obj, [r.id]: true }), {})
-      setChecked({ ...mapsdsd, all: true })
-      onCheck({ ...mapsdsd, all: true })
+      console.log('reduce ', rows)
+      const selectedRows = rows.reduce(
+        (obj, r) => ({ ...obj, [r.id]: true }),
+        {}
+      )
+      setChecked({ ...selectedRows, all: true })
+      onCheck({ ...selectedRows, all: true })
     }
   }
 
