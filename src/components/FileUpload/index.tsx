@@ -15,13 +15,7 @@ export interface FileUploadProps {
 
 type IVariant = 'success' | 'danger' | 'sky'
 
-const FileTypes = [
-  'image/jpeg',
-  'image/jpg',
-  'image/png',
-  'image/gif',
-  'image/x-icon',
-]
+const FileTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']
 const MaxSize = 10
 
 export const FileUpload: FC<FileUploadProps> = ({
@@ -35,7 +29,7 @@ export const FileUpload: FC<FileUploadProps> = ({
 
   const [files, setFiles] = useState<Array<File>>([])
   const [variant, setVariant] = useState<IVariant>('sky')
-  const [dragCouter, setDragCounter] = useState(0)
+  const [dragCounter, setdragCounter] = useState(0)
 
   const checkUpload = (fileList: FileList, items?: DataTransferItemList) => {
     const list = [...fileList, ...files, ...(items || [])]
@@ -72,7 +66,7 @@ export const FileUpload: FC<FileUploadProps> = ({
   const handleDragIn = (e: DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    setDragCounter(dragCouter + 1)
+    setdragCounter(dragCounter + 1)
 
     const { files, items } = e.dataTransfer
 
@@ -87,8 +81,8 @@ export const FileUpload: FC<FileUploadProps> = ({
   const handleDragOut = (e: DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    setDragCounter(dragCouter - 1)
-    if (dragCouter - 1 === 0) {
+    setdragCounter(dragCounter - 1)
+    if (dragCounter - 1 === 0) {
       setVariant('sky')
     }
   }
@@ -103,7 +97,7 @@ export const FileUpload: FC<FileUploadProps> = ({
       onUpload(list)
       setFiles(list)
       evt.dataTransfer.clearData()
-      setDragCounter(0)
+      setdragCounter(0)
     }
 
     setVariant('sky')
