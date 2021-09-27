@@ -26,6 +26,7 @@ export interface TableProps {
   selectable?: boolean
   onAddClick?(): void
   [key: string]: any
+  buttonText: string
 }
 
 const SortMap: ISort = {
@@ -39,6 +40,7 @@ export const Table: FC<TableProps> = ({
   columns,
   selectable,
   enableAdd,
+  buttonText = 'Add',
   onAddClick,
   onSort = noop,
   onCheck = noop,
@@ -125,7 +127,7 @@ export const Table: FC<TableProps> = ({
                     icon={<Icon name="add" />}
                     alignment="left"
                   >
-                    Add
+                    {buttonText}
                   </Button>
                 </Flex>
               </TableTdStyled>

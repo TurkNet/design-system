@@ -158,6 +158,7 @@ const Template: Story<TableProps> = ({ ...props }) => {
         onCheck={console.log}
         enableAdd
         selectable
+        buttonText="Yeni Takım Oluştur"
         onAddClick={buttonAction}
         isActive={({ column, row }: any) => (
           <Icon name={row.isActive ? 'check' : 'close'} />
