@@ -66,8 +66,8 @@ export const Table: FC<TableProps> = ({
     onCheck(updateChecked)
   }
 
-  const onCheckAll = (evt: any) => {
-    if (!evt.target.checked) {
+  const onCheckAll = (event: any) => {
+    if (!event.target.checked) {
       setChecked({ all: false })
       onCheck({ all: false })
     } else {
@@ -122,7 +122,6 @@ export const Table: FC<TableProps> = ({
               <TableTdStyled colSpan={columns.length + 1}>
                 <Flex justifyContent="center" width={1}>
                   <Button
-                    fullWidth
                     variant="ghost"
                     onClick={onAddClick}
                     icon={<Icon name="add" />}
