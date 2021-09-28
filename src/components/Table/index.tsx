@@ -5,8 +5,6 @@ import { Checkbox } from '../Checkbox'
 import { noop } from '../../utility'
 import { Icon } from '../Icon'
 import {
-  TableBodyStyled,
-  TableHeadStyled,
   TableStyled,
   TableTdStyled,
   TableThStyled,
@@ -36,8 +34,8 @@ const SortMap: ISort = {
 }
 
 export const Table: FC<TableProps> = ({
-  rows,
-  columns,
+  rows = [],
+  columns = [],
   selectable,
   enableAdd,
   buttonText = 'Add',
@@ -73,7 +71,6 @@ export const Table: FC<TableProps> = ({
       setChecked({ all: false })
       onCheck({ all: false })
     } else {
-      console.log('reduce ', rows)
       const selectedRows = rows.reduce(
         (obj, r) => ({ ...obj, [r.id]: true }),
         {}
@@ -86,7 +83,7 @@ export const Table: FC<TableProps> = ({
   return (
     <Wrapped>
       <TableStyled>
-        <TableHeadStyled>
+        <thead>
           <TableTrStyled>
             {selectable && (
               <TableThStyled>
@@ -118,8 +115,8 @@ export const Table: FC<TableProps> = ({
               )
             })}
           </TableTrStyled>
-        </TableHeadStyled>
-        <TableBodyStyled>
+        </thead>
+        <tbody>
           {enableAdd && (
             <TableTrStyled>
               <TableTdStyled colSpan={columns.length + 1}>
@@ -155,7 +152,7 @@ export const Table: FC<TableProps> = ({
                       {column.custom && CellRender ? (
                         <CellRender column={column} row={row} />
                       ) : (
-                        `${row[column.accessor]}`
+                        row[column.accessor]
                       )}
                     </TableTdStyled>
                   )
@@ -163,7 +160,7 @@ export const Table: FC<TableProps> = ({
               </TableTrStyled>
             )
           })}
-        </TableBodyStyled>
+        </tbody>
       </TableStyled>
     </Wrapped>
   )

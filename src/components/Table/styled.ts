@@ -52,9 +52,3 @@ export const TableTdStyled = styled.td`
   height: 48px;
   padding: 0 16px 0 16px;
 `
-
-export const TableBodyStyled = styled.tbody``
-
-export const TableHeadStyled = styled.thead`
-  overflow: hidden;
-`
