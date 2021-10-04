@@ -1,46 +1,44 @@
 import React, { FC } from 'react'
-import {
-  StepLabelsStyled,
-  StepConnector,
-  StepLabelsStyledProps,
-} from './styled'
-import { Step, StepLabel } from './Step'
+import { StepperStyled, LineStyled } from './styled'
+import { StepLabel } from './StepLabel'
 import { noop } from '../../utility'
 
-export interface StepLabelsProps extends StepLabelsStyledProps {
+export * from './Step'
+export * from './StepLabel'
+
+export interface StepperProps {
   onChange?: (stepIndex: number) => void
   labels?: { title: string }[]
   currentStep?: number
+  dense?: boolean
 }
 
-const StepLabels: FC<StepLabelsProps> = ({
+export const Stepper: FC<StepperProps> = ({
   labels = [],
   currentStep = 1,
-  floatLabel,
+  dense,
   onChange = noop,
   children,
   ...props
 }) => {
   return (
-    <StepLabelsStyled {...props}>
+    <StepperStyled {...props}>
       {labels.map((item, index) => {
         const { title } = item
         const stepIndex = index + 1
+        const hideTitle = dense && stepIndex !== currentStep
         return (
           <>
             <StepLabel
               currentStep={currentStep}
               stepIndex={stepIndex}
-              title={title}
-              floatLabel={floatLabel && stepIndex !== currentStep}
+              title={!hideTitle && title}
               onClick={() => onChange(stepIndex)}
             />
-            <StepConnector floatLabel={floatLabel} />
+            <LineStyled />
           </>
         )
       })}
-    </StepLabelsStyled>
+    </StepperStyled>
   )
 }
-
-export { StepLabels, Step, StepLabel }
