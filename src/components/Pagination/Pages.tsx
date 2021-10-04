@@ -5,11 +5,15 @@ import { map } from '../../utility'
 
 interface PagesProps {
   totalPages: number
-  activePage: number
+  currentPage: number
   onChange(page: number): void
 }
 
-export const Pages: FC<PagesProps> = ({ totalPages, activePage, onChange }) => {
+export const Pages: FC<PagesProps> = ({
+  totalPages,
+  currentPage,
+  onChange,
+}) => {
   const showingPage = 5
   const buffer = 3
   const middlePage = 3
@@ -22,7 +26,7 @@ export const Pages: FC<PagesProps> = ({ totalPages, activePage, onChange }) => {
           <Page
             key={page}
             page={page + 1}
-            activePage={activePage}
+            currentPage={currentPage}
             onChange={onChange}
           />
         ))}
@@ -30,16 +34,16 @@ export const Pages: FC<PagesProps> = ({ totalPages, activePage, onChange }) => {
     )
   }
 
-  if (activePage + buffer > totalPages) {
+  if (currentPage + buffer > totalPages) {
     return (
       <>
-        <Page page={1} activePage={activePage} onChange={onChange} />
+        <Page page={1} currentPage={currentPage} onChange={onChange} />
         <PageStyled>...</PageStyled>
         {map(buffer + 1, page => (
           <Page
             key={page}
             page={totalPages - page}
-            activePage={activePage}
+            currentPage={currentPage}
             onChange={onChange}
           />
         )).reverse()}
@@ -47,37 +51,37 @@ export const Pages: FC<PagesProps> = ({ totalPages, activePage, onChange }) => {
     )
   }
 
-  if (activePage - buffer < 1) {
+  if (currentPage - buffer < 1) {
     return (
       <>
         {map(buffer + 1, page => (
           <Page
             key={page}
             page={page + 1}
-            activePage={activePage}
+            currentPage={currentPage}
             onChange={onChange}
           />
         ))}
         <PageStyled>...</PageStyled>
-        <Page page={totalPages} activePage={activePage} onChange={onChange} />
+        <Page page={totalPages} currentPage={currentPage} onChange={onChange} />
       </>
     )
   }
 
   return (
     <>
-      <Page page={1} activePage={activePage} onChange={onChange} />
+      <Page page={1} currentPage={currentPage} onChange={onChange} />
       <PageStyled>...</PageStyled>
       {map(middlePage, page => (
         <Page
           key={page}
-          page={activePage - midPageRestriction + page}
-          activePage={activePage}
+          page={currentPage - midPageRestriction + page}
+          currentPage={currentPage}
           onChange={onChange}
         />
       ))}
       <PageStyled>...</PageStyled>
-      <Page page={totalPages} activePage={activePage} onChange={onChange} />
+      <Page page={totalPages} currentPage={currentPage} onChange={onChange} />
     </>
   )
 }
