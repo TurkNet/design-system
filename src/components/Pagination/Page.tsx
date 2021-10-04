@@ -3,13 +3,13 @@ import { PageStyled } from './styled'
 
 interface PageProps {
   page: number
-  activePage: number
+  currentPage: number
   onChange(page: number): void
 }
 
-const Page: FC<PageProps> = ({ page, activePage, onChange }) => {
+const Page: FC<PageProps> = ({ page, currentPage, onChange }) => {
   return (
-    <PageStyled active={activePage === page} onClick={() => onChange(page)}>
+    <PageStyled active={currentPage === page} onClick={() => onChange(page)}>
       {page}
     </PageStyled>
   )

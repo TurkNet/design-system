@@ -19,8 +19,8 @@ export const Pagination: FC<PaginationProps> = ({
 }) => {
   const totalPages = Math.ceil(totalItemsCount / itemsCountPerPage)
 
-  const handleChange = (activePage: number) => {
-    onChange(activePage)
+  const handleChange = (currentPage: number) => {
+    onChange(currentPage)
   }
 
   return (
@@ -33,7 +33,7 @@ export const Pagination: FC<PaginationProps> = ({
       </PageStyled>
       <Pages
         totalPages={totalPages}
-        activePage={currentPage}
+        currentPage={currentPage}
         onChange={handleChange}
       />
       <PageStyled
