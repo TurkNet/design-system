@@ -24,7 +24,7 @@ export interface TableProps {
   selectable?: boolean
   onAddClick?(): void
   [key: string]: any
-  buttonText: string
+  buttonText?: string
 }
 
 const SortMap: ISort = {
