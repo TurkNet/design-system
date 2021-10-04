@@ -7,95 +7,86 @@ import {
   ifProp,
 } from '../../utility/styled'
 
-export interface StepLabelsStyledProps {
-  floatLabel?: boolean
+interface StyledProps {
+  vertical?: boolean
+  isPassive?: boolean
+  isCompleted?: boolean
 }
 
-export const StepLabelsStyled = styled.ol`
-  margin: 0;
-  padding: 0;
-  display: inline-flex;
-  flex-direction: row;
+export const StepperStyled = styled.div`
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   hr:last-child {
     display: none;
   }
 `
 
-export interface StepLabelStyledProps {
-  passiveStep?: boolean
-  floatLabel?: boolean
-  completedStep?: boolean
-}
+export const StepStyled = styled.section<StyledProps>`
+  ${ifProp(
+    { vertical: true },
+    css`
+      border-left: 2px solid ${color('grey.300')};
+      margin: 0 12px;
+      padding-left: 20px;
+      min-height: 32px;
+    `
+  )}
 
-export const StepLabelStyled = styled.li`
-  display: inline-flex;
+  :last-of-type {
+    border-color: transparent;
+  }
+`
+
+export const StepLabelStyled = styled.div`
+  display: flex;
   cursor: pointer;
-  flex-direction: row;
   align-items: center;
   margin: 12px 0;
 `
 
-export const Bullet = styled.div<StepLabelStyledProps>`
+export const BulletStyled = styled.div<StyledProps>`
   width: 24px;
   height: 24px;
-  min-width: 24px;
-  min-height: 24px;
   border-radius: 100%;
-  color: ${color('grey.200')};
-  background-color: ${propColor('primary.normal')};
-  padding: ${ifProp('completedStep', '5.5px', '4px')};
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: ${fontSize('12')};
   font-weight: ${fontWeight('semi-bold')};
-  text-align: center;
+  background-color: ${propColor('primary.normal')};
+  color: ${color('grey.200')};
   ${ifProp(
-    { passiveStep: true },
+    { isPassive: true },
     css`
       background-color: ${color('grey.400')}};
       color: ${color('grey.600')};
     `
-  )};
+  )}
 `
 
-export const TextStyled = styled.div<StepLabelStyledProps>`
+export const TextStyled = styled.div<StyledProps>`
+  margin-left: 10px;
   font-size: ${fontSize('13')};
   font-weight: ${fontWeight('semi-bold')};
-  line-height: 1.85;
-  color: ${color('grey.800')};
-  display: ${ifProp('floatLabel', 'none', 'block')};
   ${ifProp(
-    { passiveStep: true },
+    { isPassive: true },
     css`
       font-weight: ${fontWeight('regular')};
       color: ${color('grey.600')};
     `
-  )};
-  margin-left: 10px;
+  )}
+
+  :empty {
+    display: none;
+  }
 `
-export const StepConnector = styled.hr<StepLabelsStyledProps>`
-  width: ${ifProp('floatLabel', '16px', '64px')};
+
+export const LineStyled = styled.hr<StyledProps>`
+  flex: 1;
   height: 2px;
   background-color: ${color('grey.300')};
   border-width: 0;
   margin-left: 10px;
   margin-right: 10px;
-`
-
-export interface StepStyledProps {
-  vertical?: boolean
-}
-
-export const StepStyled = styled.div<StepStyledProps>`
-  ${ifProp(
-    { vertical: true },
-    css`
-      border-left: 2px solid ${color('grey.300')};
-      margin: 0 11px;
-      padding-left: 21px;
-      min-height: 32px;
-    `
-  )};
-  :last-of-type {
-    border-left: none;
-  }
 `
