@@ -1,18 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, ChangeEvent, useEffect, ReactNode } from 'react'
 import {
   SelectStyled,
   InputStyled,
   OverlayStyled,
   OptionStyled,
+  IconStyled,
 } from './styled'
 import { Icon } from '../Icon'
 import type { InputProps } from '../Input'
+import { noop } from '../../utility'
+
+type IOption = Record<string, any>
 
 export type SelectProps = {
   labelKey?: string
-  value: Record<string, any> | undefined
-  options: Record<string, any>[]
-  onSelect(value: Record<string, any> | undefined): void
+  value: IOption | undefined
+  options: IOption[]
+  locale?: string
+  icon?: ReactNode
+  searchable?: boolean
+  placement?: 'top' | 'bottom'
+  onSelect(value: IOption | undefined): void
+  onToggle(open: boolean): void
 } & Omit<InputProps, 'onSelect' | 'value'>
 
 export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
@@ -22,40 +31,78 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
       labelKey = 'label',
       value,
       placeholder = 'Seçiniz',
-      onSelect,
+      locale = 'tr-TR',
+      icon,
+      searchable = false,
+      placement = 'bottom',
+      onSelect = noop,
+      onToggle = noop,
       ...props
     },
     ref
   ) => {
     const [open, setOpen] = useState(false)
+    const [optionList, setOptionList] = useState(options)
+    const [inputValue, setInputValue] = useState(
+      (value && value[labelKey]) || ''
+    )
 
-    const onToggle = () => {
+    const handleToggle = () => {
       setOpen(!open)
+      onToggle(!open)
     }
 
     const onBlur = () => {
       setTimeout(() => {
         setOpen(false)
-      }, 200)
+        onToggle(false)
+      }, 150)
+      setInputValue(value && value[labelKey])
     }
+
+    const onChange = (evt: ChangeEvent<HTMLInputElement>) => {
+      if (!searchable) {
+        return
+      }
+      const { value } = evt.target
+      const list = options.filter((opt: IOption) => {
+        return opt[labelKey]
+          .toLocaleLowerCase(locale)
+          .includes(value.toLocaleLowerCase(locale))
+      })
+      setOptionList(list)
+      setInputValue(value)
+    }
+
+    useEffect(() => {
+      setInputValue(value && value[labelKey])
+    }, [value, labelKey])
 
     return (
       <SelectStyled>
         <InputStyled
           type="select"
-          onChange={() => {}}
+          onChange={onChange}
           {...props}
           ref={ref}
-          value={(value && value[labelKey]) || ''}
+          value={inputValue || ''}
           placeholder={placeholder}
           autoComplete="off"
-          onClick={onToggle}
+          onClick={handleToggle}
           onBlur={onBlur}
+          searchable={searchable}
         />
-        <Icon name={open ? 'expand_less' : 'expand_more'} color="sky.dark" />
-        {open && options.length > 0 && (
-          <OverlayStyled>
-            {options.map(option => (
+        <IconStyled isCustom={!!icon}>
+          {icon || (
+            <Icon
+              name={open ? 'expand_less' : 'expand_more'}
+              color="sky.dark"
+            />
+          )}
+        </IconStyled>
+        {open && optionList.length > 0 && (
+          <OverlayStyled placement={placement}>
+            {optionList.map(option => (
               <OptionStyled
                 key={option[labelKey]}
                 active={value && option[labelKey] === value[labelKey]}
