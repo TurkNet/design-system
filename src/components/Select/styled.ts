@@ -4,33 +4,29 @@ import { color, ifProp } from '../../utility/styled'
 
 export const SelectStyled = styled.div`
   position: relative;
-  .material-icons {
-    position: absolute;
-    right: 16px;
-    top: 12px;
-  }
 `
 
-export const InputStyled = styled(Input)`
+export const InputStyled = styled(Input)<Record<'searchable', boolean>>`
   width: 100%;
-  caret-color: transparent;
+  caret-color: ${ifProp('searchable', null, 'transparent')};
   cursor: pointer;
   user-select: none;
+  background-color: transparent;
 `
 
-export const OverlayStyled = styled.ul`
+export const OverlayStyled = styled.ul<Record<'placement', 'top' | 'bottom'>>`
   width: 100%;
   margin: 4px 0 0 0;
   border-radius: 4px;
   border: solid 2px ${color('sky.light')};
   position: absolute;
   left: 0;
-  top: 100%;
   padding: 0;
   overflow: hidden;
   background-color: ${color('grey.100')};
   z-index: 100;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03), -5px 5px 5px rgba(0, 0, 0, 0.03);
+  ${ifProp({ placement: 'top' }, 'bottom: 100%;', 'top: 100%;')}
 `
 
 export const OptionStyled = styled.li<Record<'active', any>>`
@@ -50,4 +46,17 @@ export const OptionStyled = styled.li<Record<'active', any>>`
       color: ${color('grey.100')};
     `
   )}
+
+  :hover {
+    background-color: ${color('primary.light')};
+    color: ${color('grey.100')};
+  }
+`
+
+export const IconStyled = styled.span<Record<'isCustom', boolean>>`
+  z-index: ${ifProp('isCustom', 1, -1)};
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  cursor: pointer;
 `

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Story } from '@storybook/react'
-import { Select, SelectProps } from '../components'
+import { Icon, Select, SelectProps } from '../components'
 
 export default {
   title: 'Design System/Select',
@@ -9,6 +9,11 @@ export default {
 
 const Template: Story<SelectProps> = ({ ...args }) => {
   const [value, setValue] = useState(undefined)
+  const [openOverlay, setOpenOverlay] = useState(false)
+
+  const onClear = () => {
+    setValue(undefined)
+  }
   return (
     <>
       <Select
@@ -17,12 +22,26 @@ const Template: Story<SelectProps> = ({ ...args }) => {
         onSelect={setValue}
         name="select-input"
         labelKey="name"
+        icon={
+          <Icon
+            name={openOverlay ? 'cancel' : 'add_circle'}
+            color="primary.normal"
+            onClick={onClear}
+          />
+        }
+        onToggle={setOpenOverlay}
+        searchable
         options={[
           { name: 'Option 1', id: '1' },
           { name: 'Option 2', id: '2' },
           { name: 'Option 3', id: '3' },
         ]}
       />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
       <br />
 
       <Select
@@ -32,6 +51,7 @@ const Template: Story<SelectProps> = ({ ...args }) => {
         name="select-input"
         labelKey="name"
         variant="danger"
+        placement="top"
         options={[
           { name: 'Option 1', id: '1' },
           { name: 'Option 2', id: '2' },
