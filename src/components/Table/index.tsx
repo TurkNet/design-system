@@ -96,7 +96,7 @@ export const Table: FC<TableProps> = ({
             {columns?.map((column: any) => {
               return (
                 <TableThStyled
-                  key={column.id}
+                  key={column.accessor}
                   style={{ width: column.width }}
                   sortable={column.sortable}
                   onClick={column.sortable && handleSort(column.accessor)}
