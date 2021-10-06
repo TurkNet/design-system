@@ -62,5 +62,6 @@ export const InputStyled = styled.input<InputStyledProps>`
 export const IconStyled = styled.span`
   position: absolute;
   right: 16px;
-  top: 12px;
+  top: 50%;
+  transform: translateY(50%);
 `
