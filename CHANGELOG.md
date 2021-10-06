@@ -1,3 +1,20 @@
+# v0.2.0 (Wed Oct 06 2021)
+
+#### 🚀 Enhancement
+
+- Release [#134](https://github.com/TurkNet/design-system/pull/134) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### 🐛 Bug Fix
+
+- Release [#137](https://github.com/TurkNet/design-system/pull/137) ([@ermanzohre](https://github.com/ermanzohre) [@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 2
+
+- Erman ([@ermanzohre](https://github.com/ermanzohre))
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.1.34 (Mon Oct 04 2021)
 
 #### 🐛 Bug Fix
