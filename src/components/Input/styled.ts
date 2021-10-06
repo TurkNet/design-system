@@ -32,11 +32,6 @@ const variants = {
 }
 export const WrapperStyled = styled.div`
   position: relative;
-  .material-icons {
-    position: absolute;
-    right: 16px;
-    top: 12px;
-  }
 `
 export const InputStyled = styled.input<InputStyledProps>`
   ${systemSpace}
@@ -47,6 +42,7 @@ export const InputStyled = styled.input<InputStyledProps>`
   font-size: ${fontSize('15')};
   padding: ${space('medium')};
   color: ${color('grey.800')};
+  background-color: transparent;
 
   ::placeholder,
   :-ms-input-placeholder,
@@ -61,4 +57,11 @@ export const InputStyled = styled.input<InputStyledProps>`
     opacity: ${opacity('48')};
     background-color: ${color('grey.200')};
   }
+`
+
+export const IconStyled = styled.span`
+  z-index: -1;
+  position: absolute;
+  right: 16px;
+  top: 12px;
 `
