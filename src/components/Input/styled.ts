@@ -30,7 +30,14 @@ const variants = {
   warning: variantStyle('warning'),
   primary: variantStyle('primary', 'sky'),
 }
-
+export const WrapperStyled = styled.div`
+  position: relative;
+  .material-icons {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+  }
+`
 export const InputStyled = styled.input<InputStyledProps>`
   ${systemSpace}
   height: 48px;
