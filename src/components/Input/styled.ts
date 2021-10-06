@@ -32,17 +32,17 @@ const variants = {
 }
 export const WrapperStyled = styled.div`
   position: relative;
+  background-color: ${color('grey.100')};
+  border-radius: ${borderRadius('normal')};
 `
 export const InputStyled = styled.input<InputStyledProps>`
   ${systemSpace}
   height: 48px;
   width: 100%;
-  border-radius: ${borderRadius('normal')};
-  background-color: ${color('grey.100')};
+  background-color: transparent;
   font-size: ${fontSize('15')};
   padding: ${space('medium')};
   color: ${color('grey.800')};
-  background-color: transparent;
 
   ::placeholder,
   :-ms-input-placeholder,
@@ -60,7 +60,6 @@ export const InputStyled = styled.input<InputStyledProps>`
 `
 
 export const IconStyled = styled.span`
-  z-index: -1;
   position: absolute;
   right: 16px;
   top: 12px;
