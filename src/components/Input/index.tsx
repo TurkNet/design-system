@@ -1,11 +1,24 @@
-import React, { InputHTMLAttributes } from 'react'
-import { InputStyled, InputStyledProps } from './styled'
+import React, { InputHTMLAttributes, ReactNode } from 'react'
+import {
+  IconStyled,
+  InputStyled,
+  InputStyledProps,
+  WrapperStyled,
+} from './styled'
 
-export type InputProps = InputStyledProps &
-  InputHTMLAttributes<HTMLInputElement>
+export interface InputProps
+  extends InputStyledProps,
+    InputHTMLAttributes<HTMLInputElement> {
+  icon?: ReactNode
+}
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ variant = 'primary', ...props }, ref) => {
-    return <InputStyled {...props} variant={variant} ref={ref} />
+  ({ variant = 'primary', icon, ...props }, ref) => {
+    return (
+      <WrapperStyled>
+        <InputStyled {...props} variant={variant} ref={ref} />
+        <IconStyled>{icon}</IconStyled>
+      </WrapperStyled>
+    )
   }
 )

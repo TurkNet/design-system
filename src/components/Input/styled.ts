@@ -30,13 +30,16 @@ const variants = {
   warning: variantStyle('warning'),
   primary: variantStyle('primary', 'sky'),
 }
-
+export const WrapperStyled = styled.div`
+  position: relative;
+  background-color: ${color('grey.100')};
+  border-radius: ${borderRadius('normal')};
+`
 export const InputStyled = styled.input<InputStyledProps>`
   ${systemSpace}
   height: 48px;
   width: 100%;
-  border-radius: ${borderRadius('normal')};
-  background-color: ${color('grey.100')};
+  background-color: transparent;
   font-size: ${fontSize('15')};
   padding: ${space('medium')};
   color: ${color('grey.800')};
@@ -54,4 +57,11 @@ export const InputStyled = styled.input<InputStyledProps>`
     opacity: ${opacity('48')};
     background-color: ${color('grey.200')};
   }
+`
+
+export const IconStyled = styled.span`
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 `
