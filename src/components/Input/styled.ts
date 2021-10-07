@@ -63,5 +63,5 @@ export const IconStyled = styled.span`
   position: absolute;
   right: 16px;
   top: 50%;
-  transform: translateY(50%);
+  transform: translateY(-50%);
 `
