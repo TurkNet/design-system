@@ -33,7 +33,6 @@ const variants = {
 export const WrapperStyled = styled.div`
   position: relative;
   background-color: ${color('grey.100')};
-  border-radius: ${borderRadius('normal')};
 `
 export const InputStyled = styled.input<InputStyledProps>`
   ${systemSpace}
@@ -43,6 +42,7 @@ export const InputStyled = styled.input<InputStyledProps>`
   font-size: ${fontSize('15')};
   padding: ${space('medium')};
   color: ${color('grey.800')};
+  border-radius: ${borderRadius('normal')};
 
   ::placeholder,
   :-ms-input-placeholder,
