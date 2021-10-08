@@ -21,7 +21,7 @@ export type SelectProps = {
   searchable?: boolean
   placement?: 'top' | 'bottom'
   onSelect(value: IOption | undefined): void
-  onToggle(open: boolean): void
+  onToggle?(open: boolean): void
 } & Omit<InputProps, 'onSelect' | 'value'>
 
 export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
