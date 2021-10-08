@@ -33,6 +33,7 @@ const variants = {
 export const WrapperStyled = styled.div`
   position: relative;
   background-color: ${color('grey.100')};
+  border-radius: ${borderRadius('normal')};
 `
 export const InputStyled = styled.input<InputStyledProps>`
   ${systemSpace}
