@@ -1,3 +1,16 @@
+# v0.2.3 (Mon Oct 11 2021)
+
+#### 🐛 Bug Fix
+
+- Release [#145](https://github.com/TurkNet/design-system/pull/145) ([@ermanzohre](https://github.com/ermanzohre) [@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 2
+
+- Erman ([@ermanzohre](https://github.com/ermanzohre))
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.2.2 (Fri Oct 08 2021)
 
 #### 🐛 Bug Fix
