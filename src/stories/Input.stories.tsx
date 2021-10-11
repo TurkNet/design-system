@@ -10,7 +10,11 @@ export default {
 const Template: Story<InputProps> = args => {
   return (
     <>
-      <Input {...args} icon={<Icon name="search" color="primary.normal" />} />
+      <Input
+        {...args}
+        onClickIcon={console.log}
+        icon={<Icon name="search" color="currentColor" style={{ zIndex: 5 }} />}
+      />
       <br />
       <br />
       <br />

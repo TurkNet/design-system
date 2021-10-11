@@ -4,7 +4,6 @@ import {
   Tabs,
   Tab,
   TabPanel,
-  TabsProps,
   TabProps,
   Icon,
   Flex,
@@ -16,7 +15,7 @@ export default {
   component: Tabs,
 }
 
-const Template: Story<TabsProps> = args => {
+const Template: Story = () => {
   const [currentTabId, setCurrentTabId] = useState(1)
 
   const MyTab: FC<TabProps> = props => (
@@ -24,7 +23,7 @@ const Template: Story<TabsProps> = args => {
   )
   return (
     <>
-      <Tabs {...args}>
+      <Tabs>
         <MyTab tabId={1}>
           <Flex alignItems="center">
             <Icon name="add" />
@@ -52,6 +51,3 @@ const Template: Story<TabsProps> = args => {
 }
 
 export const Standart = Template.bind({})
-Standart.args = {
-  name: 'sdf',
-}
