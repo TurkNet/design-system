@@ -4,7 +4,6 @@ import {
   InputStyled,
   OverlayStyled,
   OptionStyled,
-  IconStyled,
 } from './styled'
 import { Icon } from '../Icon'
 import type { InputProps } from '../Input'
@@ -91,15 +90,15 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
           onClick={handleToggle}
           onBlur={onBlur}
           searchable={searchable}
+          icon={
+            icon || (
+              <Icon
+                name={open ? 'expand_less' : 'expand_more'}
+                color="sky.dark"
+              />
+            )
+          }
         />
-        <IconStyled isCustom={!!icon}>
-          {icon || (
-            <Icon
-              name={open ? 'expand_less' : 'expand_more'}
-              color="sky.dark"
-            />
-          )}
-        </IconStyled>
         {open && optionList.length > 0 && (
           <OverlayStyled placement={placement}>
             {optionList.map(option => (

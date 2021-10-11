@@ -52,11 +52,3 @@ export const OptionStyled = styled.li<Record<'active', any>>`
     color: ${color('grey.100')};
   }
 `
-
-export const IconStyled = styled.span<Record<'isCustom', boolean>>`
-  z-index: ${ifProp('isCustom', 1, -1)};
-  position: absolute;
-  right: 16px;
-  top: 12px;
-  cursor: pointer;
-`

@@ -8,6 +8,7 @@ import {
   opacity,
   space,
   switchProp,
+  ifProp,
 } from '../../utility/styled'
 
 export interface InputStyledProps extends SpaceProps {
@@ -34,6 +35,7 @@ export const WrapperStyled = styled.div`
   position: relative;
   background-color: ${color('grey.100')};
   border-radius: ${borderRadius('normal')};
+  z-index: 1;
 `
 export const InputStyled = styled.input<InputStyledProps>`
   ${systemSpace}
@@ -65,4 +67,7 @@ export const IconStyled = styled.span`
   right: 16px;
   top: 50%;
   transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+  z-index: ${ifProp('onClick', '0', '-1')};
 `
