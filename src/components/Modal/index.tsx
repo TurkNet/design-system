@@ -13,6 +13,7 @@ import { Icon } from '../Icon'
 export interface ModalProps {
   show?: boolean
   width?: number | string
+  height?: number | string
   maxWidth?: number | string
   onClosed?(): void
 }
@@ -25,6 +26,7 @@ export const Modal: FC<ModalProps> = ({
   show: initialShow = false,
   width,
   maxWidth = '90%',
+  height,
   onClosed = noop,
 }) => {
   const [show, setShow] = useState(initialShow)
@@ -57,7 +59,12 @@ export const Modal: FC<ModalProps> = ({
   return ReactDOM.createPortal(
     <ModalStyled>
       <ModalBgStyled onClick={onClose} />
-      <ModalContentStyled width={width} maxWidth={maxWidth} maxHeight="90%">
+      <ModalContentStyled
+        width={width}
+        height={height}
+        maxWidth={maxWidth}
+        maxHeight="90%"
+      >
         <CrossIconStyled>
           <Icon name="close" fontSize={24} onClick={onClose} />
         </CrossIconStyled>
