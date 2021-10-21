@@ -18,7 +18,7 @@ export const Collapse: FC<CollapseProps> = ({
         ? `${ref.current?.scrollHeight}px`
         : '0px'
     }
-  }, [expanded])
+  })
 
   return (
     <CollapseStyled ref={ref}>
