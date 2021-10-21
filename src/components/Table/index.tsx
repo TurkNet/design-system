@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { Flex } from '../Flex'
 import { Button } from '../Button'
 import { Checkbox } from '../Checkbox'
@@ -18,13 +18,14 @@ type ICheck = Record<string, boolean>
 export interface TableProps {
   rows: any[]
   columns: any[]
-  onSort?(param: ISort): void
-  onCheck?(param: ICheck): void
   enableAdd?: boolean
   selectable?: boolean
-  onAddClick?(): void
-  [key: string]: any
   buttonText?: string
+  rowId?: string
+  [key: string]: any
+  onSort?(param: ISort): void
+  onCheck?(param: any[]): void
+  onAddClick?(): void
 }
 
 const SortMap: ISort = {
@@ -34,6 +35,7 @@ const SortMap: ISort = {
 }
 
 export const Table: FC<TableProps> = ({
+  rowId = 'id',
   rows = [],
   columns = [],
   selectable,
@@ -57,28 +59,28 @@ export const Table: FC<TableProps> = ({
   }
 
   const handleChecked = (row: any) => (event: any) => {
-    const updateChecked = {
+    setChecked({
       ...checked,
-      [row.id]: event.target.checked,
+      [row[rowId]]: event.target.checked,
       all: false,
-    }
-    setChecked(updateChecked)
-    onCheck(updateChecked)
+    })
   }
 
   const onCheckAll = (event: any) => {
     if (!event.target.checked) {
       setChecked({ all: false })
-      onCheck({ all: false })
     } else {
-      const selectedRows = rows.reduce(
-        (obj, r) => ({ ...obj, [r.id]: true }),
-        {}
+      setChecked(
+        rows.reduce((obj, r) => ({ ...obj, [r.id]: true }), {
+          all: true,
+        })
       )
-      setChecked({ ...selectedRows, all: true })
-      onCheck({ ...selectedRows, all: true })
     }
   }
+
+  useEffect(() => {
+    onCheck(rows.filter(r => checked[r[rowId]]))
+  }, [checked, rowId, rows, onCheck])
 
   return (
     <Wrapped>
