@@ -1,3 +1,15 @@
+# v0.5.0 (Mon Oct 25 2021)
+
+#### 🚀 Enhancement
+
+- Release [#158](https://github.com/TurkNet/design-system/pull/158) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.4.0 (Thu Oct 21 2021)
 
 #### 🚀 Enhancement
