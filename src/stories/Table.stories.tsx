@@ -64,6 +64,7 @@ const rows = [
 ]
 
 const Template: Story<TableProps> = ({ ...props }) => {
+  const [list, setList] = useState<any[]>([])
   return (
     <Box height="1000px">
       <Table
@@ -71,7 +72,7 @@ const Template: Story<TableProps> = ({ ...props }) => {
         rows={rows}
         columns={columns}
         onSort={console.log}
-        onCheck={console.log}
+        onCheck={row => setList(row)}
         enableAdd
         selectable
         buttonText="Yeni Takım Oluştur"

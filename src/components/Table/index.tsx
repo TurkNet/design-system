@@ -80,7 +80,7 @@ export const Table: FC<TableProps> = ({
 
   useEffect(() => {
     onCheck(rows.filter(r => checked[r[rowId]]))
-  }, [checked, rowId, rows, onCheck])
+  }, [checked])
 
   return (
     <Wrapped>
@@ -137,11 +137,11 @@ export const Table: FC<TableProps> = ({
           )}
           {rows?.map((row: any) => {
             return (
-              <TableTrStyled key={row.id}>
+              <TableTrStyled key={row[rowId]}>
                 {selectable && (
                   <TableTdStyled>
                     <Checkbox
-                      checked={checked[row.id] || false}
+                      checked={checked[row[rowId]] || false}
                       onChange={handleChecked(row)}
                     />
                   </TableTdStyled>
