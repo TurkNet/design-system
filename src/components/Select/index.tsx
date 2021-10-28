@@ -80,9 +80,9 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
     return (
       <SelectStyled>
         <InputStyled
+          {...props}
           type="select"
           onChange={onChange}
-          {...props}
           ref={ref}
           value={inputValue || ''}
           placeholder={placeholder}
