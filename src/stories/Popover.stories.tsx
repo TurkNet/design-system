@@ -9,14 +9,33 @@ export default {
 
 const Template: Story<PopoverProps> = ({ content, title, ...args }) => {
   return (
-    <Box m={150}>
-      <Popover
-        {...args}
-        content={<Card title={title} subtitle="subtitle" content={content} />}
-      >
-        <Typography>Popover</Typography>
-      </Popover>
-    </Box>
+    <>
+      <Box m={150}>
+        <Popover
+          {...args}
+          variant="bottomCenter"
+          content={<Card title={title} subtitle="subtitle" content={content} />}
+        >
+          <Typography>Popover</Typography>
+        </Popover>
+      </Box>
+      <Box m={150}>
+        <Popover
+          {...args}
+          content={<Card title={title} subtitle="subtitle" content={content} />}
+        >
+          <Typography>Popover</Typography>
+        </Popover>
+      </Box>
+      <Box m={150}>
+        <Popover
+          {...args}
+          content={<Card title={title} subtitle="subtitle" content={content} />}
+        >
+          <Typography>Popover</Typography>
+        </Popover>
+      </Box>
+    </>
   )
 }
 

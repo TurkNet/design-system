@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { borderRadius, switchProp } from '../../utility/styled'
+import { borderRadius, color, switchProp } from '../../utility/styled'
 
 export const variants = {
   topCenter: css`
@@ -43,6 +43,8 @@ export interface PopoverStyledProps {
 }
 
 export const Overlay = styled.div<PopoverStyledProps>`
+  background-color: ${color('grey.100')};
+  color: ${color('grey.700')};
   min-width: 121px;
   max-width: 500px;
   min-height: 28px;
