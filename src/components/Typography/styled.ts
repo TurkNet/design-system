@@ -43,7 +43,7 @@ const variants = {
   subtitle1: {
     fontSize: '15',
     lineHeight: '24px',
-    fontWeight: 'regular',
+    fontWeight: 'semi-bold',
   },
   subtitle2: {
     fontSize: '13',

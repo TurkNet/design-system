@@ -31,11 +31,10 @@ const Template: Story<SelectProps> = ({ ...args }) => {
         }
         onToggle={setOpenOverlay}
         searchable
-        options={[
-          { name: 'Option 1', id: '1' },
-          { name: 'Option 2', id: '2' },
-          { name: 'Option 3', id: '3' },
-        ]}
+        options={[...Array(20).keys()].map(i => ({
+          name: `Option ${i + 1}`,
+          id: i,
+        }))}
       />
       <br />
       <br />
