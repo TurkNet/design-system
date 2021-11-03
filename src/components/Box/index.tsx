@@ -7,6 +7,7 @@ export interface BoxProps
   color?: string
   flex?: string
   hidden?: boolean
+  position?: 'absolute' | 'relative' | 'fixed'
 }
 
 export const Box: FC<BoxProps> = ({ hidden, ...props }) => {

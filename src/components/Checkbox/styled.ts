@@ -79,6 +79,7 @@ export const CheckboxStyled = styled.input<CheckboxStyledProps>`
   height: 16px;
   width: 18px;
   margin: 2px 6px 2px 0;
+  flex-shrink: 0;
 
   :after,
   :before {
@@ -118,7 +119,10 @@ export const CheckboxStyled = styled.input<CheckboxStyledProps>`
 
 export const LabelStyled = styled.label`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   cursor: pointer;
   font-size: ${fontSize('13')};
+  span {
+    line-height: 18px;
+  }
 `

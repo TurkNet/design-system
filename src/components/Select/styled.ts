@@ -22,7 +22,8 @@ export const OverlayStyled = styled.ul<Record<'placement', 'top' | 'bottom'>>`
   position: absolute;
   left: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  max-height: 260px;
   background-color: ${color('grey.100')};
   z-index: 100;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03), -5px 5px 5px rgba(0, 0, 0, 0.03);

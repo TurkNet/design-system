@@ -13,6 +13,7 @@ export type BoxStyledProps = SpaceProps & LayoutProps & ColorProps
 
 export const BoxStyled = styled.div<BoxStyledProps>`
   flex: ${prop('flex')};
+  position: ${prop('position', 'inherit')};
   ${space}
   ${layout}
   ${color}
