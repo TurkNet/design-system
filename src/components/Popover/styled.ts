@@ -72,6 +72,7 @@ export const Overlay = styled.div<PopoverStyledProps>`
     transform: translate(-50%, -50%);
     height: calc(100% + 40px);
     width: calc(100% + 40px);
+    z-index: -1;
   }
 `
 
