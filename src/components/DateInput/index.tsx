@@ -6,8 +6,6 @@ import { Flex } from '../Flex'
 import { Button } from '../Button'
 import { ContainerStyled } from './styled'
 
-import 'react-datepicker/dist/react-datepicker.css'
-
 export type DateInputProps = ReactDatePickerProps
 
 const years = [...Array(100).keys()].map(i => i + 1950).reverse()
