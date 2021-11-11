@@ -1,3 +1,15 @@
+# v0.5.5 (Thu Nov 11 2021)
+
+#### 🐛 Bug Fix
+
+- DateInput hotfix [#176](https://github.com/TurkNet/design-system/pull/176) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.5.4 (Thu Nov 11 2021)
 
 #### 🐛 Bug Fix
