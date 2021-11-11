@@ -10,25 +10,26 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 export type DateInputProps = ReactDatePickerProps
 
+const years = [...Array(100).keys()].map(i => i + 1950).reverse()
+const months = [
+  'OCAK',
+  'ŞUBAT',
+  'MART',
+  'NİSAN',
+  'MAYIS',
+  'HAZİRAN',
+  'TEMMUZ',
+  'AĞUSTOS',
+  'EYLÜL',
+  'EKİM',
+  'KASIM',
+  'ARALIK',
+]
+
 export const DateInput: FC<DateInputProps> = ({
   dateFormat = 'dd/MM/yyyy',
   ...props
 }) => {
-  const years = [...Array(100).keys()].map(i => i + 1950).reverse()
-  const months = [
-    'OCAK',
-    'ŞUBAT',
-    'MART',
-    'NİSAN',
-    'MAYIS',
-    'HAZİRAN',
-    'TEMMUZ',
-    'AĞUSTOS',
-    'EYLÜL',
-    'EKİM',
-    'KASIM',
-    'ARALIK',
-  ]
   return (
     <ContainerStyled>
       <DatePicker
