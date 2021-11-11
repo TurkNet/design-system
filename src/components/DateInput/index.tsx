@@ -10,7 +10,10 @@ import 'react-datepicker/dist/react-datepicker.css'
 
 export type DateInputProps = ReactDatePickerProps
 
-export const DateInput: FC<DateInputProps> = ({ ...props }) => {
+export const DateInput: FC<DateInputProps> = ({
+  dateFormat = 'dd/MM/yyyy',
+  ...props
+}) => {
   const years = [...Array(100).keys()].map(i => i + 1950).reverse()
   const months = [
     'OCAK',
@@ -29,9 +32,9 @@ export const DateInput: FC<DateInputProps> = ({ ...props }) => {
   return (
     <ContainerStyled>
       <DatePicker
-        dateFormat="dd/MM/yyyy"
         withPortal
         fixedHeight
+        dateFormat={dateFormat}
         showDisabledMonthNavigation
         customInput={
           <Input icon={<Icon name="date_range" color="grey.600" />} />
