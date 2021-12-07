@@ -7,12 +7,19 @@ export interface IconProps
   name: string
   size?: number
   color?: string
+  className?: string
 }
 
-export const Icon: FC<IconProps> = ({ name, size = 24, color, ...props }) => {
+export const Icon: FC<IconProps> = ({
+  name,
+  size = 24,
+  color,
+  className = '',
+  ...props
+}) => {
   return (
     <IconStyled
-      className="material-icons"
+      className={`material-icons ${className}`}
       fontSize={size}
       color={color}
       {...props}
