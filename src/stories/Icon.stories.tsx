@@ -22,7 +22,7 @@ const Template: Story<IconProps> = args => (
 
 export const Standart = Template.bind({})
 Standart.args = {
-  name: 'dashboard',
+  name: 'home',
 }
 
 Standart.argTypes = {
@@ -42,7 +42,12 @@ Standart.argTypes = {
   name: {
     control: {
       type: 'select',
-      options: ['dashboard', 'edit', 'loading'],
+      options: ['dashboard', 'edit', 'loading', 'favorite_border', 'home'],
+    },
+  },
+  outlined: {
+    control: {
+      type: 'boolean',
     },
   },
 }
