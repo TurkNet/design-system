@@ -20,7 +20,7 @@ export const Icon: FC<IconProps> = ({
   const cs = outlined ? '-outlined' : ''
   return (
     <IconStyled
-      className={`material-icons${cs}`}
+      className={`custom-icons material-icons${cs}`}
       fontSize={size}
       color={color}
       {...props}
