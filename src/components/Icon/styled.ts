@@ -5,9 +5,11 @@ import { prop } from '../../utility'
 export type IconStyledProps = TypographyProps & ColorProps
 
 export const IconStyled = styled.span<IconStyledProps>`
-  ${typography}
-  ${color}
-  width: ${prop('fontSize')}px;
-  overflow: hidden;
-  display: block;
+  &.custom-icons {
+    ${typography}
+    ${color}
+    width: ${prop('fontSize')}px;
+    overflow: hidden;
+    display: block;
+  }
 `
