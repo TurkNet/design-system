@@ -4,7 +4,10 @@ import { Button } from '../Button'
 import { Checkbox } from '../Checkbox'
 import { noop } from '../../utility'
 import { Icon } from '../Icon'
+import { CircleLoader } from '../Loader'
+import { Typography } from '../Typography'
 import {
+  TableLoading,
   TableStyled,
   TableTdStyled,
   TableThStyled,
@@ -26,6 +29,7 @@ export interface TableProps {
   onSort?(param: ISort): void
   onCheck?(param: any[]): void
   onAddClick?(): void
+  loading?: boolean
 }
 
 const SortMap: ISort = {
@@ -44,6 +48,7 @@ export const Table: FC<TableProps> = ({
   onAddClick,
   onSort = noop,
   onCheck = noop,
+  loading,
   ...props
 }) => {
   const [sort, setSort] = useState<ISort>({})
@@ -118,25 +123,50 @@ export const Table: FC<TableProps> = ({
             })}
           </TableTrStyled>
         </thead>
-        <tbody>
-          {enableAdd && (
+        {loading ? (
+          <TableTrStyled>
+            <TableTdStyled colSpan={columns.length + 1}>
+              <Flex
+                justifyContent="center"
+                flexDirection="column"
+                alignItems="center"
+                width={1}
+              >
+                <TableLoading>
+                  <CircleLoader />
+                </TableLoading>
+              </Flex>
+            </TableTdStyled>
+          </TableTrStyled>
+        ) : (
+          <tbody>
             <TableTrStyled>
               <TableTdStyled colSpan={columns.length + 1}>
-                <Flex justifyContent="center" width={1}>
-                  <Button
-                    variant="ghost"
-                    onClick={onAddClick}
-                    icon={<Icon name="add" />}
-                    alignment="left"
-                  >
-                    {buttonText}
-                  </Button>
+                <Flex
+                  justifyContent="center"
+                  flexDirection="column"
+                  alignItems="center"
+                  width={1}
+                >
+                  {enableAdd && (
+                    <Button
+                      variant="ghost"
+                      onClick={onAddClick}
+                      icon={<Icon name="add" />}
+                      alignment="left"
+                    >
+                      {buttonText}
+                    </Button>
+                  )}
+                  {!rows?.length && (
+                    <Typography variant="paragraph1" my={60}>
+                      No data available
+                    </Typography>
+                  )}
                 </Flex>
               </TableTdStyled>
             </TableTrStyled>
-          )}
-          {rows?.map((row: any) => {
-            return (
+            {rows?.map((row: any) => (
               <TableTrStyled key={row[rowId]}>
                 {selectable && (
                   <TableTdStyled>
@@ -159,9 +189,9 @@ export const Table: FC<TableProps> = ({
                   )
                 })}
               </TableTrStyled>
-            )
-          })}
-        </tbody>
+            ))}
+          </tbody>
+        )}
       </TableStyled>
     </Wrapped>
   )
