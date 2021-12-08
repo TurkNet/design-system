@@ -1,3 +1,16 @@
+# v0.5.9 (Wed Dec 08 2021)
+
+#### 🐛 Bug Fix
+
+- Release [#196](https://github.com/TurkNet/design-system/pull/196) ([@birkankervan](https://github.com/birkankervan) [@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 2
+
+- Emre Birkan Kervan ([@birkankervan](https://github.com/birkankervan))
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.5.8 (Wed Dec 08 2021)
 
 #### 🐛 Bug Fix
