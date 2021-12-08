@@ -140,32 +140,35 @@ export const Table: FC<TableProps> = ({
           </TableTrStyled>
         ) : (
           <tbody>
-            <TableTrStyled>
-              <TableTdStyled colSpan={columns.length + 1}>
-                <Flex
-                  justifyContent="center"
-                  flexDirection="column"
-                  alignItems="center"
-                  width={1}
-                >
-                  {enableAdd && (
-                    <Button
-                      variant="ghost"
-                      onClick={onAddClick}
-                      icon={<Icon name="add" />}
-                      alignment="left"
-                    >
-                      {buttonText}
-                    </Button>
-                  )}
-                  {!rows?.length && (
-                    <Typography variant="paragraph1" my={60}>
-                      No data available
-                    </Typography>
-                  )}
-                </Flex>
-              </TableTdStyled>
-            </TableTrStyled>
+            {(enableAdd || !rows?.length) && (
+              <TableTrStyled>
+                <TableTdStyled colSpan={columns.length + 1}>
+                  <Flex
+                    justifyContent="center"
+                    flexDirection="column"
+                    alignItems="center"
+                    width={1}
+                  >
+                    {enableAdd && (
+                      <Button
+                        variant="ghost"
+                        onClick={onAddClick}
+                        icon={<Icon name="add" />}
+                        alignment="left"
+                      >
+                        {buttonText}
+                      </Button>
+                    )}
+                    {!rows?.length && (
+                      <Typography variant="paragraph1" my={60}>
+                        No data available
+                      </Typography>
+                    )}
+                  </Flex>
+                </TableTdStyled>
+              </TableTrStyled>
+            )}
+
             {rows?.map((row: any) => (
               <TableTrStyled key={row[rowId]}>
                 {selectable && (
