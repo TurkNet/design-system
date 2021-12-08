@@ -7,17 +7,17 @@ export interface IconProps
   name: string
   size?: number
   color?: string
-  className?: 'outlined' | 'sharp' | 'two-tone' | 'round'
+  outlined?: boolean
 }
 
 export const Icon: FC<IconProps> = ({
   name,
   size = 24,
   color,
-  className,
+  outlined,
   ...props
 }) => {
-  const cs = className ? `-${className}` : ''
+  const cs = outlined ? '-outlined' : ''
   return (
     <IconStyled
       className={`material-icons${cs}`}

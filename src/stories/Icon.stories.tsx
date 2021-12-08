@@ -45,10 +45,9 @@ Standart.argTypes = {
       options: ['dashboard', 'edit', 'loading', 'favorite_border', 'home'],
     },
   },
-  className: {
+  outlined: {
     control: {
-      type: 'select',
-      options: ['', 'outlined', 'sharp', 'two-tone', 'round'],
+      type: 'boolean',
     },
   },
 }
