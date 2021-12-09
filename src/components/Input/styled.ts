@@ -9,6 +9,7 @@ import {
   space,
   switchProp,
   ifProp,
+  fontWeight,
 } from '../../utility/styled'
 
 export interface InputStyledProps extends SpaceProps {
@@ -21,6 +22,10 @@ const variantStyle = (variant: string, secondary?: string) => css`
   :enabled:focus,
   :enabled:active {
     border-color: ${color(`${variant}.normal`)};
+
+    ::placeholder {
+      font-weight: ${fontWeight('semi-bold')};
+    }
   }
 `
 
