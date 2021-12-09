@@ -65,11 +65,15 @@ const rows = [
 
 const Template: Story<TableProps> = ({ ...props }) => {
   const [list, setList] = useState<any[]>([])
+  const [empty, setEmpty] = useState(false)
   return (
     <Box height="1000px">
+      <Button onClick={() => setEmpty(!empty)}>
+        {empty ? 'Fill Data' : 'Clear Data'}
+      </Button>
       <Table
         {...props}
-        rows={rows}
+        rows={empty ? [] : rows}
         columns={columns}
         onSort={console.log}
         onCheck={row => setList(row)}
