@@ -16,6 +16,7 @@ export const Wrapped = styled.div`
 export const TableStyled = styled.table`
   width: 100%;
   border-collapse: collapse;
+  position: relative;
 `
 export const TableThStyled = styled.th<Record<string, any>>`
   position: relative;
@@ -51,4 +52,11 @@ export const TableTrStyled = styled.tr`
 export const TableTdStyled = styled.td`
   height: 48px;
   padding: 0 16px 0 16px;
+`
+
+export const TableLoading = styled.div`
+  display: table-row;
+  margin: 60px auto;
+  justify-content: center;
+  align-items: center;
 `
