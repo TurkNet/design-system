@@ -31,7 +31,6 @@ export const OverlayStyled = styled.ul<Record<'placement', 'top' | 'bottom'>>`
 `
 
 export const OptionStyled = styled.li<Record<'active', any>>`
-  padding: 0;
   list-style: none;
   font-size: 15px;
   font-weight: 600;
