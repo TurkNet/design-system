@@ -50,4 +50,10 @@ Standart.argTypes = {
       type: 'boolean',
     },
   },
+  cursor: {
+    control: {
+      type: 'select',
+      options: ['pointer', '', 'grabbing'],
+    },
+  },
 }
