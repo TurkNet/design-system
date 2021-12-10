@@ -10,7 +10,6 @@ import {
 export const Wrapped = styled.div`
   border: 2px solid ${color('grey.400')};
   border-radius: ${borderRadius('large')};
-  overflow: hidden;
 `
 
 export const TableStyled = styled.table`
@@ -24,7 +23,7 @@ export const TableThStyled = styled.th<Record<string, any>>`
   padding: 16px;
   font-size: ${fontSize('15')};
   font-weight: ${fontWeight('semi-bold')};
-  background-color: ${color('grey.100')};
+  background-color: transparent !important;
   text-align: left;
   border-style: solid;
   border-color: ${color('grey.400')};
@@ -46,6 +45,14 @@ export const TableThStyled = styled.th<Record<string, any>>`
 export const TableTrStyled = styled.tr`
   :nth-child(even) {
     background-color: ${color('grey.200')};
+  }
+  :last-child {
+    td:first-child {
+      border-bottom-left-radius: 4px;
+    }
+    td:last-child {
+      border-bottom-right-radius: 4px;
+    }
   }
 `
 
