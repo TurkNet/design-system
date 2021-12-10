@@ -8,6 +8,7 @@ import {
   TypographyProps,
   variant,
 } from 'styled-system'
+import { prop } from '../../utility/styled'
 
 const variants = {
   h1: {
@@ -82,15 +83,15 @@ export interface TypographyStyledProps
     ColorProps {
   variant?: IVariant
   color?: string
+  cursor?: string
 }
 
-export const TypographyStyled = styled('div')<TypographyStyledProps>(
-  {
-    padding: 0,
-    margin: 0,
-  },
-  variant({ variants }),
-  typography,
-  color,
-  space
-)
+export const TypographyStyled = styled.div<TypographyStyledProps>`
+  padding: 0;
+  margin: 0;
+  cursor: ${prop('cursor', 'default')};
+  ${variant({ variants })};
+  ${typography};
+  ${color};
+  ${space};
+`

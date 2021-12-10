@@ -15,6 +15,7 @@ export const Icon: FC<IconProps> = ({
   size = 24,
   color,
   outlined,
+  cursor,
   ...props
 }) => {
   const cs = outlined ? '-outlined' : ''
@@ -23,6 +24,7 @@ export const Icon: FC<IconProps> = ({
       className={`custom-icons material-icons${cs}`}
       fontSize={size}
       color={color}
+      cursor={cursor}
       {...props}
     >
       {name}
