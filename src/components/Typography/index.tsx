@@ -22,10 +22,16 @@ const tags = {
 export const Typography: FC<TypographyProps> = ({
   variant = 'paragraph1',
   children,
+  cursor,
   ...props
 }) => {
   return (
-    <TypographyStyled as={tags[variant] as any} variant={variant} {...props}>
+    <TypographyStyled
+      as={tags[variant] as any}
+      variant={variant}
+      cursor={cursor}
+      {...props}
+    >
       {children}
     </TypographyStyled>
   )

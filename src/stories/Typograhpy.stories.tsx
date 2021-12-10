@@ -64,3 +64,12 @@ Standart.args = {
   color: 'grey.800',
   textAlign: 'left',
 }
+
+Standart.argTypes = {
+  cursor: {
+    control: {
+      type: 'select',
+      options: ['pointer', 'grabbing', ''],
+    },
+  },
+}

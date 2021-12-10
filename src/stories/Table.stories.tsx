@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Story } from '@storybook/react'
-import { Table, TableProps, Box, Icon, Button, Checkbox } from '../components'
+import { Table, TableProps, Box, Icon, Button } from '../components'
 
 export default {
   title: 'Design System/Table',
