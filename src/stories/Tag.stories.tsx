@@ -22,6 +22,11 @@ Standart.args = {
   variant: 'fill',
   color: 'primary',
   icon: 'close',
+  m: 0,
+  mt: 0,
+  mb: 0,
+  mr: 0,
+  ml: 0,
 }
 
 Standart.argTypes = {
