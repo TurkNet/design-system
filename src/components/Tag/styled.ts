@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components'
+import { space, SpaceProps } from 'styled-system'
 import { propColor, color, switchProp } from '../../utility/styled'
 
-export interface TagStyledProps {
+export interface TagStyledProps extends SpaceProps {
   variant?: keyof typeof variants
   color?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'sky'
 }
@@ -29,7 +30,7 @@ export const TagStyled = styled.div<TagStyledProps>`
   border-radius: 12px;
   display: inline-flex;
   align-items: center;
-
+  ${space}
   ${switchProp('variant', variants)}
 
   * {
