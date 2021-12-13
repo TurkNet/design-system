@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { space, SpaceProps } from 'styled-system'
 import {
   propColor,
   borderRadius,
@@ -7,7 +8,7 @@ import {
   fontWeight,
 } from '../../utility/styled'
 
-export interface AlertStyledProps {
+export interface AlertStyledProps extends SpaceProps {
   severity: 'success' | 'warning' | 'danger' | 'info'
 }
 
@@ -19,5 +20,6 @@ export const AlertStyled = styled.div<AlertStyledProps>`
   font-weight: ${fontWeight('semi-bold')};
   line-height: 1.6;
   padding: 12px 16px 12px 12px;
-  border-left: 4px solid ${propColor('normal')}; ;
+  border-left: 4px solid ${propColor('normal')};
+  ${space}
 `
