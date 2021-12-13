@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { space, SpaceProps } from 'styled-system'
 import {
   propColor,
   color,
@@ -7,7 +8,7 @@ import {
   fontSize,
 } from '../../utility/styled'
 
-export interface BadgeStyledProps {
+export interface BadgeStyledProps extends SpaceProps {
   variant?: keyof typeof variants
   color?: 'primary' | 'success' | 'info' | 'warning' | 'danger' | 'sky'
 }
@@ -36,6 +37,6 @@ export const BadgeStyled = styled.div<BadgeStyledProps>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
+  ${space}
   ${switchProp('variant', variants)}
 `
