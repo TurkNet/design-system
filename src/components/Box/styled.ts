@@ -3,17 +3,24 @@ import {
   space,
   layout,
   color,
+  position,
+  flexbox,
+  FlexboxProps,
+  PositionProps,
   SpaceProps,
   LayoutProps,
   ColorProps,
 } from 'styled-system'
-import { prop } from '../../utility/styled'
 
-export type BoxStyledProps = SpaceProps & LayoutProps & ColorProps
+export type BoxStyledProps = SpaceProps &
+  LayoutProps &
+  ColorProps &
+  PositionProps &
+  FlexboxProps
 
 export const BoxStyled = styled.div<BoxStyledProps>`
-  flex: ${prop('flex')};
-  position: ${prop('position', 'unset')};
+  ${flexbox}
+  ${position}
   ${space}
   ${layout}
   ${color}
