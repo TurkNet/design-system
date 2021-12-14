@@ -65,7 +65,7 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
       setTimeout(() => {
         setOpen(false)
         onToggle(false)
-      }, 150)
+      }, 300)
       setInputValue(value && value[labelKey])
     }
 
