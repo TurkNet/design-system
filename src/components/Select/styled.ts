@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Input } from '../Input'
 import { color, ifProp } from '../../utility/styled'
 
@@ -28,7 +28,7 @@ export const OverlayStyled = styled.ul<Record<string, any>>`
   z-index: 100;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03), -5px 5px 5px rgba(0, 0, 0, 0.03);
   display: ${ifProp('show', 'block', 'none')};
-  z-index: 2;
+  z-index: 3;
 `
 export const BgStyled = styled.div<Record<string, any>>`
   position: fixed;
@@ -38,7 +38,7 @@ export const BgStyled = styled.div<Record<string, any>>`
   width: 100%;
   background: transparent;
   display: ${ifProp('show', 'block', 'none')};
-  z-index: 1;
+  z-index: 2;
 `
 
 export const OptionStyled = styled.li<Record<'active', any>>`
