@@ -17,7 +17,6 @@ const Template: Story<SelectProps> = ({ ...args }) => {
   const [options, setOptions] = useState<any[]>([])
 
   const onSearch = (value: string) => {
-    console.log(value)
     setValue(value)
     setOptions(Options.filter(i => i.name.includes(value)))
   }

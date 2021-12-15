@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { Input } from '../Input'
 import { color, ifProp } from '../../utility/styled'
 
@@ -14,7 +14,7 @@ export const InputStyled = styled(Input)<Record<'searchable', boolean>>`
   background-color: transparent;
 `
 
-export const OverlayStyled = styled.ul<Record<'placement', 'top' | 'bottom'>>`
+export const OverlayStyled = styled.ul<Record<string, any>>`
   width: 100%;
   margin: 4px 0 0 0;
   border-radius: 4px;
@@ -27,7 +27,18 @@ export const OverlayStyled = styled.ul<Record<'placement', 'top' | 'bottom'>>`
   background-color: ${color('grey.100')};
   z-index: 100;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03), -5px 5px 5px rgba(0, 0, 0, 0.03);
-  ${ifProp({ placement: 'top' }, 'bottom: 100%;', 'top: 100%;')}
+  display: ${ifProp('show', 'block', 'none')};
+  z-index: 2;
+`
+export const BgStyled = styled.div<Record<string, any>>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  display: ${ifProp('show', 'block', 'none')};
+  z-index: 1;
 `
 
 export const OptionStyled = styled.li<Record<'active', any>>`

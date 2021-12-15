@@ -1,15 +1,10 @@
-import React, {
-  ReactNode,
-  useState,
-  useEffect,
-  ChangeEvent,
-  MouseEvent,
-} from 'react'
+import React, { ReactNode, useState, useEffect } from 'react'
 import {
   SelectStyled,
   InputStyled,
   OverlayStyled,
   OptionStyled,
+  BgStyled,
 } from './styled'
 import { Icon } from '../Icon'
 import { noop } from '../../utility'
@@ -25,7 +20,6 @@ export type SearchSelectProps = {
   options: IOption[]
   locale?: string
   icon?: ReactNode
-  placement?: 'top' | 'bottom'
   onSelect(value: IOption | undefined): void
   onSearch(value: string): void
   onToggle?(open: boolean): void
@@ -44,7 +38,6 @@ export const SearchSelect = React.forwardRef<
       value = '',
       placeholder = 'Seçiniz',
       icon,
-      placement = 'bottom',
       onSelect = noop,
       onToggle = noop,
       onSearch = noop,
@@ -56,20 +49,14 @@ export const SearchSelect = React.forwardRef<
     const [searchValue, setSearchValue] = useState(value)
     const [selected, setSelected] = useState<IOption>({})
 
-    const handleToggle = (e: MouseEvent) => {
-      e.preventDefault()
-      e.stopPropagation()
+    const handleToggle = () => {
       setOpen(!open)
       onToggle(!open)
     }
 
-    const onBlur = (e: ChangeEvent) => {
-      e.preventDefault()
-      e.stopPropagation()
-      setTimeout(() => {
-        setOpen(false)
-        onToggle(false)
-      }, 150)
+    const onClose = () => {
+      setOpen(false)
+      onToggle(false)
       onSelect(selected)
     }
 
@@ -77,12 +64,15 @@ export const SearchSelect = React.forwardRef<
       setSearchValue(option[labelKey])
       setSelected(option)
       onSelect(option)
+      handleToggle()
     }
 
     useEffect(() => {
       setSearchValue(value)
       setSelected({})
     }, [value])
+
+    const show = open && options.length > 0
 
     return (
       <SelectStyled>
@@ -94,7 +84,6 @@ export const SearchSelect = React.forwardRef<
           placeholder={placeholder}
           autoComplete="off"
           onClick={handleToggle}
-          onBlur={onBlur}
           searchable
           icon={
             icon || (
@@ -111,23 +100,20 @@ export const SearchSelect = React.forwardRef<
           type="hidden"
           defaultValue={selected[valueKey] || ''}
         />
-        {open && options.length > 0 && (
-          <OverlayStyled placement={placement}>
-            {options.map(option => (
-              <OptionStyled
-                key={option[labelKey]}
-                active={value && option[labelKey] === value}
-                onClick={e => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  handleSelect(option)
-                }}
-              >
-                {option[labelKey]}
-              </OptionStyled>
-            ))}
-          </OverlayStyled>
-        )}
+        <BgStyled show={show} onClick={onClose} />
+        <OverlayStyled show={show}>
+          {options.map(option => (
+            <OptionStyled
+              key={option[labelKey]}
+              active={value && option[labelKey] === value}
+              onClick={() => {
+                handleSelect(option)
+              }}
+            >
+              {option[labelKey]}
+            </OptionStyled>
+          ))}
+        </OverlayStyled>
       </SelectStyled>
     )
   }

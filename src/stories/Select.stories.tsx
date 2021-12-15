@@ -39,9 +39,6 @@ const Template: Story<SelectProps> = ({ ...args }) => {
       <br />
       <br />
       <br />
-      <br />
-      <br />
-      <br />
 
       <Select
         {...args}
@@ -50,7 +47,6 @@ const Template: Story<SelectProps> = ({ ...args }) => {
         name="select-input"
         labelKey="name"
         variant="danger"
-        placement="top"
         options={[
           { name: 'Option 1', id: '1' },
           { name: 'Option 2', id: '2' },
