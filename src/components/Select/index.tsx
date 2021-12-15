@@ -1,15 +1,10 @@
-import React, {
-  useState,
-  useEffect,
-  ReactNode,
-  ChangeEvent,
-  MouseEvent,
-} from 'react'
+import React, { useState, useEffect, ReactNode, ChangeEvent } from 'react'
 import {
   SelectStyled,
   InputStyled,
   OverlayStyled,
   OptionStyled,
+  BgStyled,
 } from './styled'
 import { Icon } from '../Icon'
 import type { InputProps } from '../Input'
@@ -24,7 +19,6 @@ export type SelectProps = {
   locale?: string
   icon?: ReactNode
   searchable?: boolean
-  placement?: 'top' | 'bottom'
   onSelect(value: IOption | undefined): void
   onToggle?(open: boolean): void
 } & Omit<InputProps, 'onSelect' | 'value'>
@@ -39,7 +33,6 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
       locale = 'tr-TR',
       icon,
       searchable = false,
-      placement = 'bottom',
       onSelect = noop,
       onToggle = noop,
       ...props
@@ -52,26 +45,18 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
       (value && value[labelKey]) || ''
     )
 
-    const handleToggle = (e: MouseEvent) => {
-      e.preventDefault()
-      e.stopPropagation()
+    const handleToggle = () => {
       setOpen(!open)
       onToggle(!open)
     }
 
-    const onBlur = (e: ChangeEvent) => {
-      e.preventDefault()
-      e.stopPropagation()
-      setTimeout(() => {
-        setOpen(false)
-        onToggle(false)
-      }, 300)
+    const onClose = () => {
+      setOpen(false)
+      onToggle(false)
       setInputValue(value && value[labelKey])
     }
 
     const onChange = (evt: ChangeEvent<HTMLInputElement>) => {
-      evt.preventDefault()
-      evt.stopPropagation()
       if (!searchable) {
         return
       }
@@ -89,6 +74,8 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
       setInputValue(value && value[labelKey])
     }, [value, labelKey])
 
+    const show = open && optionList.length > 0
+
     return (
       <SelectStyled>
         <InputStyled
@@ -100,7 +87,6 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
           placeholder={placeholder}
           autoComplete="off"
           onClick={handleToggle}
-          onBlur={onBlur}
           searchable={searchable}
           icon={
             icon || (
@@ -111,23 +97,21 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
             )
           }
         />
-        {open && optionList.length > 0 && (
-          <OverlayStyled placement={placement}>
-            {optionList.map(option => (
-              <OptionStyled
-                key={option[labelKey]}
-                active={value && option[labelKey] === value[labelKey]}
-                onClick={e => {
-                  e.preventDefault()
-                  e.stopPropagation()
-                  onSelect(option)
-                }}
-              >
-                {option[labelKey]}
-              </OptionStyled>
-            ))}
-          </OverlayStyled>
-        )}
+        <BgStyled show={show} onClick={onClose} />
+        <OverlayStyled show={show}>
+          {optionList.map(option => (
+            <OptionStyled
+              key={option[labelKey]}
+              active={value && option[labelKey] === value[labelKey]}
+              onClick={() => {
+                onClose()
+                onSelect(option)
+              }}
+            >
+              {option[labelKey]}
+            </OptionStyled>
+          ))}
+        </OverlayStyled>
       </SelectStyled>
     )
   }
