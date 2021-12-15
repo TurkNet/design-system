@@ -10,7 +10,12 @@ export default {
 const Template: Story<DateInputProps> = args => {
   const [date, setDate] = useState<any>(new Date())
   return (
-    <DateInput {...args} selected={date} onChange={date => setDate(date)} />
+    <DateInput
+      {...args}
+      selected={date}
+      onChange={date => setDate(date)}
+      variant="danger"
+    />
   )
 }
 
