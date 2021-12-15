@@ -54,7 +54,9 @@ export const SearchSelect = React.forwardRef<
       onToggle(!open)
     }
 
-    const onClose = () => {
+    const onClose = (e: MouseEvent) => {
+      e.stopPropagation()
+      e.preventDefault()
       setOpen(false)
       onToggle(false)
       onSelect(selected)
@@ -106,7 +108,9 @@ export const SearchSelect = React.forwardRef<
             <OptionStyled
               key={option[labelKey]}
               active={value && option[labelKey] === value}
-              onClick={() => {
+              onClick={e => {
+                e.stopPropagation()
+                e.preventDefault()
                 handleSelect(option)
               }}
             >
