@@ -1,4 +1,10 @@
-import React, { useState, useEffect, ReactNode, ChangeEvent } from 'react'
+import React, {
+  useState,
+  useEffect,
+  ReactNode,
+  ChangeEvent,
+  MouseEvent,
+} from 'react'
 import {
   SelectStyled,
   InputStyled,
@@ -46,11 +52,14 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
     )
 
     const handleToggle = () => {
-      setOpen(!open)
-      onToggle(!open)
+      const isOpen = !open
+      setOpen(isOpen)
+      onToggle(isOpen)
     }
 
-    const onClose = () => {
+    const onClose = (e: MouseEvent) => {
+      e.stopPropagation()
+      e.preventDefault()
       setOpen(false)
       onToggle(false)
       setInputValue(value && value[labelKey])
@@ -103,9 +112,9 @@ export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
             <OptionStyled
               key={option[labelKey]}
               active={value && option[labelKey] === value[labelKey]}
-              onClick={() => {
-                onClose()
+              onClick={e => {
                 onSelect(option)
+                onClose(e)
               }}
             >
               {option[labelKey]}
