@@ -13,11 +13,19 @@ const StandartTemplate: Story<AccordionProps> = props => (
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
       voluptate distinctio hic esse suscipit porro officiis et dolores minima.
     </AccordionItem>
-    <AccordionItem summary="Başlık 2">
+    <AccordionItem summary="Başlık 2 Başlık 2 Başlık 2 Başlık 2 Başlık 2 Başlık 2 Başlık 2 Başlık 2 Başlık 2 Başlık 2 Başlık 2 Başlık 2 Başlık 2 Başlık 2 Başlık 2 Başlık ">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
       voluptate distinctio hic esse suscipit porro officiis et dolores minima.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
+      voluptate distinctio hic esse suscipit porro officiis et dolores minima.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
+      voluptate distinctio hic esse suscipit porro officiis et dolores minima.s
     </AccordionItem>
     <AccordionItem summary="Başlık 3">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
+      voluptate distinctio hic esse suscipit porro officiis et dolores minima.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
+      voluptate distinctio hic esse suscipit porro officiis et dolores minima.
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
       voluptate distinctio hic esse suscipit porro officiis et dolores minima.
     </AccordionItem>
