@@ -56,6 +56,11 @@ const Template: Story<TypographyProps> = args => (
     <Typography {...args} variant="label">
       LABEL
     </Typography>
+    <Typography {...args} variant="paragraph1">
+      <Typography {...args} variant="span">
+        Inherit SPAN
+      </Typography>
+    </Typography>
   </GridLine>
 )
 
