@@ -10,6 +10,12 @@ export const SummaryStyled = styled(Flex)`
   font-size: ${fontSize('15')};
   font-weight: ${fontWeight('semi-bold')};
   padding: 12px 0;
+  position: relative;
+  padding-right: 40px;
+  span {
+    position: absolute;
+    right: 16px;
+  }
 `
 interface BorderProps {
   expanded: boolean
