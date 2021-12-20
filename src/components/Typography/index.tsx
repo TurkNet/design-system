@@ -17,6 +17,7 @@ const tags = {
   caption1: 'span',
   caption2: 'span',
   label: 'label',
+  span: 'span',
 }
 
 export const Typography: FC<TypographyProps> = ({
