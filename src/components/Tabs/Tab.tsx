@@ -15,9 +15,14 @@ export const Tab: FC<TabProps> = ({
   tabId,
   currentTabId,
   onClick = noop,
+  ...props
 }) => {
   return (
-    <TabStyled isActive={currentTabId === tabId} onClick={() => onClick(tabId)}>
+    <TabStyled
+      isActive={currentTabId === tabId}
+      onClick={() => onClick(tabId)}
+      {...props}
+    >
       {label || children}
     </TabStyled>
   )
