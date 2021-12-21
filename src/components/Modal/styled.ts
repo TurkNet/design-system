@@ -30,7 +30,6 @@ export const ModalContentStyled = styled(Box)`
   overflow: auto;
   background-color: ${color('grey.100')};
   box-shadow: 0 4px 16px 0 ${color('grey.700')};
-  border: 2px solid ${color('grey.400')};
   border-radius: 8px;
   z-index: 2;
   animation: ${zoomIn} 0.3s ease-out;

@@ -6,6 +6,7 @@ export interface ButtonProps
     HTMLAttributes<HTMLButtonElement> {
   value?: string
   icon?: React.ReactNode
+  type?: 'submit' | 'button' | 'reset'
 }
 
 export const Button: FC<ButtonProps> = ({
