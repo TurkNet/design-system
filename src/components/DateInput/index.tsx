@@ -83,14 +83,13 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
     })
 
     const formatDates = () => {
-      if (!selectsRange) {
-        return formatDate(selected, dateFormat)
+      if (Array.isArray(selected)) {
+        return selected
+          ?.map(date => formatDate(date, dateFormat))
+          .filter(i => i)
+          .join(' - ')
       }
-
-      const startDate = formatDate(selected?.[0], dateFormat)
-      const endDate = formatDate(selected?.[1], dateFormat)
-
-      return [startDate, endDate].filter(i => i).join(' - ')
+      return formatDate(selected, dateFormat)
     }
 
     let opts: Record<string, any> = { selected }
