@@ -26,7 +26,7 @@ const Template: Story = ({ ...args }) => {
     <>
       <Tabs {...args}>
         <MyTab tabId={1}>
-          <Flex p={0} m={0} alignItems="center">
+          <Flex alignItems="center">
             <Icon name="add" />
             <Typography> Person</Typography>
           </Flex>
