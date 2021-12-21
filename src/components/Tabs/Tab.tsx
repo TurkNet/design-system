@@ -15,7 +15,6 @@ export const Tab: FC<TabProps> = ({
   tabId,
   currentTabId,
   onClick = noop,
-
   ...props
 }) => {
   return (

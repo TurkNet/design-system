@@ -8,7 +8,6 @@ export interface TabsProps {
 export const TabsStyled = styled.div<TabsProps>`
   display: flex;
   align-items: flex-end;
-
   ${ifProp(
     'fullWidth',
     css`
