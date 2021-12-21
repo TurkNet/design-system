@@ -26,7 +26,7 @@ const Template: Story = ({ ...args }) => {
     <>
       <Tabs {...args}>
         <MyTab tabId={1}>
-          <Flex alignItems="center">
+          <Flex p={0} m={0} alignItems="center">
             <Icon name="add" />
             <Typography> Person</Typography>
           </Flex>
@@ -50,7 +50,7 @@ const Template: Story = ({ ...args }) => {
       <br />
       <br />
       <br />
-      <br />
+      With Box
       <Box width={375}>
         <Tabs {...args}>
           <MyTab tabId={1}>TürkNetli Değilim</MyTab>
