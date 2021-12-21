@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
-import { TabsStyled } from './styled'
+import { TabsProps, TabsStyled } from './styled'
 
 export * from './Tab'
 export * from './TabPanel'
 
-export const Tabs: FC = ({ children }) => {
-  return <TabsStyled>{children}</TabsStyled>
+export const Tabs: FC<TabsProps> = ({ children, fullWidth }) => {
+  return <TabsStyled fullWidth={fullWidth}>{children}</TabsStyled>
 }

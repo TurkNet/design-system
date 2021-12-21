@@ -8,6 +8,7 @@ import {
   Icon,
   Flex,
   Typography,
+  Box,
 } from '../components'
 
 export default {
@@ -15,7 +16,7 @@ export default {
   component: Tabs,
 }
 
-const Template: Story = () => {
+const Template: Story = ({ ...args }) => {
   const [currentTabId, setCurrentTabId] = useState(1)
 
   const MyTab: FC<TabProps> = props => (
@@ -23,7 +24,7 @@ const Template: Story = () => {
   )
   return (
     <>
-      <Tabs>
+      <Tabs {...args}>
         <MyTab tabId={1}>
           <Flex alignItems="center">
             <Icon name="add" />
@@ -46,6 +47,22 @@ const Template: Story = () => {
       <TabPanel tabId={4} currentTabId={currentTabId}>
         Tab Panel 4
       </TabPanel>
+      <br />
+      <br />
+      <br />
+      <br />
+      <Box width={375}>
+        <Tabs {...args}>
+          <MyTab tabId={1}>TürkNetli Değilim</MyTab>
+          <MyTab tabId={2} label="TürkNet'liyim" />
+        </Tabs>
+        <TabPanel tabId={1} currentTabId={currentTabId}>
+          Tab Panel 1
+        </TabPanel>
+        <TabPanel tabId={2} currentTabId={currentTabId}>
+          Tab Panel 2
+        </TabPanel>
+      </Box>
     </>
   )
 }
