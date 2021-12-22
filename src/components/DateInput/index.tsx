@@ -92,7 +92,7 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
       return formatDate(selected, dateFormat)
     }
 
-    let opts: Record<string, any> = { selected }
+    let opts: Record<string, any> = { selected: value }
     if (selectsRange) {
       opts = {
         selectsRange,
@@ -122,8 +122,8 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
               fixedHeight
               dateFormat={dateFormat}
               showDisabledMonthNavigation
-              {...opts}
               {...props}
+              {...opts}
               onChange={onHandleChange}
               renderCustomHeader={({
                 date,
