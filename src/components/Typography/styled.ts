@@ -60,6 +60,10 @@ const variants = {
     fontSize: '12',
     fontWeight: 'bold',
   },
+  span: {
+    fontSize: 'inherit',
+    fontWeight: 'inherit',
+  },
 }
 
 export type IVariant = keyof typeof variants

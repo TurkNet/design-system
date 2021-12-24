@@ -15,6 +15,7 @@ export interface ModalProps {
   width?: number | string
   height?: number | string
   maxWidth?: number | string
+  showCloseIcon?: boolean
   onClosed?(): void
 }
 
@@ -27,6 +28,7 @@ export const Modal: FC<ModalProps> = ({
   width,
   maxWidth = '90%',
   height,
+  showCloseIcon = true,
   onClosed = noop,
 }) => {
   const [show, setShow] = useState(initialShow)
@@ -65,9 +67,11 @@ export const Modal: FC<ModalProps> = ({
         maxWidth={maxWidth}
         maxHeight="90%"
       >
-        <CrossIconStyled>
-          <Icon name="close" fontSize={24} onClick={onClose} />
-        </CrossIconStyled>
+        {showCloseIcon && (
+          <CrossIconStyled>
+            <Icon name="close" fontSize={24} onClick={onClose} />
+          </CrossIconStyled>
+        )}
         {children}
       </ModalContentStyled>
       <ModalGlobalStyle />
