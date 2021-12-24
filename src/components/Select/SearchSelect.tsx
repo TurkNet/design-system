@@ -69,6 +69,12 @@ export const SearchSelect = React.forwardRef<
       handleToggle()
     }
 
+    const handleKeypress = e => {
+      if (e.key === 'Enter') {
+        handleSelect(options[0])
+      }
+    }
+
     useEffect(() => {
       setSearchValue(value)
       setSelected({})
@@ -86,6 +92,7 @@ export const SearchSelect = React.forwardRef<
           placeholder={placeholder}
           autoComplete="off"
           onClick={handleToggle}
+          onKeyPress={handleKeypress}
           searchable
           icon={
             icon || (

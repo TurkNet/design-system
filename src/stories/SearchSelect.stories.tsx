@@ -18,7 +18,11 @@ const Template: Story<SelectProps> = ({ ...args }) => {
 
   const onSearch = (value: string) => {
     setValue(value)
-    setOptions(Options.filter(i => i.name.includes(value)))
+    setOptions(
+      Options.filter(i =>
+        i.name.toLowerCase().includes(value.toLocaleLowerCase())
+      )
+    )
   }
 
   return (
