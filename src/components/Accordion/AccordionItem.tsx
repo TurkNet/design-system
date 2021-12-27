@@ -11,7 +11,7 @@ interface AccordionItemProps extends FlexProps {
   expandedId?: string
   defaultExpanded?: boolean
   onExpand?: (expandedId: string) => void
-  onToggle?: () => void
+  onToggle?: (expanded?: boolean) => void
 }
 
 const AccordionItem: FC<AccordionItemProps> = ({
@@ -35,10 +35,10 @@ const AccordionItem: FC<AccordionItemProps> = ({
   }, [expandedId, id])
 
   const handleExpanded = () => {
-    onToggle()
     if (id) {
       onExpand(id)
     } else {
+      onToggle(!expanded)
       setExpanded(!expanded)
     }
   }
