@@ -19,7 +19,7 @@ import { Alert } from '@turk.net/design-system'
 
 const SampleComponent = () => {
   return (
-    <Alert severity="success">
+    <Alert severity="warning">
       This Alert Component, The severity property changes alert color.
     </Alert>
   )
