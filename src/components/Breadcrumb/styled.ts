@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
-import { color, fontSize, fontWeight, ifProp } from '../../utility'
+import styled from 'styled-components'
+import { color } from '../../utility'
 
 export const BreadCrumbStyled = styled.ul`
   list-style: none;
