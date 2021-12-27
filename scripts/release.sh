@@ -12,7 +12,6 @@ if [ ! -z "$VERSION" ]; then
   cd dist
   npm publish
 
-  
   ## Create GitHub Release
   git push --follow-tags --set-upstream origin $branch
   auto release --base-branch=main
