@@ -1,3 +1,15 @@
+# v0.5.19 (Mon Dec 27 2021)
+
+#### 🐛 Bug Fix
+
+- Hotfix/v0.5.19 [#242](https://github.com/TurkNet/design-system/pull/242) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.5.18 (Mon Dec 27 2021)
 
 #### 🐛 Bug Fix
