@@ -1,5 +1,6 @@
 export * from './Flex'
 export * from './Box'
+export * from './Breadcrumb'
 export * from './Card'
 export * from './Checkbox'
 export * from './Toggle'
