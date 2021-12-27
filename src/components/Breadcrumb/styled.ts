@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components'
-import { color, fontSize, fontWeight, ifProp } from '../../utility'
+import styled from 'styled-components'
+import { color } from '../../utility'
 
-export const BreadCrumbStyled = styled.ul`
+export const BreadCrumbStyled = styled.ol`
   list-style: none;
   display: flex;
   margin: 0;
@@ -12,26 +12,20 @@ export const BreadCrumbStyled = styled.ul`
 export const BreadCrumbItemStyled = styled.li`
   display: flex;
   margin: auto 8px auto 16px;
-  color: ${color('grey.700')};
-  opacity: 0.4;
+  color: ${color('grey.600')};
   align-items: center;
 
   *:hover {
     text-decoration: underline;
+    cursor: pointer;
+    color: ${color('primary.normal')};
   }
-
   &:last-child {
     color: ${color('primary.normal')};
-    opacity: 1;
   }
-  &:last-child:before {
-    opacity: 0.4;
-    color: ${color('grey.700')};
-  }
-
   &:not(:first-child):before {
     content: '›';
-    font-size: 16px;
-    color: ${color('grey.700')};
+
+    color: ${color('grey.600')};
   }
 `
