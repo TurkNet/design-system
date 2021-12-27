@@ -3,8 +3,8 @@
   "version": "0.5.17",
   "repository": "https://github.com/TurkNet/design-system.git",
   "author": "Recep Köseoğlu <recepkoseoglu@hotmail.com>",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "index.js",
+  "typings": "index.d.ts",
   "files": [
     "package.json",
     "dist",
@@ -14,13 +14,14 @@
   "scripts": {
     "start": "start-storybook -p 6006 -s public",
     "build": "build-storybook -s public",
-    "build-library": "tsc --project tsconfig.library.json",
+    "build-library": "rm -rf dist && tsc --project tsconfig.library.json",
     "clean": "rm -rf node_modules dist yarn.lock && yarn cache clean && yarn",
     "format": "prettier --write .",
     "lint": "tsc --noEmit && eslint . --fix",
     "chromatic": "chromatic --exit-zero-on-changes",
     "release": "auto shipit --base-branch=main",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "copypackage": "cp -rf package.json dist && cp -rf LICENSE dist"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
