@@ -9,7 +9,7 @@
     "start": "start-storybook -p 6006 -s public",
     "build": "build-storybook -s public",
     "build-library": "rm -rf dist && tsc --project tsconfig.library.json && yarn copypackage",
-    "copypackage": "cp -rf package.json dist && cp -rf LICENSE dist",
+    "copypackage": "cp -rf package.json LICENSE README.md dist",
     "clean": "rm -rf node_modules dist yarn.lock && yarn cache clean && yarn",
     "format": "prettier --write .",
     "lint": "tsc --noEmit && eslint . --fix",
