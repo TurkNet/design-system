@@ -1,6 +1,6 @@
 {
   "name": "@turk.net/design-system",
-  "version": "0.5.19",
+  "version": "0.6.0",
   "repository": "https://github.com/TurkNet/design-system.git",
   "author": "Recep Köseoğlu <recepkoseoglu@hotmail.com>",
   "main": "index.js",
@@ -9,14 +9,13 @@
     "start": "start-storybook -p 6006 -s public",
     "build": "build-storybook -s public",
     "build-library": "rm -rf dist && tsc --project tsconfig.library.json && yarn copypackage",
+    "copypackage": "cp -rf package.json dist && cp -rf LICENSE dist",
     "clean": "rm -rf node_modules dist yarn.lock && yarn cache clean && yarn",
     "format": "prettier --write .",
     "lint": "tsc --noEmit && eslint . --fix",
+    "postinstall": "husky install",
     "chromatic": "chromatic --exit-zero-on-changes",
-    "release": "auto shipit --base-branch=main",
-    "prepare": "husky install",
-    "copypackage": "cp -rf package.json dist && cp -rf LICENSE dist",
-    "publish-library": "cd dist && yarn release"
+    "release": "./scripts/release.sh"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
