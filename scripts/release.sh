@@ -11,6 +11,7 @@ if [ ! -z "$VERSION" ]; then
   npm version $VERSION -m "Bump version to: %s [skip ci]"
   cd dist
   npm publish
+  cd ..
 
   ## Create GitHub Release
   git push --follow-tags --set-upstream origin $branch
