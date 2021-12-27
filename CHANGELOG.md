@@ -6,6 +6,29 @@
 
 #### 🐛 Bug Fix
 
+- release fix [#253](https://github.com/TurkNet/design-system/pull/253) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- release fix [#251](https://github.com/TurkNet/design-system/pull/251) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- Release [#250](https://github.com/TurkNet/design-system/pull/250) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- Release [#249](https://github.com/TurkNet/design-system/pull/249) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- update readme [#247](https://github.com/TurkNet/design-system/pull/247) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- hotfix v0.5.21 [#245](https://github.com/TurkNet/design-system/pull/245) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- Hotfix/v0.5.20 [#244](https://github.com/TurkNet/design-system/pull/244) ([@birkankervan](https://github.com/birkankervan) [@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 2
+
+- Emre Birkan Kervan ([@birkankervan](https://github.com/birkankervan))
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
+# v0.6.0 (Mon Dec 27 2021)
+
+#### 🚀 Enhancement
+
+- Release config [#246](https://github.com/TurkNet/design-system/pull/246) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### 🐛 Bug Fix
+
 - release fix [#251](https://github.com/TurkNet/design-system/pull/251) ([@recepkoseoglu](https://github.com/recepkoseoglu))
 - Release [#250](https://github.com/TurkNet/design-system/pull/250) ([@recepkoseoglu](https://github.com/recepkoseoglu))
 - Release [#249](https://github.com/TurkNet/design-system/pull/249) ([@recepkoseoglu](https://github.com/recepkoseoglu))
