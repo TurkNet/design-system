@@ -3,8 +3,8 @@
   "version": "0.5.16",
   "repository": "https://github.com/TurkNet/design-system.git",
   "author": "Recep Köseoğlu <recepkoseoglu@hotmail.com>",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "index.js",
+  "typings": "index.d.ts",
   "files": [
     "package.json",
     "dist",
@@ -20,7 +20,8 @@
     "lint": "tsc --noEmit && eslint . --fix",
     "chromatic": "chromatic --exit-zero-on-changes",
     "release": "auto shipit --base-branch=main",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "copypackage": "cp -rf package.json dist"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
