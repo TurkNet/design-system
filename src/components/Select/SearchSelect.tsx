@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect } from 'react'
+import React, { ReactNode, useState, useEffect, useRef } from 'react'
 import {
   SelectStyled,
   InputStyled,
@@ -45,9 +45,11 @@ export const SearchSelect = React.forwardRef<
     },
     ref
   ) => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(true)
     const [searchValue, setSearchValue] = useState(value)
     const [selected, setSelected] = useState<IOption>({})
+    const optionsRef = useRef()
+    const [active, setActive] = useState(0)
 
     const handleToggle = () => {
       setOpen(!open)
@@ -71,7 +73,19 @@ export const SearchSelect = React.forwardRef<
 
     const handleKeypress = e => {
       if (e.key === 'Enter') {
-        handleSelect(options[0])
+        handleSelect(options[active])
+      }
+      if (e.keyCode === 40) {
+        if (active < options.length) {
+          setActive(p => p + 1)
+        }
+        optionsRef?.current?.children[active]?.focus()
+      }
+      if (e.keyCode === 38) {
+        if (active > 0) {
+          setActive(p => p - 1)
+        }
+        optionsRef?.current?.children[active]?.focus()
       }
     }
 
@@ -92,7 +106,8 @@ export const SearchSelect = React.forwardRef<
           placeholder={placeholder}
           autoComplete="off"
           onClick={handleToggle}
-          onKeyPress={handleKeypress}
+          onFocus={handleToggle}
+          onKeyDown={handleKeypress}
           searchable
           icon={
             icon || (
@@ -110,14 +125,15 @@ export const SearchSelect = React.forwardRef<
           defaultValue={selected[valueKey] || ''}
         />
         <BgStyled show={show} onClick={onClose} />
-        <OverlayStyled show={show}>
-          {options.map(option => (
+        <OverlayStyled show={show} onKeyDown={handleKeypress} ref={optionsRef}>
+          {options.map((option, i) => (
             <OptionStyled
               key={option[labelKey]}
-              active={value && option[labelKey] === value}
+              active={(value && option[labelKey] === value) || i === active}
               onClick={e => {
                 e.stopPropagation()
                 e.preventDefault()
+                setActive(i)
                 handleSelect(option)
               }}
             >

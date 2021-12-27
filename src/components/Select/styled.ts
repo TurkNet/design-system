@@ -49,7 +49,10 @@ export const OptionStyled = styled.li<Record<'active', any>>`
   border: none;
   margin: 0;
   cursor: pointer;
-
+  &:focus {
+    background-color: ${color('primary.normal')};
+    color: ${color('grey.100')};
+  }
   ${ifProp(
     'active',
     css`
