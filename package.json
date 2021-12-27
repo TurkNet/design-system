@@ -5,12 +5,6 @@
   "author": "Recep Köseoğlu <recepkoseoglu@hotmail.com>",
   "main": "index.js",
   "typings": "index.d.ts",
-  "files": [
-    "package.json",
-    "dist",
-    "LICENSE",
-    "CHANGELOG"
-  ],
   "scripts": {
     "start": "start-storybook -p 6006 -s public",
     "build": "build-storybook -s public",
