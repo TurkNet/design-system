@@ -14,6 +14,6 @@ if [ ! -z "$VERSION" ]; then
   cd ..
 
   ## Create GitHub Release
-  git push --follow-tags --set-upstream origin $branch
+  git push --follow-tags --set-upstream origin main
   auto release --base-branch=main
 fi
