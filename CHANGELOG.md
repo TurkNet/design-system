@@ -26,6 +26,19 @@
 
 # v0.7.2 (Tue Dec 28 2021)
 
+#### 🐛 Bug Fix
+
+- Release/v0.7.1 [#254](https://github.com/TurkNet/design-system/pull/254) ([@talatatac](https://github.com/talatatac) [@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 2
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- TALAT ATAÇ ([@talatatac](https://github.com/talatatac))
+
+---
+
+# v0.7.2 (Tue Dec 28 2021)
+
 
 
 ---
