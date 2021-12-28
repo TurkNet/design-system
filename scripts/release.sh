@@ -9,6 +9,7 @@ if [ ! -z "$VERSION" ]; then
 
   ## Publish Package
   npm version $VERSION -m "Bump version to: %s [skip ci]"
+  yarn build-library
   cd dist
   npm publish
   cd ..
