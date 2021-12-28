@@ -2,6 +2,19 @@
 
 #### 🐛 Bug Fix
 
+- downgrade version [#256](https://github.com/TurkNet/design-system/pull/256) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- release bugfix [#255](https://github.com/TurkNet/design-system/pull/255) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
+# v0.7.4 (Tue Dec 28 2021)
+
+#### 🐛 Bug Fix
+
 - release bugfix [#255](https://github.com/TurkNet/design-system/pull/255) ([@recepkoseoglu](https://github.com/recepkoseoglu))
 
 #### Authors: 1
