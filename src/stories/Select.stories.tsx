@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Story } from '@storybook/react'
 import { Select, ReactSelectProps } from '../components'
 
@@ -7,32 +7,22 @@ export default {
   component: Select,
 }
 
-const Options: Record<string, string>[] = [...Array(20).keys()].map(i => ({
-  label: `Option ${i + 1}`,
-  value: `${i}`,
-}))
-
 const Template: Story<ReactSelectProps> = ({ ...args }) => {
-  const [value, setValue] = useState('')
-  const [value1, setValue1] = useState('')
-
-  const [options, setOptions] = useState<any[]>(Options)
-
-  const onSearch = (value: string) => {
-    console.log(value)
-    setValue(value)
-    setOptions(
-      Options.filter(i =>
-        i.label.toLowerCase().includes(value.toLocaleLowerCase())
-      )
-    )
-  }
-
-  const onChange = (value: string) => {
-    setValue(value)
-  }
-
-  return <>{/* <Select {...args} options={options} /> */}</>
+  const options = [
+    {
+      label: `İstanbul`,
+      id: `1`,
+    },
+    {
+      label: `Ankara`,
+      id: `2`,
+    },
+    {
+      label: `Iğdır`,
+      id: `2`,
+    },
+  ]
+  return <Select {...args} options={options} />
 }
 
 export const Standart = Template.bind({})

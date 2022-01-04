@@ -1,20 +1,21 @@
 import React from 'react'
-import StateManagedSelect, { components } from 'react-select'
+import { components } from 'react-select'
 import { SearchSelectStyled } from './styled'
 
-type IOption = any
+type IOption = Record<string, string>
 
-export type SearchReactSelectProps = StateManagedSelect & {
-  options: IOption
+export type SearchReactSelectProps = {
+  labelKey?: string
+  valueKey?: string
+  options?: IOption[]
   isSearchable?: boolean
   isMulti?: boolean
   placeholder?: string
   variant?: 'success' | 'info' | 'danger' | 'warning' | 'primary' | undefined
   icon?: React.ReactNode
-  value?: any
-  getOptionLabel?: any
-  getOptionValue?: any
-  onInputChange?: () => void
+  locale?: string
+  onChange?(newValue: unknown, meta?: any): void
+  onSearch(inputValue: unknown): IOption[]
 }
 
 export const SearchSelect = ({
@@ -23,6 +24,10 @@ export const SearchSelect = ({
   isMulti = false,
   placeholder = 'Seçiniz',
   variant = 'primary',
+  labelKey = 'label',
+  valueKey = 'id',
+  locale = 'tr-TR',
+  onSearch,
   icon,
   ...props
 }: SearchReactSelectProps) => {
@@ -32,11 +37,19 @@ export const SearchSelect = ({
     </components.DropdownIndicator>
   )
 
+  const loadOptions = async (
+    inputValue: string,
+    callback: (options: IOption[]) => void
+  ) => {
+    callback(await onSearch(inputValue))
+  }
+
   return (
     <SearchSelectStyled
       components={icon ? { DropdownIndicator } : {}}
       cacheOptions
-      loadOptions={options}
+      loadOptions={loadOptions}
+      defaultOptions={options}
       classNamePrefix="select"
       isSearchable={isSearchable}
       isMulti={isMulti}
@@ -46,6 +59,13 @@ export const SearchSelect = ({
       loadingMessage={() => 'Yükleniyor..'}
       closeMenuOnSelect={!isMulti}
       openMenuOnClick={false}
+      getOptionLabel={(o: any) => o[labelKey]}
+      getOptionValue={(o: any) => o[valueKey]}
+      filterOption={(opt, inputValue) => {
+        return opt[labelKey]
+          .toLocaleLowerCase(locale)
+          .includes(inputValue.toLocaleLowerCase(locale))
+      }}
       {...props}
     />
   )

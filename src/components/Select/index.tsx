@@ -1,16 +1,22 @@
 import React from 'react'
-import StateManagedSelect, { components } from 'react-select'
+import { components } from 'react-select'
 import { SelectStyled } from './styled'
 
-type IOption = Record<string, any>
+type IOption = Record<string, string>
 
-export type ReactSelectProps = StateManagedSelect & {
+export type ReactSelectProps = {
+  name?: string
+  value?: string
+  labelKey?: string
+  valueKey?: string
   options: IOption[]
   isSearchable?: boolean
   isMulti?: boolean
   placeholder?: string
   variant?: 'success' | 'info' | 'danger' | 'warning' | 'primary' | undefined
   icon?: React.ReactNode
+  locale?: string
+  onChange?(newValue: unknown, meta?: any): void
 }
 
 export const Select = ({
@@ -19,6 +25,9 @@ export const Select = ({
   isMulti = false,
   placeholder = 'Seçiniz',
   variant = 'primary',
+  labelKey = 'label',
+  valueKey = 'id',
+  locale = 'tr-TR',
   icon,
   ...props
 }: ReactSelectProps) => {
@@ -39,6 +48,13 @@ export const Select = ({
       components={icon ? { DropdownIndicator } : {}}
       noOptionsMessage={() => 'Kayıt Bulunamadı.'}
       closeMenuOnSelect={!isMulti}
+      getOptionLabel={(o: any) => o[labelKey]}
+      getOptionValue={(o: any) => o[valueKey]}
+      filterOption={(opt, inputValue) => {
+        return opt[labelKey]
+          .toLocaleLowerCase(locale)
+          .includes(inputValue.toLocaleLowerCase(locale))
+      }}
       {...props}
     />
   )
