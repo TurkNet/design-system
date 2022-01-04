@@ -14,10 +14,11 @@ export type SearchReactSelectProps = {
   placeholder?: string
   variant?: 'success' | 'info' | 'danger' | 'warning' | 'primary' | undefined
   icon?: React.ReactNode
-  locale?: string
   onChange?(newValue: unknown, meta?: any): void
   onSearch(inputValue: unknown): Promise<IOption[]>
 }
+
+let timeout: any = -1
 
 export const SearchSelect = ({
   options = [],
@@ -27,7 +28,6 @@ export const SearchSelect = ({
   variant = 'primary',
   labelKey = 'label',
   valueKey = 'id',
-  locale = 'tr-TR',
   onSearch,
   icon,
   ...props
@@ -38,11 +38,16 @@ export const SearchSelect = ({
     </components.DropdownIndicator>
   )
 
-  const loadOptions = async (
+  const loadOptions = (
     inputValue: string,
     callback: (options: IOption[]) => void
   ) => {
-    callback(await onSearch(inputValue))
+    if (timeout) {
+      clearTimeout(timeout)
+    }
+    timeout = setTimeout(async () => {
+      callback(await onSearch(inputValue))
+    }, 300)
   }
 
   return (
@@ -61,11 +66,6 @@ export const SearchSelect = ({
       closeMenuOnSelect={!isMulti}
       getOptionLabel={(o: any) => o[labelKey]}
       getOptionValue={(o: any) => o[valueKey]}
-      filterOption={(opt, inputValue) =>
-        opt[labelKey]
-          ?.toLocaleLowerCase(locale)
-          ?.includes(inputValue.toLocaleLowerCase(locale))
-      }
       {...props}
     />
   )
