@@ -8,12 +8,19 @@ export default {
 }
 
 const Template: Story<SearchReactSelectProps> = ({ ...args }) => {
-  const onSearch = (inputValue: string) => {
-    return [{ label: 'İstanbul', id: '1' }]
+  const onSearch = async (inputValue: string) => {
+    const response = await fetch(
+      `https://api.publicapis.org/entries?title=${inputValue}&https=true`
+    )
+    const result = await response.json()
+    return result.entries.map(entry => ({
+      label: entry.API,
+      asdf: entry.Link,
+    }))
   }
   return (
     <>
-      <SearchSelect {...args} options={[]} onSearch={onSearch} />
+      <SearchSelect {...args} onSearch={onSearch} />
     </>
   )
 }

@@ -2,9 +2,10 @@ import React from 'react'
 import { components } from 'react-select'
 import { SearchSelectStyled } from './styled'
 
-type IOption = Record<string, string>
+type IOption = Promise<Record<string, string>>
 
 export type SearchReactSelectProps = {
+  name?: string
   labelKey?: string
   valueKey?: string
   options?: IOption[]
@@ -15,7 +16,7 @@ export type SearchReactSelectProps = {
   icon?: React.ReactNode
   locale?: string
   onChange?(newValue: unknown, meta?: any): void
-  onSearch(inputValue: unknown): IOption[]
+  onSearch(inputValue: unknown): Promise<IOption[]>
 }
 
 export const SearchSelect = ({
@@ -58,14 +59,13 @@ export const SearchSelect = ({
       noOptionsMessage={() => 'Kayıt Bulunamadı.'}
       loadingMessage={() => 'Yükleniyor..'}
       closeMenuOnSelect={!isMulti}
-      openMenuOnClick={false}
       getOptionLabel={(o: any) => o[labelKey]}
       getOptionValue={(o: any) => o[valueKey]}
-      filterOption={(opt, inputValue) => {
-        return opt[labelKey]
-          .toLocaleLowerCase(locale)
-          .includes(inputValue.toLocaleLowerCase(locale))
-      }}
+      filterOption={(opt, inputValue) =>
+        opt[labelKey]
+          ?.toLocaleLowerCase(locale)
+          ?.includes(inputValue.toLocaleLowerCase(locale))
+      }
       {...props}
     />
   )
