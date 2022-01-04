@@ -4,7 +4,7 @@ import { SelectStyled } from './styled'
 
 type IOption = Record<string, string>
 
-export type ReactSelectProps = {
+export type SelectProps = {
   name?: string
   value?: string
   labelKey?: string
@@ -30,7 +30,7 @@ export const Select = ({
   locale = 'tr-TR',
   icon,
   ...props
-}: ReactSelectProps) => {
+}: SelectProps) => {
   const DropdownIndicator = props => (
     <components.DropdownIndicator {...props}>
       {icon}
@@ -52,8 +52,8 @@ export const Select = ({
       getOptionValue={(o: any) => o[valueKey]}
       filterOption={(opt, inputValue) => {
         return opt[labelKey]
-          .toLocaleLowerCase(locale)
-          .includes(inputValue.toLocaleLowerCase(locale))
+          ?.toLocaleLowerCase(locale)
+          ?.includes(inputValue?.toLocaleLowerCase(locale))
       }}
       {...props}
     />

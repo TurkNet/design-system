@@ -4,7 +4,7 @@ import { SearchSelectStyled } from './styled'
 
 type IOption = Promise<Record<string, string>>
 
-export type SearchReactSelectProps = {
+export type SearchSelectProps = {
   name?: string
   labelKey?: string
   valueKey?: string
@@ -31,7 +31,7 @@ export const SearchSelect = ({
   onSearch,
   icon,
   ...props
-}: SearchReactSelectProps) => {
+}: SearchSelectProps) => {
   const DropdownIndicator = props => (
     <components.DropdownIndicator {...props}>
       {icon}

@@ -1,13 +1,13 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { Select, ReactSelectProps } from '../components'
+import { Select, SelectProps } from '../components'
 
 export default {
   title: 'Design System/Select',
   component: Select,
 }
 
-const Template: Story<ReactSelectProps> = ({ ...args }) => {
+const Template: Story<SelectProps> = ({ ...args }) => {
   const options = [
     {
       label: `İstanbul`,
