@@ -1,127 +1,45 @@
-import React, {
-  useState,
-  useEffect,
-  ReactNode,
-  ChangeEvent,
-  MouseEvent,
-} from 'react'
-import {
-  SelectStyled,
-  InputStyled,
-  OverlayStyled,
-  OptionStyled,
-  BgStyled,
-} from './styled'
-import { Icon } from '../Icon'
-import type { InputProps } from '../Input'
-import { noop } from '../../utility'
+import React from 'react'
+import StateManagedSelect, { components } from 'react-select'
+import { SelectStyled } from './styled'
 
 type IOption = Record<string, any>
 
-export type SelectProps = {
-  labelKey?: string
-  value: IOption | undefined
+export type ReactSelectProps = StateManagedSelect & {
   options: IOption[]
-  locale?: string
-  icon?: ReactNode
-  searchable?: boolean
-  onSelect(value: IOption | undefined): void
-  onToggle?(open: boolean): void
-} & Omit<InputProps, 'onSelect' | 'value'>
+  isSearchable?: boolean
+  isMulti?: boolean
+  placeholder?: string
+  variant?: 'success' | 'info' | 'danger' | 'warning' | 'primary' | undefined
+  icon?: React.ReactNode
+}
 
-export const Select = React.forwardRef<HTMLInputElement, SelectProps>(
-  (
-    {
-      options = [],
-      labelKey = 'label',
-      value,
-      placeholder = 'Seçiniz',
-      locale = 'tr-TR',
-      icon,
-      searchable = false,
-      onSelect = noop,
-      onToggle = noop,
-      ...props
-    },
-    ref
-  ) => {
-    const [open, setOpen] = useState(false)
-    const [optionList, setOptionList] = useState(options)
-    const [inputValue, setInputValue] = useState(
-      (value && value[labelKey]) || ''
-    )
+export const Select = ({
+  options = [],
+  isSearchable = true,
+  isMulti = false,
+  placeholder = 'Seçiniz',
+  variant = 'primary',
+  icon,
+  ...props
+}: ReactSelectProps) => {
+  const DropdownIndicator = props => (
+    <components.DropdownIndicator {...props}>
+      {icon}
+    </components.DropdownIndicator>
+  )
 
-    const handleToggle = () => {
-      const isOpen = !open
-      setOpen(isOpen)
-      onToggle(isOpen)
-    }
-
-    const onClose = (e: MouseEvent) => {
-      e.stopPropagation()
-      e.preventDefault()
-      setOpen(false)
-      onToggle(false)
-      setInputValue(value && value[labelKey])
-    }
-
-    const onChange = (evt: ChangeEvent<HTMLInputElement>) => {
-      if (!searchable) {
-        return
-      }
-      const { value } = evt.target
-      const list = options.filter((opt: IOption) => {
-        return opt[labelKey]
-          .toLocaleLowerCase(locale)
-          .includes(value.toLocaleLowerCase(locale))
-      })
-      setOptionList(list)
-      setInputValue(value)
-    }
-
-    useEffect(() => {
-      setInputValue(value && value[labelKey])
-    }, [value, labelKey])
-
-    const show = open && optionList.length > 0
-
-    return (
-      <SelectStyled>
-        <InputStyled
-          {...props}
-          type="select"
-          onChange={onChange}
-          ref={ref}
-          value={inputValue || ''}
-          placeholder={placeholder}
-          autoComplete="off"
-          onClick={handleToggle}
-          searchable={searchable}
-          icon={
-            icon || (
-              <Icon
-                name={open ? 'expand_less' : 'expand_more'}
-                color="sky.dark"
-              />
-            )
-          }
-        />
-        <BgStyled show={show} onClick={onClose} />
-        <OverlayStyled show={show}>
-          {optionList.map(option => (
-            <OptionStyled
-              key={option[labelKey]}
-              active={value && option[labelKey] === value[labelKey]}
-              onClick={e => {
-                onSelect(option)
-                onClose(e)
-              }}
-            >
-              {option[labelKey]}
-            </OptionStyled>
-          ))}
-        </OverlayStyled>
-      </SelectStyled>
-    )
-  }
-)
+  return (
+    <SelectStyled
+      classNamePrefix="select"
+      isSearchable={isSearchable}
+      isMulti={isMulti}
+      options={options}
+      placeholder={placeholder}
+      variant={variant}
+      components={icon ? { DropdownIndicator } : {}}
+      noOptionsMessage={() => 'Kayıt Bulunamadı.'}
+      closeMenuOnSelect={!isMulti}
+      {...props}
+    />
+  )
+}

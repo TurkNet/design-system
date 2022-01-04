@@ -1,68 +1,141 @@
 import styled, { css } from 'styled-components'
-import { Input } from '../Input'
-import { color, ifProp } from '../../utility/styled'
+import ReactSelect from 'react-select'
+import AsyncSelect from 'react-select/async'
+import type { SpaceProps } from 'styled-system'
+import { space as systemSpace } from 'styled-system'
+import {
+  color,
+  fontSize,
+  borderRadius,
+  opacity,
+  fontWeight,
+  switchProp,
+} from '../../utility/styled'
 
-export const SelectStyled = styled.div`
-  position: relative;
-`
+export interface InputStyledProps extends SpaceProps {
+  variant?: keyof typeof variants
+}
 
-export const InputStyled = styled(Input)<Record<'searchable', boolean>>`
-  width: 100%;
-  caret-color: ${ifProp('searchable', null, 'transparent')};
-  cursor: pointer;
-  user-select: none;
-  background-color: transparent;
-`
-
-export const OverlayStyled = styled.ul<Record<string, any>>`
-  width: 100%;
-  margin: 4px 0 0 0;
-  border-radius: 4px;
-  border: solid 2px ${color('sky.light')};
-  position: absolute;
-  left: 0;
-  padding: 0;
-  overflow-y: auto;
-  max-height: 260px;
-  background-color: ${color('grey.100')};
-  z-index: 100;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03), -5px 5px 5px rgba(0, 0, 0, 0.03);
-  display: ${ifProp('show', 'block', 'none')};
-  z-index: 3;
-`
-export const BgStyled = styled.div<Record<string, any>>`
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: transparent;
-  display: ${ifProp('show', 'block', 'none')};
-  z-index: 2;
-`
-
-export const OptionStyled = styled.li<Record<'active', any>>`
-  list-style: none;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 12px 16px;
-  border: none;
-  margin: 0;
-  cursor: pointer;
-  &:focus {
-    background-color: ${color('primary.normal')};
-    color: ${color('grey.100')};
+const variantStyle = (variant: string, secondary?: string) => css`
+  border: 2px solid ${color(`${secondary || variant}.light`)};
+  &:hover {
+    border: 2px solid ${color(`${secondary || variant}.light`)};
   }
-  ${ifProp(
-    'active',
-    css`
-      background-color: ${color('primary.normal')};
+
+  &:focus,
+  &:active,
+  &--is-focused {
+    border-color: ${color(`${variant}.normal`)} !important;
+  }
+`
+
+const variants = {
+  success: variantStyle('success'),
+  info: variantStyle('info'),
+  danger: variantStyle('danger'),
+  warning: variantStyle('warning'),
+  primary: variantStyle('primary', 'sky'),
+}
+
+const styledSelect = css`
+  .select {
+    &-container {
+      ${systemSpace}
+    }
+    &__control {
+      background-color: transparent;
+      width: 100%;
+      cursor: pointer;
+      height: auto;
+      min-height: 48px;
+      font-size: ${fontSize('15')};
+      padding: 0 6px;
+      color: ${color('grey.800')};
+      border-radius: ${borderRadius('normal')};
+      box-shadow: none;
+      ${switchProp('variant', variants)};
+
+      &--is-disabled {
+        opacity: ${opacity('48')};
+        background-color: ${color('grey.200')};
+      }
+      &--is-focused {
+        .select__placeholder {
+          font-weight: ${fontWeight('semi-bold')};
+        }
+      }
+    }
+    &__placeholder {
+      color: ${color('grey.600')};
+      opacity: ${opacity('100')};
+    }
+    &__indicator-separator {
+      display: none;
+    }
+    &__menu {
+      width: 100%;
+      border-radius: 4px;
+      border: solid 2px ${color('sky.light')};
+      padding: 0;
+      background-color: ${color('grey.100')};
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03),
+        -5px 5px 5px rgba(0, 0, 0, 0.03);
+      position: absolute;
+    }
+    &__option {
+      font-size: 15px;
+      font-weight: 600;
+      padding: 12px 16px;
+      border: none;
+      cursor: pointer;
+      content-visibility: auto;
+      contain-intrinsic-size: 30px;
+      &:hover {
+        background-color: ${color('primary.light')};
+        color: ${color('grey.100')};
+      }
+      &--is-selected {
+        background-color: ${color('primary.normal')};
+        color: ${color('grey.100')};
+      }
+    }
+    &__multi-value {
+      position: relative;
       color: ${color('grey.100')};
-    `
-  )}
+      height: 24px;
+      padding: 0 16px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 2px solid;
+      border-radius: ${borderRadius('normal')};
+      display: inline-flex;
+      align-items: center;
+      background-color: ${color('primary.normal', 0.08)};
+      border-color: ${color('primary.normal')};
+      color: ${color('primary.normal')};
+      ${switchProp('variant', variants)};
+      ${systemSpace}
+      * {
+        color: currentColor;
+      }
+      > :last-child {
+        margin-left: 6px;
+        margin-right: -12px;
+      }
 
-  :hover {
-    background-color: ${color('primary.light')};
-    color: ${color('grey.100')};
+      > :first-child {
+        margin: 0;
+      }
+    }
+    &__indicator {
+      color: ${color('sky.dark')};
+    }
   }
+`
+
+export const SelectStyled = styled(ReactSelect)<InputStyledProps>`
+  ${styledSelect}
+`
+export const SearchSelectStyled = styled(AsyncSelect)<InputStyledProps>`
+  ${styledSelect}
 `

@@ -1,70 +1,38 @@
 import React, { useState } from 'react'
 import { Story } from '@storybook/react'
-import { Icon, Select, SelectProps } from '../components'
+import { Select, ReactSelectProps } from '../components'
 
 export default {
   title: 'Design System/Select',
   component: Select,
 }
 
-const Template: Story<SelectProps> = ({ ...args }) => {
-  const [value, setValue] = useState(undefined)
-  const [openOverlay, setOpenOverlay] = useState(false)
+const Options: Record<string, string>[] = [...Array(20).keys()].map(i => ({
+  label: `Option ${i + 1}`,
+  value: `${i}`,
+}))
 
-  const onClear = () => {
-    setValue(undefined)
+const Template: Story<ReactSelectProps> = ({ ...args }) => {
+  const [value, setValue] = useState('')
+  const [value1, setValue1] = useState('')
+
+  const [options, setOptions] = useState<any[]>(Options)
+
+  const onSearch = (value: string) => {
+    console.log(value)
+    setValue(value)
+    setOptions(
+      Options.filter(i =>
+        i.label.toLowerCase().includes(value.toLocaleLowerCase())
+      )
+    )
   }
-  return (
-    <>
-      <Select
-        {...args}
-        value={value}
-        onSelect={setValue}
-        name="select-input"
-        labelKey="name"
-        icon={
-          <Icon
-            name={openOverlay ? 'cancel' : 'add_circle'}
-            color="primary.normal"
-            onClick={onClear}
-          />
-        }
-        onToggle={setOpenOverlay}
-        searchable
-        options={[...Array(20).keys()].map(i => ({
-          name: `Option ${i + 1}`,
-          id: i,
-        }))}
-      />
-      <br />
-      <br />
-      <br />
 
-      <Select
-        {...args}
-        value={value}
-        onSelect={setValue}
-        name="select-input"
-        labelKey="name"
-        variant="danger"
-        options={[
-          { name: 'Option 1', id: '1' },
-          { name: 'Option 2', id: '2' },
-          { name: 'Option 3', id: '3' },
-        ]}
-      />
-      <br />
+  const onChange = (value: string) => {
+    setValue(value)
+  }
 
-      <Select
-        {...args}
-        value={{ name: 'Option 1', id: '1' }}
-        onSelect={setValue}
-        name="select-input"
-        labelKey="name"
-        disabled
-      />
-    </>
-  )
+  return <>{/* <Select {...args} options={options} /> */}</>
 }
 
 export const Standart = Template.bind({})
