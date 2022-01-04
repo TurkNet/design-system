@@ -1,5 +1,18 @@
 # v0.7.6 (Tue Jan 04 2022)
 
+#### 🐛 Bug Fix
+
+- Release [#266](https://github.com/TurkNet/design-system/pull/266) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- release config (#264) [#265](https://github.com/TurkNet/design-system/pull/265) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
+# v0.7.6 (Tue Jan 04 2022)
+
 
 
 ---
