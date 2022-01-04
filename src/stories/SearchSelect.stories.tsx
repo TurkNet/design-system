@@ -1,36 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Story } from '@storybook/react'
-import { SearchSelect, SelectProps } from '../components'
+import { SearchSelect, SearchReactSelectProps } from '../components'
 
 export default {
-  title: 'Design System/SearchSelect',
+  title: 'Design System/Search Select',
   component: SearchSelect,
 }
 
-const Options: Record<string, string>[] = [...Array(20).keys()].map(i => ({
-  name: `Option ${i + 1}`,
-  id: `${i}`,
-}))
-
-const Template: Story<SelectProps> = ({ ...args }) => {
-  const [value, setValue] = useState('')
-  const [options, setOptions] = useState<any[]>([])
-
-  const onSearch = (value: string) => {
-    setValue(value)
-    setOptions(Options.filter(i => i.name.includes(value)))
+const Template: Story<SearchReactSelectProps> = ({ ...args }) => {
+  const onSearch = async (inputValue: string) => {
+    const response = await fetch(
+      `https://api.publicapis.org/entries?title=${inputValue}&https=true`
+    ).then(res => res.json())
+    return response.entries
   }
 
   return (
     <>
       <SearchSelect
         {...args}
-        value={value}
-        onSelect={console.log}
+        name="select"
         onSearch={onSearch}
-        name="select-input"
-        labelKey="name"
-        options={options}
+        labelKey="Description"
+        valueKey="Description"
+        onChange={console.log}
       />
     </>
   )
