@@ -80,7 +80,7 @@ export interface TypographyStyledProps
 export const TypographyStyled = styled.div<TypographyStyledProps>`
   padding: 0;
   margin: 0;
-  cursor: ${prop('cursor', 'default')};
+  cursor: ${prop('cursor', 'inherit')};
   ${variant({ variants })};
   ${typography};
   ${color};

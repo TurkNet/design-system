@@ -15,6 +15,6 @@ export const IconStyled = styled.span<IconStyledProps>`
     width: ${prop('fontSize')}px;
     overflow: hidden;
     display: block;
-    cursor: ${prop('cursor', 'default')};
+    cursor: ${prop('cursor', 'inherit')};
   }
 `
