@@ -12,7 +12,7 @@ const variantStyle = (color1: string, color2?: string) => {
   return css`
     :enabled {
       :after {
-        background-color: ${color(`${mainColor}.light`)};
+        background-color: ${color('grey.100')};
         border-color: ${color(`${mainColor}.normal`)};
       }
 
@@ -22,7 +22,7 @@ const variantStyle = (color1: string, color2?: string) => {
 
       :focus:after,
       :active:after {
-        background-color: ${color(`${mainColor}.light`)};
+        background-color: ${color('grey.100')};
         border-color: ${color(`${mainColor}.dark`)};
       }
     }
