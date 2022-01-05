@@ -17,15 +17,15 @@ export interface InputStyledProps extends SpaceProps {
 }
 
 const variantStyle = (variant: string, secondary?: string) => css`
-  border: 2px solid ${color(`${secondary || variant}.light`)};
+  border: 2px solid ${color(`${secondary || variant}.normal`)};
   &:hover {
-    border: 2px solid ${color(`${secondary || variant}.light`)};
+    border: 2px solid ${color(`${secondary || variant}.normal`)};
   }
 
   &:focus,
   &:active,
   &--is-focused {
-    border-color: ${color(`${variant}.normal`)} !important;
+    border-color: ${color(`${variant}.dark`)} !important;
   }
 `
 
