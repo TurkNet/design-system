@@ -119,9 +119,10 @@ export const CheckboxStyled = styled.input<CheckboxStyledProps>`
 
 export const LabelStyled = styled.label`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   cursor: pointer;
   font-size: ${fontSize('13')};
+  width: fit-content;
   span {
     line-height: 18px;
   }
