@@ -37,6 +37,16 @@ export const Select = ({
     </components.DropdownIndicator>
   )
 
+  const trToEng = (text: string) =>
+    text
+      .toLocaleLowerCase(locale)
+      .replace(/ğ/g, 'g')
+      .replace(/ü/g, 'u')
+      .replace(/ş/g, 's')
+      .replace(/ı/g, 'i')
+      .replace(/ö/g, 'o')
+      .replace(/ç/g, 'c')
+
   return (
     <SelectStyled
       classNamePrefix="select"
@@ -50,11 +60,9 @@ export const Select = ({
       closeMenuOnSelect={!isMulti}
       getOptionLabel={(o: any) => o[labelKey]}
       getOptionValue={(o: any) => o[valueKey]}
-      filterOption={(opt, inputValue) => {
-        return opt[labelKey]
-          ?.toLocaleLowerCase(locale)
-          ?.includes(inputValue?.toLocaleLowerCase(locale))
-      }}
+      filterOption={(opt, inputValue) =>
+        trToEng(opt[labelKey]).includes(trToEng(inputValue))
+      }
       {...props}
     />
   )
