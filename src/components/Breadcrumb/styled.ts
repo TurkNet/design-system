@@ -26,4 +26,9 @@ export const BreadCrumbItemStyled = styled.li`
     content: '›';
     color: ${color('grey.600')};
   }
+  &:first-child {
+    div {
+      margin-left: 0;
+    }
+  }
 `
