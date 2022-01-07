@@ -21,6 +21,18 @@ const Template: Story<SelectProps> = ({ ...args }) => {
       label: `Iğdır`,
       id: `3`,
     },
+    {
+      label: `Üsküdar`,
+      id: `4`,
+    },
+    {
+      label: `Şanlıurfa`,
+      id: `5`,
+    },
+    {
+      label: `Ömerli`,
+      id: `6`,
+    },
   ]
   return <Select {...args} options={options} />
 }
