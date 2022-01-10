@@ -8,7 +8,7 @@ export interface BreadcrumbItemProps {
 
 const BreadcrumbItem: FC<BreadcrumbItemProps> = ({ children, label }) => (
   <BreadCrumbItemStyled>
-    <Box ml={16}>{label || children}</Box>
+    <Box>{label || children}</Box>
   </BreadCrumbItemStyled>
 )
 

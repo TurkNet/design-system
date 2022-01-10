@@ -22,13 +22,13 @@ export const BreadCrumbItemStyled = styled.li`
   &:last-child {
     color: ${color('primary.normal')};
   }
-  &:not(:first-child):before {
-    content: '›';
-    color: ${color('grey.600')};
-  }
-  &:first-child {
+  &:not(:first-child) {
     div {
-      margin-left: 0;
+      margin-left: 16px;
+    }
+    &:before {
+      content: '›';
+      color: ${color('grey.600')};
     }
   }
 `
