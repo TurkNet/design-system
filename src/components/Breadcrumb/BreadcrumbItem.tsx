@@ -1,20 +1,15 @@
 import React, { FC } from 'react'
-import { Typography } from '../Typography'
+import { Box } from '../Box'
 import { BreadCrumbItemStyled } from './styled'
 
 export interface BreadcrumbItemProps {
   label?: string
-  homeIcon?: boolean
 }
 
-const BreadcrumbItem: FC<BreadcrumbItemProps> = ({ children, label }) => {
-  return (
-    <BreadCrumbItemStyled>
-      <Typography ml={16} variant="span">
-        {label || children}
-      </Typography>
-    </BreadCrumbItemStyled>
-  )
-}
+const BreadcrumbItem: FC<BreadcrumbItemProps> = ({ children, label }) => (
+  <BreadCrumbItemStyled>
+    <Box>{label || children}</Box>
+  </BreadCrumbItemStyled>
+)
 
 export default BreadcrumbItem
