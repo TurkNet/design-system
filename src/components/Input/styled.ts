@@ -51,7 +51,8 @@ export const InputStyled = styled.input<InputStyledProps>`
   padding: ${space('medium')};
   color: ${color('grey.800')};
   border-radius: ${borderRadius('normal')};
-
+  position: relative;
+  z-index: 1;
   ::placeholder,
   :-ms-input-placeholder,
   ::-ms-input-placeholder {
@@ -74,5 +75,7 @@ export const IconStyled = styled.span`
   transform: translateY(-50%);
   cursor: pointer;
   user-select: none;
-  z-index: ${ifProp('onClick', '0', '-1')};
+  z-index: 2;
+  display: flex;
+  height: auto;
 `
