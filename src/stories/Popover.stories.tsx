@@ -1,6 +1,14 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { Popover, PopoverProps, Box, Card, Typography } from '../components'
+import {
+  Popover,
+  PopoverProps,
+  Box,
+  Card,
+  Typography,
+  Input,
+  Icon,
+} from '../components'
 
 export default {
   title: 'Design System/Popover',
@@ -16,6 +24,41 @@ const Template: Story<PopoverProps> = ({ content, title, ...args }) => {
       >
         <Typography>Popover</Typography>
       </Popover>
+      <br />
+      <br />
+      <br />
+
+      <Box width={300}>
+        <Input
+          onClickIcon={console.log}
+          icon={
+            <Popover
+              {...args}
+              content={
+                <Card title={title} subtitle="subtitle" content={content} />
+              }
+            >
+              <Icon name="search" color="currentColor" />
+            </Popover>
+          }
+        />
+        <br />
+        <br />
+        <Input
+          icon={
+            <Popover
+              {...args}
+              content={
+                <Card title={title} subtitle="subtitle" content={content} />
+              }
+            >
+              <Icon name="home" color="currentColor" />
+            </Popover>
+          }
+        />
+        <br />
+        <br />
+      </Box>
     </Box>
   )
 }
