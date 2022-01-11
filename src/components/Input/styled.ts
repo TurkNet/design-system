@@ -75,7 +75,7 @@ export const IconStyled = styled.span`
   transform: translateY(-50%);
   cursor: pointer;
   user-select: none;
-  z-index: 2;
+  z-index: ${ifProp('onClick', '0', '-1')};
   display: flex;
   height: auto;
 `
