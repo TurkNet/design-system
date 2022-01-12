@@ -51,8 +51,7 @@ export const InputStyled = styled.input<InputStyledProps>`
   padding: ${space('medium')};
   color: ${color('grey.800')};
   border-radius: ${borderRadius('normal')};
-  position: relative;
-  z-index: 1;
+
   ::placeholder,
   :-ms-input-placeholder,
   ::-ms-input-placeholder {

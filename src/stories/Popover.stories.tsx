@@ -45,6 +45,7 @@ const Template: Story<PopoverProps> = ({ content, title, ...args }) => {
         <br />
         <br />
         <Input
+          onClickIcon={console.log}
           icon={
             <Popover
               {...args}
