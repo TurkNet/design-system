@@ -157,7 +157,7 @@ export const TooltipStyled = styled.span<TooltipStyledProps>`
     border-radius: ${borderRadius('normal')};
     background: ${color(`grey.1100`)};
     color: ${color(`grey.100`)};
-    z-index: 1;
+    z-index: 99;
   }
 
   :hover:before,

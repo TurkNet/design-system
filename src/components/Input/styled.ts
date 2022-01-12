@@ -75,4 +75,6 @@ export const IconStyled = styled.span`
   cursor: pointer;
   user-select: none;
   z-index: ${ifProp('onClick', '0', '-1')};
+  display: flex;
+  height: auto;
 `
