@@ -2,7 +2,7 @@ import React from 'react'
 import { components } from 'react-select'
 import { SelectStyled } from './styled'
 
-type IOption = Record<string, string>
+type IOption = Record<string, any>
 
 export type SelectProps = {
   name?: string
@@ -16,6 +16,8 @@ export type SelectProps = {
   variant?: 'success' | 'info' | 'danger' | 'warning' | 'primary' | undefined
   icon?: React.ReactNode
   locale?: string
+  isLoading?: boolean
+  isDisabled?: boolean
   onChange?(newValue: unknown, meta?: any): void
 }
 
@@ -61,7 +63,7 @@ export const Select = ({
       getOptionLabel={(o: any) => o[labelKey]}
       getOptionValue={(o: any) => o[valueKey]}
       filterOption={(opt, inputValue) =>
-        trToEng(opt[labelKey]).includes(trToEng(inputValue))
+        trToEng(String(opt[labelKey])).includes(trToEng(String(inputValue)))
       }
       {...props}
     />

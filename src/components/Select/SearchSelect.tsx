@@ -2,7 +2,7 @@ import React from 'react'
 import { components } from 'react-select'
 import { SearchSelectStyled } from './styled'
 
-type IOption = Promise<Record<string, string>>
+type IOption = Promise<Record<string, any>>
 
 export type SearchSelectProps = {
   name?: string
@@ -14,6 +14,8 @@ export type SearchSelectProps = {
   placeholder?: string
   variant?: 'success' | 'info' | 'danger' | 'warning' | 'primary' | undefined
   icon?: React.ReactNode
+  isLoading?: boolean
+  isDisabled?: boolean
   onChange?(newValue: unknown, meta?: any): void
   onSearch(inputValue: unknown): Promise<IOption[]>
 }
