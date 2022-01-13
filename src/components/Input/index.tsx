@@ -14,12 +14,10 @@ export interface InputProps
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ variant = 'primary', onClickIcon, icon, ...props }, ref) => {
-    return (
-      <WrapperStyled>
-        <InputStyled {...props} variant={variant} ref={ref} />
-        {icon && <IconStyled onClick={onClickIcon}>{icon}</IconStyled>}
-      </WrapperStyled>
-    )
-  }
+  ({ variant = 'primary', onClickIcon, icon, ...props }, ref) => (
+    <WrapperStyled>
+      <InputStyled {...props} variant={variant} ref={ref} />
+      {icon && <IconStyled onClick={onClickIcon}>{icon}</IconStyled>}
+    </WrapperStyled>
+  )
 )

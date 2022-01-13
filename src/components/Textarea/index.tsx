@@ -6,7 +6,7 @@ export interface TextareaProps
     TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  (props, ref) => {
-    return <TextareaStyled rows={4} variant="primary" {...props} ref={ref} />
-  }
+  ({ variant = 'primary', ...props }, ref) => (
+    <TextareaStyled rows={4} variant={variant} {...props} ref={ref} />
+  )
 )
