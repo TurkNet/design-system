@@ -27,7 +27,7 @@ Standart.argTypes = {
   variant: {
     control: {
       type: 'radio',
-      options: ['primary', 'success', 'info', 'warning', 'danger', 'sky'],
+      options: ['primary', 'success', 'info', 'warning', 'danger'],
     },
   },
 }
