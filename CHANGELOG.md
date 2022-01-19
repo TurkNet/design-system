@@ -2,6 +2,20 @@
 
 #### 🐛 Bug Fix
 
+- release v1.0.12-1 [#289](https://github.com/TurkNet/design-system/pull/289) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+- Release/v1.0.12 [#288](https://github.com/TurkNet/design-system/pull/288) ([@birkankervan](https://github.com/birkankervan) [@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 2
+
+- Emre Birkan Kervan ([@birkankervan](https://github.com/birkankervan))
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
+# v0.7.12 (Wed Jan 19 2022)
+
+#### 🐛 Bug Fix
+
 - Release/v1.0.12 [#288](https://github.com/TurkNet/design-system/pull/288) ([@birkankervan](https://github.com/birkankervan) [@recepkoseoglu](https://github.com/recepkoseoglu))
 
 #### Authors: 2
