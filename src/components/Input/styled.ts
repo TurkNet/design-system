@@ -17,11 +17,11 @@ export interface InputStyledProps extends SpaceProps {
 }
 
 const variantStyle = (variant: string, secondary?: string) => css`
-  border: 2px solid ${color(`${secondary || variant}.light`)};
+  border: 2px solid ${color(`${secondary || variant}.normal`)};
 
   :enabled:focus,
   :enabled:active {
-    border-color: ${color(`${variant}.normal`)};
+    border-color: ${color(`${variant}.dark`)};
 
     ::placeholder {
       font-weight: ${fontWeight('semi-bold')};
@@ -75,4 +75,6 @@ export const IconStyled = styled.span`
   cursor: pointer;
   user-select: none;
   z-index: ${ifProp('onClick', '0', '-1')};
+  display: flex;
+  height: auto;
 `

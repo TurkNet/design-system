@@ -16,6 +16,7 @@ export interface ModalProps {
   height?: number | string
   maxWidth?: number | string
   showCloseIcon?: boolean
+  closeOnClickOutside?: boolean
   onClosed?(): void
 }
 
@@ -30,6 +31,7 @@ export const Modal: FC<ModalProps> = ({
   height,
   showCloseIcon = true,
   onClosed = noop,
+  closeOnClickOutside = true,
 }) => {
   const [show, setShow] = useState(initialShow)
 
@@ -60,7 +62,7 @@ export const Modal: FC<ModalProps> = ({
 
   return ReactDOM.createPortal(
     <ModalStyled>
-      <ModalBgStyled onClick={onClose} />
+      <ModalBgStyled onClick={() => closeOnClickOutside && onClose()} />
       <ModalContentStyled
         width={width}
         height={height}

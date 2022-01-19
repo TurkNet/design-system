@@ -2,7 +2,7 @@ import React from 'react'
 import { components } from 'react-select'
 import { SelectStyled } from './styled'
 
-type IOption = Record<string, string>
+type IOption = Record<string, any>
 
 export type SelectProps = {
   name?: string
@@ -16,6 +16,8 @@ export type SelectProps = {
   variant?: 'success' | 'info' | 'danger' | 'warning' | 'primary' | undefined
   icon?: React.ReactNode
   locale?: string
+  isLoading?: boolean
+  isDisabled?: boolean
   onChange?(newValue: unknown, meta?: any): void
 }
 
@@ -37,6 +39,16 @@ export const Select = ({
     </components.DropdownIndicator>
   )
 
+  const trToEng = (text: string) =>
+    text
+      .toLocaleLowerCase(locale)
+      .replace(/ğ/g, 'g')
+      .replace(/ü/g, 'u')
+      .replace(/ş/g, 's')
+      .replace(/ı/g, 'i')
+      .replace(/ö/g, 'o')
+      .replace(/ç/g, 'c')
+
   return (
     <SelectStyled
       classNamePrefix="select"
@@ -50,11 +62,9 @@ export const Select = ({
       closeMenuOnSelect={!isMulti}
       getOptionLabel={(o: any) => o[labelKey]}
       getOptionValue={(o: any) => o[valueKey]}
-      filterOption={(opt, inputValue) => {
-        return opt[labelKey]
-          ?.toLocaleLowerCase(locale)
-          ?.includes(inputValue?.toLocaleLowerCase(locale))
-      }}
+      filterOption={(opt, inputValue) =>
+        trToEng(String(opt[labelKey])).includes(trToEng(String(inputValue)))
+      }
       {...props}
     />
   )

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { borderRadius, switchProp, color } from '../../utility/styled'
+import { fadeIn } from '../../shared/animation'
 
 export const variants = {
   topCenter: css`
@@ -52,15 +53,15 @@ export const Overlay = styled.div<PopoverStyledProps>`
   position: absolute;
   z-index: 2;
   box-sizing: border-box;
-  visibility: hidden;
+
   opacity: 0;
-  transition: opacity 0.8s;
+  transition: all 0.3s ease;
+  animation: ${fadeIn} 0.3s ease;
   box-shadow: 0 2px 4px 0 rgba(16, 20, 38, 0.2);
 
   ${switchProp('variant', variants)}
 
   :hover {
-    visibility: visible;
     opacity: 1;
   }
 
@@ -83,7 +84,6 @@ export const PopoverStyled = styled.div<PopoverStyledProps>`
   cursor: pointer;
 
   :hover ${Overlay} {
-    visibility: visible;
     opacity: 1;
   }
 `

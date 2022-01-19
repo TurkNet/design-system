@@ -1,13 +1,13 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { Breadcrumb, BreadcrumbItem, BreadcrumbProps } from '../components'
+import { Breadcrumb, BreadcrumbItem } from '../components'
 
 export default {
   title: 'Design System/Breadcrumb',
   component: Breadcrumb,
 }
 
-const Template: Story<BreadcrumbProps> = args => {
+const Template: Story = args => {
   return (
     <Breadcrumb {...args}>
       <BreadcrumbItem>First</BreadcrumbItem>
