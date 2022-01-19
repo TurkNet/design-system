@@ -1,6 +1,8 @@
 import React, { FC, useRef, useEffect } from 'react'
-import { Box } from '../Box'
-import { CollapseStyled, CollapseProps } from './styled'
+import { Box, BoxProps } from '../Box'
+import { CollapseStyled, CollapseProp } from './styled'
+
+export type CollapseProps = BoxProps & CollapseProp
 
 export const Collapse: FC<CollapseProps> = ({
   children,
