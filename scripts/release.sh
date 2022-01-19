@@ -7,7 +7,7 @@ if [ ! -z "$VERSION" ]; then
   ## Update Changelog
   auto changelog
 
-  yarn build-library
+
   cd dist
   ## Publish Package
   npm version $VERSION -m "Bump version to: %s [skip ci]"
@@ -16,5 +16,5 @@ if [ ! -z "$VERSION" ]; then
 
   ## Create GitHub Release
   git push --follow-tags --set-upstream origin main
-  auto release --base-branch=main
+  auto release
 fi
