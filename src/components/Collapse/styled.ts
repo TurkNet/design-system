@@ -1,12 +1,11 @@
 import styled, { css } from 'styled-components'
 import { ifNotProp } from 'styled-tools'
-import { BoxProps } from '../Box'
 
-export interface CollapseProps extends BoxProps {
+export type CollapseProp = {
   expanded?: boolean
 }
 
-export const CollapseStyled = styled.div<CollapseProps>`
+export const CollapseStyled = styled.div<CollapseProp>`
   height: auto;
   ${ifNotProp(
     'expanded',
