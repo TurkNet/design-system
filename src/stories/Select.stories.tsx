@@ -1,6 +1,6 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { Select, SelectProps } from '../components'
+import { Collapse, Select, SelectProps, CollapseProps } from '../components'
 
 export default {
   title: 'Design System/Select',
@@ -34,7 +34,14 @@ const Template: Story<SelectProps> = ({ ...args }) => {
       id: `6`,
     },
   ]
-  return <Select {...args} options={options} />
+  return (
+    <Collapse expanded>
+      <Select {...args} options={options} />
+      <br />
+      <br />
+      <br />
+    </Collapse>
+  )
 }
 
 export const Standart = Template.bind({})
