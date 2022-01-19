@@ -1,3 +1,15 @@
+# v0.7.13 (Wed Jan 19 2022)
+
+#### 🐛 Bug Fix
+
+- release v0.7.12 [#290](https://github.com/TurkNet/design-system/pull/290) ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+#### Authors: 1
+
+- Recep Köseoğlu ([@recepkoseoglu](https://github.com/recepkoseoglu))
+
+---
+
 # v0.7.12 (Wed Jan 19 2022)
 
 #### 🐛 Bug Fix
