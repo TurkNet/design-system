@@ -91,6 +91,6 @@
     "react-dom": "*"
   },
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://npm.pkg.github.com/TurkNet"
   }
 }
