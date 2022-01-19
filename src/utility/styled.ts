@@ -1,5 +1,12 @@
 import Color from 'color'
-import { theme, withProp, ifProp, prop, switchProp } from 'styled-tools'
+import {
+  theme,
+  withProp,
+  ifProp,
+  prop,
+  switchProp,
+  ifNotProp,
+} from 'styled-tools'
 
 export const themeColor = (variant: string) => ({
   color,
@@ -48,4 +55,4 @@ export const propColor = (variant = '', alpha = 1) => {
   return withProp(themeColor(variant), alphaColor(alpha))
 }
 
-export { ifProp, prop, switchProp }
+export { ifProp, prop, switchProp, ifNotProp }
