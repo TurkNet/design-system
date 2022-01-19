@@ -1,10 +1,6 @@
 import React, { FC, useRef, useEffect } from 'react'
-import { Box, BoxProps } from '../Box'
-import { CollapseStyled } from './styled'
-
-export interface CollapseProps extends BoxProps {
-  expanded?: boolean
-}
+import { Box } from '../Box'
+import { CollapseStyled, CollapseProps } from './styled'
 
 export const Collapse: FC<CollapseProps> = ({
   children,
@@ -21,7 +17,7 @@ export const Collapse: FC<CollapseProps> = ({
   })
 
   return (
-    <CollapseStyled ref={ref}>
+    <CollapseStyled ref={ref} expanded={expanded}>
       <Box {...props}>{children}</Box>
     </CollapseStyled>
   )
