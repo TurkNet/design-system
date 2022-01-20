@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 import { variant, space, SpaceProps } from 'styled-system'
 import {
+  prop,
   propColor,
   color,
   borderRadius,
@@ -105,6 +106,7 @@ export interface ButtonStyledProps extends SpaceProps {
   fullWidth?: boolean
   disabled?: boolean
   alignment?: keyof typeof positions
+  width?: number
 }
 
 export const ButtonStyled = styled.button<ButtonStyledProps>`
@@ -125,7 +127,16 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
   }
   border-radius: ${borderRadius('normal')};
   font-weight: ${fontWeight('semi-bold')};
-  width: ${ifProp({ fullWidth: true }, '100%')};
+  ${ifProp(
+    { fullWidth: true },
+    css`
+      width: 100%;
+    `,
+    css`
+      width: ${prop('width')}px;
+    `
+  )}
+
   ${variant({ prop: 'size', variants: sizes })};
   ${switchProp('variant', variants)};
   ${switchProp('alignment', positions)};
