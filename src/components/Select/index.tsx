@@ -6,7 +6,7 @@ type IOption = Record<string, any>
 
 export type SelectProps = {
   name?: string
-  value?: string
+  value?: any
   labelKey?: string
   valueKey?: string
   options?: IOption[]
