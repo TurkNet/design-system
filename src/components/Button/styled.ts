@@ -46,7 +46,9 @@ const variants = {
       background-color: ${propColor('dark')};
     }
     &:disabled {
-      background-color: ${color('grey.600')};
+      background-color: ${color('grey.600', 0.24)};
+      color: ${color('grey.600', 0.48)};
+      cursor: not-allowed;
     }
   `,
   outline: css`
@@ -63,6 +65,8 @@ const variants = {
     &:disabled {
       background-color: ${color('grey.600', 0.01)};
       border-color: ${color('grey.600', 0.24)};
+      color: ${color('grey.600', 0.48)};
+      cursor: not-allowed;
     }
   `,
   ghost: css`
@@ -81,6 +85,8 @@ const variants = {
     }
     &:disabled {
       background-color: ${color('grey.600', 0.16)};
+      color: ${color('grey.600', 0.48)};
+      cursor: not-allowed;
     }
   `,
 }
