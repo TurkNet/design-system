@@ -11,7 +11,7 @@ export const BreadCrumbStyled = styled.ol`
 
 export const BreadCrumbItemStyled = styled.li`
   display: flex;
-  margin: auto 8px auto 16px;
+  margin-right: 16px;
   color: ${color('grey.600')};
   align-items: center;
   *:hover {
@@ -23,6 +23,7 @@ export const BreadCrumbItemStyled = styled.li`
     color: ${color('primary.normal')};
   }
   &:not(:first-child) {
+    margin-left: 8px;
     div {
       margin-left: 16px;
     }
