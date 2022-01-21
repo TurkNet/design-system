@@ -81,6 +81,7 @@ const styledSelect = css`
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.03),
         -5px 5px 5px rgba(0, 0, 0, 0.03);
       position: absolute;
+      z-index: 5;
     }
     &__option {
       font-size: 15px;
