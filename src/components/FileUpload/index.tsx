@@ -49,6 +49,9 @@ export const FileUpload: FC<FileUploadProps> = ({
     if (isValitType && accessSize && (accessMultiple || accessSingle)) {
       return true
     }
+    if (isValitType && accessSize && !multiple) {
+      return true
+    }
 
     return false
   }
@@ -87,15 +90,25 @@ export const FileUpload: FC<FileUploadProps> = ({
     }
   }
 
+  const fileCatch = transferFiles => {
+    if (!multiple) {
+      const singleFile = [...transferFiles]
+      onUpload(singleFile)
+      setFiles(singleFile)
+    } else {
+      const list = [...files, ...transferFiles].filter(onlyUnique)
+      onUpload(list)
+      setFiles(list)
+    }
+  }
+
   const handleDrop = (evt: DragEvent) => {
     evt.preventDefault()
     evt.stopPropagation()
     const transferFiles = evt.dataTransfer.files
 
     if (checkUpload(transferFiles)) {
-      const list = [...files, ...transferFiles].filter(onlyUnique)
-      onUpload(list)
-      setFiles(list)
+      fileCatch(transferFiles)
       evt.dataTransfer.clearData()
       setdragCounter(0)
     }
@@ -103,14 +116,12 @@ export const FileUpload: FC<FileUploadProps> = ({
     setVariant('sky')
   }
 
-  const handleChooseUpload = (event: ChangeEvent<HTMLInputElement>) => {
-    const chooseFiles = event.target.files as FileList
-
+  const handleChooseUpload = (e: ChangeEvent<HTMLInputElement>) => {
+    const chooseFiles = e.target.files as FileList
     if (checkUpload(chooseFiles)) {
-      const list = [...files, ...chooseFiles].filter(onlyUnique)
-      onUpload(list)
-      setFiles(list)
+      fileCatch(chooseFiles)
     }
+    e.target.value = ''
   }
 
   const deleteFile = (file: File) => () => {
@@ -135,6 +146,7 @@ export const FileUpload: FC<FileUploadProps> = ({
           multiple={multiple}
           accept={accept.join(',')}
           type="file"
+          title="Dosya Yükle"
         />
         <button type="button" onClick={() => inputRef.current?.click()}>
           Yükleyin
