@@ -29,13 +29,19 @@ export const FileUpload: FC<FileUploadProps> = ({
 
   const [files, setFiles] = useState<Array<File>>([])
   const [variant, setVariant] = useState<IVariant>('sky')
-  const [dragCounter, setdragCounter] = useState(0)
+  const [dragCounter, setDragCounter] = useState(0)
 
-  const checkUpload = (fileList: FileList, items?: DataTransferItemList) => {
-    const list = [...fileList, ...files, ...(items || [])]
-    const totalSize = [...fileList, ...files].reduce((t, f) => t + f.size, 0)
+  const onlyUnique = (file: File, index: number, self: File[]) => {
+    const item = self.find(item => item.name === file.name) as File
+    return self.indexOf(item) === index
+  }
+
+  const getValidFiles = (fileList: FileList, items?: DataTransferItemList) => {
+    const allFiles = [...fileList, ...(multiple ? files : [])]
+    const totalSize = allFiles.reduce((t, f) => t + f.size, 0)
 
     let isValitType = true
+    const list = [...allFiles, ...(items || [])]
     list.forEach(file => {
       if (accept.indexOf(file.type) === -1) {
         isValitType = false
@@ -43,19 +49,16 @@ export const FileUpload: FC<FileUploadProps> = ({
     })
 
     const accessSize = totalSize < maxSize * 1024 * 1024
-    const accessMultiple = multiple && list.length > 0
+    const accessMultiple = multiple && allFiles.length > 0
     const accessSingle = !multiple && list.length === 1
 
     if (isValitType && accessSize && (accessMultiple || accessSingle)) {
-      return true
+      return items?.length
+        ? [new File([], 'empty')]
+        : allFiles.filter(onlyUnique)
     }
 
-    return false
-  }
-
-  const onlyUnique = (file: File, index: number, self: File[]) => {
-    const item = self.find(item => item.name === file.name) as File
-    return self.indexOf(item) === index
+    return null
   }
 
   const handleDrag = (e: DragEvent) => {
@@ -66,13 +69,13 @@ export const FileUpload: FC<FileUploadProps> = ({
   const handleDragIn = (e: DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    setdragCounter(dragCounter + 1)
+    setDragCounter(dragCounter + 1)
 
     const { files, items } = e.dataTransfer
+    const validFiles = getValidFiles(files, items)
 
     let variant: IVariant = 'danger'
-
-    if (checkUpload(files, items)) {
+    if (validFiles?.length) {
       variant = 'success'
     }
     setVariant(variant)
@@ -81,7 +84,7 @@ export const FileUpload: FC<FileUploadProps> = ({
   const handleDragOut = (e: DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    setdragCounter(dragCounter - 1)
+    setDragCounter(dragCounter - 1)
     if (dragCounter - 1 === 0) {
       setVariant('sky')
     }
@@ -92,25 +95,26 @@ export const FileUpload: FC<FileUploadProps> = ({
     evt.stopPropagation()
     const transferFiles = evt.dataTransfer.files
 
-    if (checkUpload(transferFiles)) {
-      const list = [...files, ...transferFiles].filter(onlyUnique)
-      onUpload(list)
-      setFiles(list)
+    const validFiles = getValidFiles(transferFiles)
+
+    if (validFiles?.length) {
+      onUpload(validFiles)
+      setFiles(validFiles)
       evt.dataTransfer.clearData()
-      setdragCounter(0)
+      setDragCounter(0)
     }
 
     setVariant('sky')
   }
 
-  const handleChooseUpload = (event: ChangeEvent<HTMLInputElement>) => {
-    const chooseFiles = event.target.files as FileList
-
-    if (checkUpload(chooseFiles)) {
-      const list = [...files, ...chooseFiles].filter(onlyUnique)
-      onUpload(list)
-      setFiles(list)
+  const handleChooseUpload = (e: ChangeEvent<HTMLInputElement>) => {
+    const chooseFiles = e.target.files as FileList
+    const validFiles = getValidFiles(chooseFiles)
+    if (validFiles?.length) {
+      onUpload(validFiles)
+      setFiles(validFiles)
     }
+    e.target.value = ''
   }
 
   const deleteFile = (file: File) => () => {
