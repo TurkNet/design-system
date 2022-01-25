@@ -29,7 +29,7 @@ export const FileUpload: FC<FileUploadProps> = ({
 
   const [files, setFiles] = useState<Array<File>>([])
   const [variant, setVariant] = useState<IVariant>('sky')
-  const [dragCounter, setdragCounter] = useState(0)
+  const [dragCounter, setDragCounter] = useState(0)
 
   const onlyUnique = (file: File, index: number, self: File[]) => {
     const item = self.find(item => item.name === file.name) as File
@@ -69,7 +69,7 @@ export const FileUpload: FC<FileUploadProps> = ({
   const handleDragIn = (e: DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    setdragCounter(dragCounter + 1)
+    setDragCounter(dragCounter + 1)
 
     const { files, items } = e.dataTransfer
     const validFiles = getValidFiles(files, items)
@@ -84,7 +84,7 @@ export const FileUpload: FC<FileUploadProps> = ({
   const handleDragOut = (e: DragEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    setdragCounter(dragCounter - 1)
+    setDragCounter(dragCounter - 1)
     if (dragCounter - 1 === 0) {
       setVariant('sky')
     }
@@ -101,7 +101,7 @@ export const FileUpload: FC<FileUploadProps> = ({
       onUpload(validFiles)
       setFiles(validFiles)
       evt.dataTransfer.clearData()
-      setdragCounter(0)
+      setDragCounter(0)
     }
 
     setVariant('sky')
