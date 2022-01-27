@@ -1,12 +1,10 @@
 import React, { FC } from 'react'
 import { Icon } from '../Icon'
-import { OverflowMenuItemStyled, OverflowLabel } from './styled'
-
-export interface OverflowMenuItemProps {
-  icon: React.ReactNode
-  onClick?: () => void
-  active?: boolean
-}
+import {
+  OverflowMenuItemStyled,
+  OverflowLabel,
+  OverflowMenuItemProps,
+} from './styled'
 
 const OverflowMenuItem: FC<OverflowMenuItemProps> = ({
   children,
@@ -20,7 +18,7 @@ const OverflowMenuItem: FC<OverflowMenuItemProps> = ({
       {children && (
         <>
           <OverflowLabel>{children}</OverflowLabel>
-          {active && <Icon name="done" color="success.normal" />}
+          {active && <Icon name="done" color="success.normal" size={20} />}
         </>
       )}
     </OverflowMenuItemStyled>

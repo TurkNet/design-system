@@ -20,6 +20,7 @@ const Template: Story = args => {
           Menu Item 1
         </OverflowMenuItem>
         <OverflowMenuItem
+          height={150}
           icon={<Icon name="api" size={18} />}
           active={active === 'item2'}
           onClick={() => setActive('item2')}
