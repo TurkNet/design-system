@@ -22,8 +22,6 @@ export const OverflowMenuItemStyled = styled.li`
   ${ifProp(
     'active',
     css`
-      background-color: ${propColor('primary.normal')};
-      color: ${color('grey.100')};
       * {
         color: currentColor;
       }
