@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect } from 'react'
+import React, { FC } from 'react'
 import { Box, BoxProps } from '../Box'
 import { CollapseStyled, CollapseProp } from './styled'
 
@@ -9,17 +9,8 @@ export const Collapse: FC<CollapseProps> = ({
   expanded,
   ...props
 }) => {
-  const ref = useRef<HTMLDivElement>(null)
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.style.maxHeight = expanded
-        ? `${ref.current?.scrollHeight}px`
-        : '0px'
-    }
-  })
-
   return (
-    <CollapseStyled ref={ref} expanded={expanded}>
+    <CollapseStyled expanded={expanded}>
       <Box {...props}>{children}</Box>
     </CollapseStyled>
   )
