@@ -6,14 +6,16 @@ export type CollapseProp = {
 }
 
 export const CollapseStyled = styled.div<CollapseProp>`
-  height: auto;
+  transition: all 0.3s ease;
+  max-height: 0px;
   ${ifNotProp(
     'expanded',
     css`
       overflow: hidden;
       max-height: 0px;
+    `,
+    css`
+      max-height: 100%;
     `
   )}
-
-  transition: max-height 0.3s ease;
 `
