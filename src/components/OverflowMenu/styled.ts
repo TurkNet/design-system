@@ -23,6 +23,7 @@ export const OverflowMenuItemStyled = styled.li<LayoutProps>`
   padding: 16px 18px;
   height: auto;
   border-bottom: 1px solid ${color('grey.300')};
+
   cursor: pointer;
   user-select: none;
   color: ${color('grey.800')};
@@ -42,4 +43,13 @@ export const OverflowLabel = styled.span`
   margin-left: 14px;
   font-size: ${fontSize('13')};
   font-weight: ${fontWeight('semi-bold')};
+  * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 175px;
+    @media (max-width: 575) {
+      width: calc(75vw - 20px);
+    }
+  }
 `
