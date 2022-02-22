@@ -62,23 +62,6 @@ const Template: Story = args => {
           </Box>
         </OverflowMenuItem>
       </OverflowMenu>
-      {/* <OverflowMenu {...args}>
-        <OverflowMenuItem
-          icon={<Icon name="api" size={18} />}
-          active={active === 'item1'}
-          onClick={() => setActive('item1')}
-        />
-        <OverflowMenuItem
-          icon={<Icon name="api" size={18} />}
-          active={active === 'item2'}
-          onClick={() => setActive('item2')}
-        />
-        <OverflowMenuItem
-          icon={<Icon name="api" size={18} />}
-          active={active === 'item3'}
-          onClick={() => setActive('item3')}
-        />
-      </OverflowMenu> */}
     </Flex>
   )
 }
