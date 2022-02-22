@@ -47,7 +47,7 @@ export const OverflowLabel = styled.span`
     overflow: hidden;
     text-overflow: ellipsis;
     width: 175px;
-    @media (max-width: 575) {
+    @media screen and (max-width: 575px) {
       width: calc(75vw - 20px);
     }
   }
