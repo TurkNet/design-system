@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import { variant } from 'styled-system'
 import { color } from '../../utility'
+import { Flex } from '../Flex'
 
 const variants = {
   success: {
@@ -56,4 +57,19 @@ export const FileUploadStyled = styled.div<
 
 export const IconStyled = styled.div`
   cursor: pointer;
+`
+
+export const FileItem = styled(Flex)`
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+
+  @media screen and (max-width: 575px) {
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: calc(100vw - 120px);
+    }
+  }
 `

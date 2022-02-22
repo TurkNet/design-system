@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FC, DragEvent, useState } from 'react'
-import { FileUploadStyled, IconStyled } from './styled'
+import { FileItem, FileUploadStyled, IconStyled } from './styled'
 import { Flex } from '../Flex'
 import { Icon } from '../Icon'
 import { Typography } from '../Typography'
@@ -11,6 +11,7 @@ export interface FileUploadProps {
   maxSize?: number
   accept?: string[]
   onUpload?(fileList: Array<File>): void
+  label?: string
 }
 
 type IVariant = 'success' | 'danger' | 'sky'
@@ -24,6 +25,7 @@ export const FileUpload: FC<FileUploadProps> = ({
   maxSize = MaxSize,
   accept = FileTypes,
   onlyButton,
+  label = 'Resmi tutup, sürükleyin veya',
 }) => {
   const inputRef = React.createRef<HTMLInputElement>()
 
@@ -132,7 +134,7 @@ export const FileUpload: FC<FileUploadProps> = ({
         onDrop={handleDrop}
         variant={variant}
       >
-        {!onlyButton && <span>Resmi tutup, sürükleyin veya</span>}
+        {!onlyButton && <span>{label}</span>}
         <input
           ref={inputRef}
           onChange={handleChooseUpload}
@@ -145,12 +147,7 @@ export const FileUpload: FC<FileUploadProps> = ({
         </button>
       </FileUploadStyled>
       {files.map((file: File) => (
-        <Flex
-          key={file.lastModified}
-          alignItems="center"
-          justifyContent="space-between"
-          mt={16}
-        >
+        <FileItem key={file.lastModified}>
           <Flex alignItems="center">
             <Icon name="check_circle" color="success.normal" size={20} />
             <Typography ml={10}>{file.name}</Typography>
@@ -158,7 +155,7 @@ export const FileUpload: FC<FileUploadProps> = ({
           <IconStyled onClick={deleteFile(file)}>
             <Icon name="close" color="sky.dark" size={20} />
           </IconStyled>
-        </Flex>
+        </FileItem>
       ))}
     </>
   )
