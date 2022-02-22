@@ -23,7 +23,6 @@ export const OverflowMenuItemStyled = styled.li<LayoutProps>`
   padding: 16px 18px;
   height: auto;
   border-bottom: 1px solid ${color('grey.300')};
-
   cursor: pointer;
   user-select: none;
   color: ${color('grey.800')};
