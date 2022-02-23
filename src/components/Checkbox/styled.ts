@@ -78,7 +78,7 @@ export const CheckboxStyled = styled.input<CheckboxStyledProps>`
   cursor: pointer;
   height: 16px;
   width: 18px;
-  margin: 2px 6px 2px 0;
+  margin: 1px 8px 1px 0;
   flex-shrink: 0;
 
   :after,

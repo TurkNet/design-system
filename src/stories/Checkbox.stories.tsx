@@ -21,12 +21,15 @@ const Template: Story<CheckboxProps> = ({ variant = 'standart', ...args }) => {
         with desktop publishing software like Aldus PageMaker including versions
         of Lorem Ipsum.
       </Checkbox>
+      <br />
       <Checkbox {...args} variant={variant} defaultChecked>
         Place your text
       </Checkbox>
+      <br />
       <Checkbox {...args} variant={variant} disabled>
         Place your text
       </Checkbox>
+      <br />
       <Checkbox {...args} variant={variant} disabled defaultChecked>
         Place your text
       </Checkbox>
