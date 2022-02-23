@@ -42,13 +42,10 @@ export const OverflowLabel = styled.span`
   margin-left: 14px;
   font-size: ${fontSize('13')};
   font-weight: ${fontWeight('semi-bold')};
+  width: 80%;
   * {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 175px;
-    @media screen and (max-width: 575px) {
-      width: calc(75vw - 20px);
-    }
   }
 `
