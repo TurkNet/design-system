@@ -64,12 +64,10 @@ export const FileItem = styled(Flex)`
   align-items: center;
   margin-top: 16px;
 
-  @media screen and (max-width: 575px) {
-    p {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      width: calc(100vw - 120px);
-    }
+  p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: calc(100vw - 120px);
   }
 `
