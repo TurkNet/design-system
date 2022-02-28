@@ -65,9 +65,11 @@ export const FileItem = styled(Flex)`
   margin-top: 16px;
 
   p {
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: calc(100vw - 120px);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 100%;
   }
 `
