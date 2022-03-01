@@ -1,9 +1,10 @@
 import React, { ChangeEvent, FC, DragEvent, useState } from 'react'
-import { FileUploadStyled, IconStyled } from './styled'
+import { FileUploadStyled } from './styled'
 import { Flex } from '../Flex'
 import { Icon } from '../Icon'
 import { Typography } from '../Typography'
 import { noop } from '../../utility'
+import { Box } from '../Box'
 
 export interface FileUploadProps {
   onlyButton?: boolean
@@ -11,6 +12,7 @@ export interface FileUploadProps {
   maxSize?: number
   accept?: string[]
   onUpload?(fileList: Array<File>): void
+  label?: string
 }
 
 type IVariant = 'success' | 'danger' | 'sky'
@@ -24,6 +26,7 @@ export const FileUpload: FC<FileUploadProps> = ({
   maxSize = MaxSize,
   accept = FileTypes,
   onlyButton,
+  label = 'Resmi tutup, sürükleyin veya',
 }) => {
   const inputRef = React.createRef<HTMLInputElement>()
 
@@ -132,7 +135,7 @@ export const FileUpload: FC<FileUploadProps> = ({
         onDrop={handleDrop}
         variant={variant}
       >
-        {!onlyButton && <span>Resmi tutup, sürükleyin veya</span>}
+        {!onlyButton && <span>{label}</span>}
         <input
           ref={inputRef}
           onChange={handleChooseUpload}
@@ -147,17 +150,23 @@ export const FileUpload: FC<FileUploadProps> = ({
       {files.map((file: File) => (
         <Flex
           key={file.lastModified}
-          alignItems="center"
           justifyContent="space-between"
+          alignItems="center"
           mt={16}
         >
           <Flex alignItems="center">
             <Icon name="check_circle" color="success.normal" size={20} />
-            <Typography ml={10}>{file.name}</Typography>
+            <Box flex="1 1 100%">
+              <Typography ml={10}>{file.name}</Typography>
+            </Box>
           </Flex>
-          <IconStyled onClick={deleteFile(file)}>
-            <Icon name="close" color="sky.dark" size={20} />
-          </IconStyled>
+          <Icon
+            name="close"
+            color="sky.dark"
+            size={20}
+            cursor="pointer"
+            onClick={deleteFile(file)}
+          />
         </Flex>
       ))}
     </>

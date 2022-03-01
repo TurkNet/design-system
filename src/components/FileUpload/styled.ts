@@ -53,7 +53,3 @@ export const FileUploadStyled = styled.div<
 
   ${variant({ variants })}
 `
-
-export const IconStyled = styled.div`
-  cursor: pointer;
-`
