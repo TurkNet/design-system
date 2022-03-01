@@ -1,9 +1,10 @@
 import React, { ChangeEvent, FC, DragEvent, useState } from 'react'
-import { FileItem, FileUploadStyled, IconStyled } from './styled'
+import { FileUploadStyled } from './styled'
 import { Flex } from '../Flex'
 import { Icon } from '../Icon'
 import { Typography } from '../Typography'
 import { noop } from '../../utility'
+import { Box } from '../Box'
 
 export interface FileUploadProps {
   onlyButton?: boolean
@@ -147,15 +148,26 @@ export const FileUpload: FC<FileUploadProps> = ({
         </button>
       </FileUploadStyled>
       {files.map((file: File) => (
-        <FileItem key={file.lastModified}>
+        <Flex
+          key={file.lastModified}
+          justifyContent="space-between"
+          alignItems="center"
+          mt={16}
+        >
           <Flex alignItems="center">
             <Icon name="check_circle" color="success.normal" size={20} />
-            <Typography ml={10}>{file.name}</Typography>
+            <Box flex="1 1 100%">
+              <Typography ml={10}>{file.name}</Typography>
+            </Box>
           </Flex>
-          <IconStyled onClick={deleteFile(file)}>
-            <Icon name="close" color="sky.dark" size={20} />
-          </IconStyled>
-        </FileItem>
+          <Icon
+            name="close"
+            color="sky.dark"
+            size={20}
+            cursor="pointer"
+            onClick={deleteFile(file)}
+          />
+        </Flex>
       ))}
     </>
   )

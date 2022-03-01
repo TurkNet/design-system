@@ -54,22 +54,3 @@ export const FileUploadStyled = styled.div<
 
   ${variant({ variants })}
 `
-
-export const IconStyled = styled.div`
-  cursor: pointer;
-`
-
-export const FileItem = styled(Flex)`
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 16px;
-
-  p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    width: 100%;
-  }
-`
