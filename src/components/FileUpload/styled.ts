@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { variant } from 'styled-system'
 import { color } from '../../utility'
-import { Flex } from '../Flex'
 
 const variants = {
   success: {
