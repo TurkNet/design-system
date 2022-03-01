@@ -6,6 +6,7 @@ type IOption = Promise<Record<string, any>>
 
 export type SearchSelectProps = {
   name?: string
+  value?: any
   labelKey?: string
   valueKey?: string
   options?: IOption[]

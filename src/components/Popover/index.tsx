@@ -1,5 +1,4 @@
 import React, { FC, ReactNode, useCallback, useState } from 'react'
-import { Icon } from '../Icon'
 import { PopoverStyled, PopoverStyledProps, Overlay } from './styled'
 
 export interface PopoverProps extends PopoverStyledProps {
@@ -8,14 +7,13 @@ export interface PopoverProps extends PopoverStyledProps {
 }
 
 export const Popover: FC<PopoverProps> = ({
-  variant = 'bottomCenter',
+  variant = 'right',
   title,
   content,
   children,
   ...props
 }) => {
   const [show, setShow] = useState(false)
-  const { type: childrenType }: any = children
   let timer: ReturnType<typeof setTimeout>
 
   const handleShow = useCallback(() => {
@@ -34,14 +32,11 @@ export const Popover: FC<PopoverProps> = ({
     <PopoverStyled
       {...props}
       onMouseEnter={() => setShow(true)}
+      onClick={() => setShow(true)}
       onMouseLeave={handleShow}
     >
       {children}
-      {show && (
-        <Overlay variant={childrenType === Icon ? 'right' : variant}>
-          {content}
-        </Overlay>
-      )}
+      {show && <Overlay variant={variant}>{content}</Overlay>}
     </PopoverStyled>
   )
 }

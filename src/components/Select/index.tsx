@@ -6,7 +6,7 @@ type IOption = Record<string, any>
 
 export type SelectProps = {
   name?: string
-  value?: string
+  value?: any
   labelKey?: string
   valueKey?: string
   options?: IOption[]
@@ -63,7 +63,7 @@ export const Select = ({
       getOptionLabel={(o: any) => o[labelKey]}
       getOptionValue={(o: any) => o[valueKey]}
       filterOption={(opt, inputValue) =>
-        trToEng(String(opt[labelKey])).includes(trToEng(String(inputValue)))
+        trToEng(String(opt.label)).includes(trToEng(String(inputValue)))
       }
       {...props}
     />
