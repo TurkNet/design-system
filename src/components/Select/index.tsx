@@ -1,11 +1,11 @@
-import React, { InputHTMLAttributes, ReactNode } from 'react'
+import React, { SelectHTMLAttributes, ReactNode } from 'react'
 import { components, Props as ReactSelectProps } from 'react-select'
 import { SelectStyled } from './styled'
 
 type IOption = Record<string, any>
 
 export type SelectProps = ReactSelectProps &
-  InputHTMLAttributes<HTMLInputElement> & {
+  SelectHTMLAttributes<HTMLSelectElement> & {
     name?: string
     value?: any
     labelKey?: string
