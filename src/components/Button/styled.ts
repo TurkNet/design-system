@@ -35,8 +35,8 @@ const sizes = {
 
 const variants = {
   fill: css`
-    background-color: ${propColor('normal')};
     border: none;
+    background-color: ${propColor('normal')};
     color: ${color('grey.100')};
     &:hover {
       background-color: ${propColor('light')};
@@ -46,8 +46,20 @@ const variants = {
       background-color: ${propColor('dark')};
     }
     &:disabled {
-      background-color: ${color('grey.600')};
+      background-color: ${color('grey.400')};
+      color: ${color('grey.600')};
     }
+    ${ifProp(
+      { color: 'sky' },
+      css`
+        color: ${color('grey.800')};
+        background-color: ${color('grey.300')};
+        &:active,
+        &:focus {
+          background-color: ${propColor('normal')};
+        }
+      `
+    )}
   `,
   outline: css`
     background-color: ${color('grey.100')};
