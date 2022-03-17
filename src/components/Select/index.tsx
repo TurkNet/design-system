@@ -63,7 +63,7 @@ export const Select = ({
       getOptionLabel={(o: any) => o[labelKey]}
       getOptionValue={(o: any) => o[valueKey]}
       filterOption={(opt, inputValue) =>
-        trToEng(String(opt.label)).includes(trToEng(String(inputValue)))
+        trToEng(String(opt.label)).startsWith(trToEng(String(inputValue)))
       }
       {...props}
     />
