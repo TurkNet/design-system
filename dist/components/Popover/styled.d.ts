@@ -10,6 +10,7 @@ export declare const variants: {
 };
 export interface PopoverStyledProps {
     variant?: keyof typeof variants;
+    show?: boolean;
 }
 export declare const Overlay: import("styled-components").StyledComponent<"dialog", any, PopoverStyledProps, never>;
 export declare const PopoverStyled: import("styled-components").StyledComponent<"div", any, PopoverStyledProps, never>;

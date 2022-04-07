@@ -19,8 +19,8 @@ const Popover = (_a) => {
             setShow(true);
         }
     }, [show]);
-    return (react_1.default.createElement(styled_1.PopoverStyled, Object.assign({}, props, { onMouseEnter: () => setShow(true), onClick: () => setShow(true), onTouchStart: () => setShow(true), onMouseLeave: handleShow }),
+    return (react_1.default.createElement(styled_1.PopoverStyled, Object.assign({}, props, { onMouseEnter: () => setShow(true), onClick: () => setShow(true), onMouseLeave: handleShow }),
         children,
-        show && (react_1.default.createElement(styled_1.Overlay, { variant: variant, open: true }, content))));
+        show && (react_1.default.createElement(styled_1.Overlay, { variant: variant, open: true, show: show }, content))));
 };
 exports.Popover = Popover;

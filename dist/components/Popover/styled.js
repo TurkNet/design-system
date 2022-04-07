@@ -51,16 +51,12 @@ exports.Overlay = styled_components_1.default.dialog `
   border-color: transparent;
   box-sizing: border-box;
 
-  opacity: 0;
+  opacity: ${styled_1.ifProp('show', 1, 0)};
   transition: all 0.3s ease;
   animation: ${animation_1.fadeIn} 0.3s ease;
   box-shadow: 0 2px 4px 0 rgba(16, 20, 38, 0.2);
 
   ${styled_1.switchProp('variant', exports.variants)}
-
-  :hover {
-    opacity: 1;
-  }
 
   :after {
     content: '';
@@ -70,7 +66,6 @@ exports.Overlay = styled_components_1.default.dialog `
     transform: translate(-50%, -50%);
     height: calc(100% + 40px);
     width: calc(100% + 40px);
-    z-index: -1;
   }
 `;
 exports.PopoverStyled = styled_components_1.default.div `
@@ -79,7 +74,7 @@ exports.PopoverStyled = styled_components_1.default.div `
   text-align: left;
   cursor: pointer;
 
-  :hover ${exports.Overlay} {
+  ${exports.Overlay} :hover {
     opacity: 1;
   }
 `;
