@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { borderRadius, switchProp, color } from '../../utility/styled'
+import { borderRadius, switchProp, color, ifProp } from '../../utility/styled'
 import { fadeIn } from '../../shared/animation'
 
 export const variants = {
@@ -41,6 +41,7 @@ export const variants = {
 
 export interface PopoverStyledProps {
   variant?: keyof typeof variants
+  show?: boolean
 }
 
 export const Overlay = styled.dialog<PopoverStyledProps>`
@@ -53,16 +54,12 @@ export const Overlay = styled.dialog<PopoverStyledProps>`
   border-color: transparent;
   box-sizing: border-box;
 
-  opacity: 0;
+  opacity: ${ifProp('show', 1, 0)};
   transition: all 0.3s ease;
   animation: ${fadeIn} 0.3s ease;
   box-shadow: 0 2px 4px 0 rgba(16, 20, 38, 0.2);
 
   ${switchProp('variant', variants)}
-
-  :hover {
-    opacity: 1;
-  }
 
   :after {
     content: '';
@@ -72,7 +69,6 @@ export const Overlay = styled.dialog<PopoverStyledProps>`
     transform: translate(-50%, -50%);
     height: calc(100% + 40px);
     width: calc(100% + 40px);
-    z-index: -1;
   }
 `
 
@@ -82,7 +78,7 @@ export const PopoverStyled = styled.div<PopoverStyledProps>`
   text-align: left;
   cursor: pointer;
 
-  :hover ${Overlay} {
+  ${Overlay} :hover {
     opacity: 1;
   }
 `

@@ -33,12 +33,11 @@ export const Popover: FC<PopoverProps> = ({
       {...props}
       onMouseEnter={() => setShow(true)}
       onClick={() => setShow(true)}
-      onTouchStart={() => setShow(true)}
       onMouseLeave={handleShow}
     >
       {children}
       {show && (
-        <Overlay variant={variant} open>
+        <Overlay variant={variant} open show={show}>
           {content}
         </Overlay>
       )}
