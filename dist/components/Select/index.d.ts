@@ -1,0 +1,20 @@
+import React from 'react';
+declare type IOption = Record<string, any>;
+export declare type SelectProps = {
+    name?: string;
+    value?: any;
+    labelKey?: string;
+    valueKey?: string;
+    options?: IOption[];
+    isSearchable?: boolean;
+    isMulti?: boolean;
+    placeholder?: string;
+    variant?: 'success' | 'info' | 'danger' | 'warning' | 'primary' | undefined;
+    icon?: React.ReactNode;
+    locale?: string;
+    isLoading?: boolean;
+    isDisabled?: boolean;
+    onChange?(newValue: unknown, meta?: any): void;
+};
+export declare const Select: ({ options, isSearchable, isMulti, placeholder, variant, labelKey, valueKey, locale, icon, ...props }: SelectProps) => JSX.Element;
+export {};

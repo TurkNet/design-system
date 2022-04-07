@@ -43,15 +43,14 @@ export interface PopoverStyledProps {
   variant?: keyof typeof variants
 }
 
-export const Overlay = styled.div<PopoverStyledProps>`
+export const Overlay = styled.dialog<PopoverStyledProps>`
   min-width: 121px;
   max-width: 500px;
   min-height: 28px;
   text-align: center;
   border-radius: ${borderRadius('normal')};
   background-color: ${color('grey.100')};
-  position: absolute;
-  z-index: 2;
+  border-color: transparent;
   box-sizing: border-box;
 
   opacity: 0;

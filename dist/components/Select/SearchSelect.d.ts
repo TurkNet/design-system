@@ -1,0 +1,20 @@
+import React from 'react';
+declare type IOption = Promise<Record<string, any>>;
+export declare type SearchSelectProps = {
+    name?: string;
+    value?: any;
+    labelKey?: string;
+    valueKey?: string;
+    options?: IOption[];
+    isSearchable?: boolean;
+    isMulti?: boolean;
+    placeholder?: string;
+    variant?: 'success' | 'info' | 'danger' | 'warning' | 'primary' | undefined;
+    icon?: React.ReactNode;
+    isLoading?: boolean;
+    isDisabled?: boolean;
+    onChange?(newValue: unknown, meta?: any): void;
+    onSearch(inputValue: unknown): Promise<IOption[]>;
+};
+export declare const SearchSelect: ({ options, isSearchable, isMulti, placeholder, variant, labelKey, valueKey, onSearch, icon, ...props }: SearchSelectProps) => JSX.Element;
+export {};
