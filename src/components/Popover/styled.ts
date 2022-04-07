@@ -55,11 +55,17 @@ export const Overlay = styled.dialog<PopoverStyledProps>`
   box-sizing: border-box;
 
   opacity: ${ifProp('show', 1, 0)};
+  visibility: ${ifProp('show', 'visible', 'hidden')};
   transition: all 0.3s ease;
   animation: ${fadeIn} 0.3s ease;
   box-shadow: 0 2px 4px 0 rgba(16, 20, 38, 0.2);
 
   ${switchProp('variant', variants)}
+
+  &:hover {
+    opacity: 1;
+    visibility: visible;
+  }
 
   :after {
     content: '';
@@ -80,5 +86,6 @@ export const PopoverStyled = styled.div<PopoverStyledProps>`
 
   ${Overlay} :hover {
     opacity: 1;
+    visibility: visible;
   }
 `
