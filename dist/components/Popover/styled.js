@@ -52,11 +52,17 @@ exports.Overlay = styled_components_1.default.dialog `
   box-sizing: border-box;
 
   opacity: ${styled_1.ifProp('show', 1, 0)};
+  visibility: ${styled_1.ifProp('show', 'visible', 'hidden')};
   transition: all 0.3s ease;
   animation: ${animation_1.fadeIn} 0.3s ease;
   box-shadow: 0 2px 4px 0 rgba(16, 20, 38, 0.2);
 
   ${styled_1.switchProp('variant', exports.variants)}
+
+  &:hover {
+    opacity: 1;
+    visibility: visible;
+  }
 
   :after {
     content: '';
@@ -76,5 +82,6 @@ exports.PopoverStyled = styled_components_1.default.div `
 
   ${exports.Overlay} :hover {
     opacity: 1;
+    visibility: visible;
   }
 `;
