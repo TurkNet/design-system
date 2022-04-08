@@ -41,27 +41,26 @@ exports.variants = {
     transform: translateY(-50%);
   `,
 };
-exports.Overlay = styled_components_1.default.dialog `
+exports.Overlay = styled_components_1.default.div `
   min-width: 121px;
   max-width: 500px;
   min-height: 28px;
   text-align: center;
   border-radius: ${styled_1.borderRadius('normal')};
   background-color: ${styled_1.color('grey.100')};
-  border-color: transparent;
+  position: absolute;
+  z-index: 2;
   box-sizing: border-box;
 
-  opacity: ${styled_1.ifProp('show', 1, 0)};
-  visibility: ${styled_1.ifProp('show', 'visible', 'hidden')};
+  opacity: 0;
   transition: all 0.3s ease;
   animation: ${animation_1.fadeIn} 0.3s ease;
   box-shadow: 0 2px 4px 0 rgba(16, 20, 38, 0.2);
 
   ${styled_1.switchProp('variant', exports.variants)}
 
-  &:hover {
+  :hover {
     opacity: 1;
-    visibility: visible;
   }
 
   :after {
@@ -72,6 +71,7 @@ exports.Overlay = styled_components_1.default.dialog `
     transform: translate(-50%, -50%);
     height: calc(100% + 40px);
     width: calc(100% + 40px);
+    z-index: -1;
   }
 `;
 exports.PopoverStyled = styled_components_1.default.div `
@@ -80,8 +80,9 @@ exports.PopoverStyled = styled_components_1.default.div `
   text-align: left;
   cursor: pointer;
 
-  ${exports.Overlay} :hover {
-    opacity: 1;
-    visibility: visible;
+  &:hover {
+    ${exports.Overlay} {
+      opacity: 1;
+    }
   }
 `;
