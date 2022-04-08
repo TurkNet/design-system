@@ -36,7 +36,7 @@ export const Popover: FC<PopoverProps> = ({
       onMouseLeave={handleShow}
     >
       {children}
-      <Overlay variant={variant}>{content}</Overlay>
+      {show && <Overlay variant={variant}>{content}</Overlay>}
     </PopoverStyled>
   )
 }
