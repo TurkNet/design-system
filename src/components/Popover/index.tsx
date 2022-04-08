@@ -7,7 +7,7 @@ export interface PopoverProps extends PopoverStyledProps {
 }
 
 export const Popover: FC<PopoverProps> = ({
-  variant = 'right',
+  variant = 'left',
   title,
   content,
   children,
@@ -36,9 +36,7 @@ export const Popover: FC<PopoverProps> = ({
       onMouseLeave={handleShow}
     >
       {children}
-      <Overlay variant={variant} open show={show}>
-        {content}
-      </Overlay>
+      <Overlay variant={variant}>{content}</Overlay>
     </PopoverStyled>
   )
 }
