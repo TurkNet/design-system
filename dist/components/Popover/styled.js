@@ -59,10 +59,6 @@ exports.Overlay = styled_components_1.default.div `
 
   ${styled_1.switchProp('variant', exports.variants)}
 
-  :hover {
-    opacity: 1;
-  }
-
   :after {
     content: '';
     position: absolute;

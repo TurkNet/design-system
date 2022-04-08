@@ -61,10 +61,6 @@ export const Overlay = styled.div<PopoverStyledProps>`
 
   ${switchProp('variant', variants)}
 
-  :hover {
-    opacity: 1;
-  }
-
   :after {
     content: '';
     position: absolute;
