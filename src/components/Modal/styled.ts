@@ -26,8 +26,6 @@ export const ModalStyled = styled.div`
 
 export const ModalContentStyled = styled(Box)`
   position: relative;
-  min-width: 300px;
-  overflow: auto;
   background-color: ${color('grey.100')};
   box-shadow: 0 4px 16px 0 ${color('grey.700')};
   border-radius: 8px;

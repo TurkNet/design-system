@@ -15,6 +15,8 @@ export interface ModalProps {
   width?: number | string
   height?: number | string
   maxWidth?: number | string
+  minWidth?: number | string
+  overflow?: string
   showCloseIcon?: boolean
   closeOnClickOutside?: boolean
   onClosed?(): void
@@ -27,8 +29,10 @@ export const Modal: FC<ModalProps> = ({
   children,
   show: initialShow = false,
   width,
-  maxWidth = '90%',
   height,
+  maxWidth = '90%',
+  minWidth = '300px',
+  overflow = 'auto',
   showCloseIcon = true,
   onClosed = noop,
   closeOnClickOutside = true,
@@ -66,7 +70,9 @@ export const Modal: FC<ModalProps> = ({
       <ModalContentStyled
         width={width}
         height={height}
+        overflow={overflow}
         maxWidth={maxWidth}
+        minWidth={minWidth}
         maxHeight="90%"
       >
         {showCloseIcon && (
