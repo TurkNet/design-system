@@ -26,6 +26,10 @@ const variantStyle = (variant: string, secondary?: string) => css`
   &:active,
   &--is-focused {
     border-color: ${color(`${variant}.dark`)} !important;
+
+    ::placeholder {
+      font-weight: ${fontWeight('semi-bold')};
+    }
   }
 `
 
@@ -62,6 +66,7 @@ const styledSelect = css`
       &--is-focused {
         .select__placeholder {
           font-weight: ${fontWeight('semi-bold')};
+          color: ${color('grey.800')};
         }
       }
     }
