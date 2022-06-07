@@ -48,7 +48,7 @@ export const InputStyled = styled.input<InputStyledProps>`
   width: 100%;
   background-color: transparent;
   font-size: ${fontSize('15')};
-  padding: ${space('medium')};
+  padding: ${space('small')};
   color: ${color('grey.800')};
   border-radius: ${borderRadius('normal')};
 
