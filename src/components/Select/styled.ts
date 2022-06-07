@@ -82,6 +82,7 @@ const styledSelect = css`
         -5px 5px 5px rgba(0, 0, 0, 0.03);
       position: absolute;
       z-index: 5;
+      margin: 4px 0;
     }
     &__option {
       font-size: 15px;
