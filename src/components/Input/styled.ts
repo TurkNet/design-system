@@ -61,6 +61,10 @@ export const InputStyled = styled.input<InputStyledProps>`
 
   ${switchProp('variant', variants)};
 
+  &:hover {
+    background-color: ${color('grey.200')};
+  }
+
   :disabled {
     opacity: ${opacity('48')};
     background-color: ${color('grey.200')};
