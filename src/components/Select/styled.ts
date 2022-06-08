@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import ReactSelect from 'react-select'
 import AsyncSelect from 'react-select/async'
-import { space, SpaceProps, space as systemSpace } from 'styled-system'
+import { SpaceProps, space as systemSpace } from 'styled-system'
 
 import {
   color,
