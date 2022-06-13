@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
 import ReactSelect from 'react-select'
 import AsyncSelect from 'react-select/async'
-import type { SpaceProps } from 'styled-system'
-import { space as systemSpace } from 'styled-system'
+import { SpaceProps, space as systemSpace } from 'styled-system'
+
 import {
   color,
   fontSize,
@@ -94,7 +94,7 @@ const styledSelect = css`
     &__option {
       font-size: 15px;
       font-weight: 600;
-      padding: 12px 16px;
+      padding: 14px;
       border: none;
       cursor: pointer;
       content-visibility: auto;
