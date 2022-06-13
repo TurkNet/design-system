@@ -52,9 +52,7 @@ export const InputStyled = styled.input<InputStyledProps>`
   color: ${color('grey.800')};
   border-radius: ${borderRadius('normal')};
 
-  ::placeholder,
-  :-ms-input-placeholder,
-  ::-ms-input-placeholder {
+  ::placeholder {
     color: ${color('grey.600')};
     opacity: ${opacity('100')};
   }
@@ -64,10 +62,12 @@ export const InputStyled = styled.input<InputStyledProps>`
   &:hover {
     background-color: ${color('grey.200')};
   }
-
   :disabled {
-    opacity: ${opacity('48')};
-    background-color: ${color('grey.200')};
+    border: 2px solid ${color(`grey.400`)};
+    background-color: ${color('grey.300')};
+    ::placeholder {
+      color: ${color(`grey.500`)};
+    }
   }
 `
 
