@@ -58,7 +58,9 @@ const styledSelect = css`
       border-radius: ${borderRadius('normal')};
       box-shadow: none;
       ${switchProp('variant', variants)};
-
+      &:hover {
+        background-color: ${color('grey.200')};
+      }
       &--is-disabled {
         opacity: ${opacity('48')};
         background-color: ${color('grey.200')};
