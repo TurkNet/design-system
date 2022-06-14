@@ -71,6 +71,13 @@ const styledSelect = css`
           color: ${color('grey.800')};
         }
       }
+      &--menu-is-open {
+        .select__dropdown-indicator {
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+      }
     }
     &__placeholder {
       color: ${color('grey.600')};
@@ -138,6 +145,9 @@ const styledSelect = css`
     }
     &__indicator {
       color: ${color('sky.dark')};
+      svg {
+        transition: transform 0.2s;
+      }
     }
   }
 `
