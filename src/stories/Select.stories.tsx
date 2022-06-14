@@ -1,6 +1,6 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { Collapse, Select, SelectProps, Input } from '../components'
+import { Collapse, Select, SelectProps, Input, Icon } from '../components'
 
 export default {
   title: 'Design System/Select',
@@ -98,6 +98,11 @@ const Template: Story<SelectProps> = ({ ...args }) => {
       <Input />
       <br />
       <br />
+      <Select
+        {...args}
+        options={options}
+        icon={<Icon name="search" color="currentColor" />}
+      />
     </Collapse>
   )
 }
