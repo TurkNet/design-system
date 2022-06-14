@@ -1,11 +1,5 @@
 import styled, { css } from 'styled-components'
-import {
-  borderRadius,
-  switchProp,
-  color,
-  fontSize,
-  opacity,
-} from '../../utility/styled'
+import { switchProp, color, fontSize, opacity } from '../../utility/styled'
 
 const variantStyle = (color1: string, color2?: string) => {
   const mainColor = color2 || color1
@@ -93,14 +87,14 @@ export const CheckboxStyled = styled.input<CheckboxStyledProps>`
   :after {
     height: 18px;
     width: 18px;
-    border-radius: ${borderRadius('small')};
+    border-radius: 3px;
     border: 2px solid;
     transition: 0.3s;
   }
 
   :checked:before {
-    width: 5px;
-    height: 8px;
+    width: 6px;
+    height: 11px;
     border: solid white;
     border-width: 0 2px 2px 0;
     margin-top: -1px;
