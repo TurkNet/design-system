@@ -95,7 +95,7 @@ const Template: Story<SelectProps> = ({ ...args }) => {
     <Collapse expanded>
       <Select {...args} options={options} />
       <br />
-      <Input />
+      <Input placeholder="placeholder" />
       <br />
       <br />
       <Select
