@@ -7,7 +7,6 @@ import {
   color,
   fontSize,
   borderRadius,
-  opacity,
   fontWeight,
   switchProp,
 } from '../../utility/styled'
@@ -47,13 +46,14 @@ const styledSelect = css`
       ${systemSpace}
     }
     &__control {
+      padding-left: 2px;
+      padding-right: 2px;
       background-color: transparent;
       width: 100%;
       cursor: pointer;
       height: auto;
       min-height: 48px;
       font-size: ${fontSize('15')};
-      padding: 0 6px;
       color: ${color('grey.800')};
       border-radius: ${borderRadius('normal')};
       box-shadow: none;
@@ -62,14 +62,16 @@ const styledSelect = css`
         background-color: ${color('grey.200')};
       }
       &--is-disabled {
-        opacity: ${opacity('48')};
-        background-color: ${color('grey.200')};
+        background-color: ${color('grey.300')};
+        border: 2px solid ${color(`grey.400`)};
+        .select__placeholder,
+        .select__indicator {
+          color: ${color(`grey.500`)};
+        }
       }
       &--is-focused {
-        .select__placeholder {
-          font-weight: ${fontWeight('semi-bold')};
-          color: ${color('grey.800')};
-        }
+        font-weight: ${fontWeight('semi-bold')};
+        color: ${color('grey.800')};
       }
       &--menu-is-open {
         .select__dropdown-indicator {
@@ -79,9 +81,12 @@ const styledSelect = css`
         }
       }
     }
+    &__input,
+    &__single-value {
+      color: ${color('grey.800')} !important;
+    }
     &__placeholder {
       color: ${color('grey.600')};
-      opacity: ${opacity('100')};
     }
     &__indicator-separator {
       display: none;
