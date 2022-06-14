@@ -5,7 +5,6 @@ import {
   borderRadius,
   color,
   fontSize,
-  opacity,
   space,
   switchProp,
   ifProp,
@@ -22,10 +21,7 @@ const variantStyle = (variant: string, secondary?: string) => css`
   :enabled:focus,
   :enabled:active {
     border-color: ${color(`${variant}.dark`)};
-
-    ::placeholder {
-      font-weight: ${fontWeight('semi-bold')};
-    }
+    font-weight: ${fontWeight('semi-bold')};
   }
 `
 
@@ -54,7 +50,6 @@ export const InputStyled = styled.input<InputStyledProps>`
 
   ::placeholder {
     color: ${color('grey.600')};
-    opacity: ${opacity('100')};
   }
 
   ${switchProp('variant', variants)};
