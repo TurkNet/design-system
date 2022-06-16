@@ -20,8 +20,10 @@ const variantStyle = (variant: string, secondary?: string) => css`
 
   :enabled:focus,
   :enabled:active {
-    border-color: ${color(`${variant}.dark`)};
-    font-weight: ${fontWeight('semi-bold')};
+    border-color: ${color(`${variant}.normal`)};
+    ::placeholder {
+      font-weight: ${fontWeight('semi-bold')};
+    }
   }
 `
 
@@ -47,9 +49,10 @@ export const InputStyled = styled.input<InputStyledProps>`
   padding: ${space('small')};
   color: ${color('grey.800')};
   border-radius: ${borderRadius('normal')};
-
+  font-weight: ${fontWeight('semi-bold')};
   ::placeholder {
     color: ${color('grey.600')};
+    font-weight: ${fontWeight('regular')};
   }
 
   ${switchProp('variant', variants)};
