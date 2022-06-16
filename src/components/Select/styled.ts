@@ -114,8 +114,8 @@ const styledSelect = css`
       content-visibility: auto;
       contain-intrinsic-size: 30px;
       &:hover {
-        background-color: ${color('primary.light')};
-        color: ${color('grey.100')};
+        background-color: ${color('grey.300')};
+        color: ${color('grey.800')};
       }
       &--is-selected {
         background-color: ${color('primary.normal')};
