@@ -24,11 +24,7 @@ const variantStyle = (variant: string, secondary?: string) => css`
   &:focus,
   &:active,
   &--is-focused {
-    border-color: ${color(`${variant}.dark`)} !important;
-
-    ::placeholder {
-      font-weight: ${fontWeight('semi-bold')};
-    }
+    border-color: ${color(`${variant}.normal`)} !important;
   }
 `
 
@@ -56,6 +52,7 @@ const styledSelect = css`
       font-size: ${fontSize('15')};
       color: ${color('grey.800')};
       border-radius: ${borderRadius('normal')};
+      font-weight: ${fontWeight('semi-bold')};
       box-shadow: none;
       ${switchProp('variant', variants)};
       &:hover {
@@ -64,6 +61,7 @@ const styledSelect = css`
       &--is-disabled {
         background-color: ${color('grey.300')};
         border: 2px solid ${color(`grey.400`)};
+
         .select__placeholder,
         .select__indicator {
           color: ${color(`grey.500`)};
@@ -72,6 +70,9 @@ const styledSelect = css`
       &--is-focused {
         font-weight: ${fontWeight('semi-bold')};
         color: ${color('grey.800')};
+        .select__placeholder {
+          font-weight: ${fontWeight('semi-bold')};
+        }
       }
       &--menu-is-open {
         .select__dropdown-indicator {
@@ -87,6 +88,7 @@ const styledSelect = css`
     }
     &__placeholder {
       color: ${color('grey.600')};
+      font-weight: ${fontWeight('regular')};
     }
     &__indicator-separator {
       display: none;
