@@ -96,7 +96,7 @@ export const Table: FC<TableProps> = ({
               <TableThStyled style={{ width: 150 }}>
                 <Flex>
                   <Checkbox checked={checked.all} onChange={onCheckAll} />
-                  Tümünü Seç
+                  <Typography>Tümünü Seç</Typography>
                 </Flex>
               </TableThStyled>
             )}
