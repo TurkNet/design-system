@@ -5,6 +5,7 @@ import {
   borderRadius,
   color,
   fontSize,
+  opacity,
   space,
   switchProp,
   ifProp,
@@ -20,7 +21,8 @@ const variantStyle = (variant: string, secondary?: string) => css`
 
   :enabled:focus,
   :enabled:active {
-    border-color: ${color(`${variant}.normal`)};
+    border-color: ${color(`${variant}.dark`)};
+
     ::placeholder {
       font-weight: ${fontWeight('semi-bold')};
     }
@@ -46,26 +48,22 @@ export const InputStyled = styled.input<InputStyledProps>`
   width: 100%;
   background-color: transparent;
   font-size: ${fontSize('15')};
-  padding: ${space('small')};
+  padding: ${space('medium')};
   color: ${color('grey.800')};
   border-radius: ${borderRadius('normal')};
-  font-weight: ${fontWeight('semi-bold')};
-  ::placeholder {
+
+  ::placeholder,
+  :-ms-input-placeholder,
+  ::-ms-input-placeholder {
     color: ${color('grey.600')};
-    font-weight: ${fontWeight('regular')};
+    opacity: ${opacity('100')};
   }
 
   ${switchProp('variant', variants)};
 
-  &:hover {
-    background-color: ${color('grey.200')};
-  }
   :disabled {
-    border: 2px solid ${color(`grey.400`)};
-    background-color: ${color('grey.300')};
-    ::placeholder {
-      color: ${color(`grey.500`)};
-    }
+    opacity: ${opacity('48')};
+    background-color: ${color('grey.200')};
   }
 `
 
