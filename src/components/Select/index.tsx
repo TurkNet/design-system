@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { components } from 'react-select'
 import { SelectStyled } from './styled'
 
@@ -33,8 +33,6 @@ export const Select = ({
   icon,
   ...props
 }: SelectProps) => {
-  const [filteredOptions, setFilteredOptions] = useState(options)
-
   const DropdownIndicator = props => (
     <components.DropdownIndicator {...props}>
       {icon}
@@ -42,7 +40,7 @@ export const Select = ({
   )
 
   const trToEng = (text: string) =>
-    String(text)
+    text
       .toLocaleLowerCase(locale)
       .replace(/ğ/g, 'g')
       .replace(/ü/g, 'u')
@@ -56,7 +54,7 @@ export const Select = ({
       classNamePrefix="select"
       isSearchable={isSearchable}
       isMulti={isMulti}
-      options={filteredOptions}
+      options={options}
       placeholder={placeholder}
       variant={variant}
       components={icon ? { DropdownIndicator } : {}}
@@ -65,15 +63,8 @@ export const Select = ({
       getOptionLabel={(o: any) => o[labelKey]}
       getOptionValue={(o: any) => o[valueKey]}
       filterOption={(opt, inputValue) =>
-        trToEng(opt.label).includes(trToEng(inputValue))
+        trToEng(String(opt.label)).includes(trToEng(String(inputValue)))
       }
-      onInputChange={inputValue => {
-        setFilteredOptions(
-          filteredOptions.sort((a, b) =>
-            trToEng(b[labelKey]).startsWith(trToEng(inputValue)) ? 1 : -1
-          )
-        )
-      }}
       {...props}
     />
   )

@@ -54,11 +54,16 @@ export const Overlay = styled.div<PopoverStyledProps>`
   z-index: 2;
   box-sizing: border-box;
 
+  opacity: 0;
   transition: all 0.3s ease;
   animation: ${fadeIn} 0.3s ease;
   box-shadow: 0 2px 4px 0 rgba(16, 20, 38, 0.2);
 
   ${switchProp('variant', variants)}
+
+  :hover {
+    opacity: 1;
+  }
 
   :after {
     content: '';
@@ -77,4 +82,8 @@ export const PopoverStyled = styled.div<PopoverStyledProps>`
   position: relative;
   text-align: left;
   cursor: pointer;
+
+  :hover ${Overlay} {
+    opacity: 1;
+  }
 `
