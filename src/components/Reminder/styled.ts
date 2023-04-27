@@ -16,7 +16,7 @@ export const ReminderStyled = styled.div<ReminderStyledProps>`
   padding: 16px;
   display: flex;
   align-items: center;
-  span > :first-child {
+  > span:first-child {
     margin-right: 16px;
   }
   ${space}
