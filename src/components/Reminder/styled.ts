@@ -4,7 +4,7 @@ import { propColor, borderRadius, color, fontSize } from '../../utility/styled'
 
 export interface ReminderStyledProps extends SpaceProps {
   severity: 'success' | 'warning' | 'danger' | 'info'
-  colorTone: 'light' | 'normal' | 'dark'
+  colorTone?: 'light' | 'normal' | 'dark'
 }
 
 export const ReminderStyled = styled.div<ReminderStyledProps>`
