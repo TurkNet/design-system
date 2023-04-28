@@ -50,7 +50,7 @@ export const Table: FC<TableProps> = ({
   onSort = noop,
   onCheck = noop,
   loading,
-  checkAllText = '',
+  checkAllText = 'Tümünü Seç',
   ...props
 }) => {
   const [sort, setSort] = useState<ISort>({})
