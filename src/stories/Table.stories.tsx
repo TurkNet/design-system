@@ -79,6 +79,7 @@ const Template: Story<TableProps> = ({ ...props }) => {
         onCheck={row => setList(row)}
         enableAdd
         selectable
+        checkAllText="All"
         buttonText="Yeni Takım Oluştur"
         onAddClick={console.log}
         isActive={({ column, row }: any) => (
