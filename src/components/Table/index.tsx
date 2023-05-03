@@ -30,6 +30,7 @@ export interface TableProps {
   onCheck?(param: any[]): void
   onAddClick?(): void
   loading?: boolean
+  checkAllText?: string
 }
 
 const SortMap: ISort = {
@@ -49,6 +50,7 @@ export const Table: FC<TableProps> = ({
   onSort = noop,
   onCheck = noop,
   loading,
+  checkAllText = 'Tümünü Seç',
   ...props
 }) => {
   const [sort, setSort] = useState<ISort>({})
@@ -93,10 +95,10 @@ export const Table: FC<TableProps> = ({
         <thead>
           <TableTrStyled>
             {selectable && (
-              <TableThStyled style={{ width: 150 }}>
+              <TableThStyled>
                 <Flex>
                   <Checkbox checked={checked.all} onChange={onCheckAll} />
-                  Tümünü Seç
+                  {checkAllText}
                 </Flex>
               </TableThStyled>
             )}
