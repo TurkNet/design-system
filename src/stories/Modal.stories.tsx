@@ -26,7 +26,12 @@ const Template: Story<ModalProps & { showImage: boolean }> = ({
       <Button size="medium" onClick={toggle}>
         Toggle Modal
       </Button>
-      <Modal {...props} show={show} onClosed={toggle}>
+      <Modal
+        {...props}
+        show={show}
+        onClosed={toggle}
+        colorCloseIcon="success.normal"
+      >
         {showImage && (
           <img
             src="https://media.istockphoto.com/photos/mosque-in-istanbul-turkey-picture-id182468027?k=6&m=182468027&s=612x612&w=0&h=0ZIhG91VoujVVAyBZ9rCX27Gy-vmmYFEaytI163iFaY="
