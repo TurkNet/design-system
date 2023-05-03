@@ -7,21 +7,25 @@ export interface IconProps
   name: string
   size?: number
   color?: string
-  outlined?: boolean
+  iconClassType?: 'fill' | 'outlined' | 'round'
 }
 
 export const Icon: FC<IconProps> = ({
   name,
   size = 24,
   color,
-  outlined,
+  iconClassType = 'fill',
   cursor,
   ...props
 }) => {
-  const cs = outlined ? '-outlined' : ''
+  const iconClassTypeMap = {
+    fill: 'custom-icons material-icons',
+    outlined: 'custom-icons material-icons-outlined',
+    round: 'custom-icons material-icons-round',
+  }
   return (
     <IconStyled
-      className={`custom-icons material-icons${cs}`}
+      className={iconClassTypeMap[iconClassType]}
       fontSize={size}
       color={color}
       cursor={cursor}

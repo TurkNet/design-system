@@ -42,12 +42,20 @@ Standart.argTypes = {
   name: {
     control: {
       type: 'select',
-      options: ['dashboard', 'edit', 'loading', 'favorite_border', 'home'],
+      options: [
+        'dashboard',
+        'edit',
+        'loading',
+        'favorite_border',
+        'home',
+        'warning',
+      ],
     },
   },
-  outlined: {
+  iconClassType: {
     control: {
-      type: 'boolean',
+      type: 'inline-radio',
+      options: ['fill', 'outlined', 'round'],
     },
   },
   cursor: {
