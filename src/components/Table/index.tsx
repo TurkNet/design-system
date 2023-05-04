@@ -31,6 +31,7 @@ export interface TableProps {
   onAddClick?(): void
   loading?: boolean
   checkAllText?: string
+  checkAllWidth?: number
 }
 
 const SortMap: ISort = {
@@ -51,6 +52,7 @@ export const Table: FC<TableProps> = ({
   onCheck = noop,
   loading,
   checkAllText = 'Tümünü Seç',
+  checkAllWidth = 150,
   ...props
 }) => {
   const [sort, setSort] = useState<ISort>({})
@@ -95,7 +97,7 @@ export const Table: FC<TableProps> = ({
         <thead>
           <TableTrStyled>
             {selectable && (
-              <TableThStyled>
+              <TableThStyled style={{ width: checkAllWidth }}>
                 <Flex>
                   <Checkbox checked={checked.all} onChange={onCheckAll} />
                   {checkAllText}
