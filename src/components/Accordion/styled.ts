@@ -6,8 +6,8 @@ import { Box } from '../Box'
 interface BorderProps {
   expanded: boolean
 }
-export const AccourdionStyled = styled(Box)`
-  & > div:not(:last-child) {
+export const AccordionStyled = styled(Box)`
+  > div:not(:last-child) {
     border-bottom: 1px solid ${color('grey.300')};
     padding-bottom: 14px;
     transition: all 0.3s ease;
