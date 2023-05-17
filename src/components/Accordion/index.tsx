@@ -1,11 +1,12 @@
 import React, { FC } from 'react'
 import AccordionItem from './AccordionItem'
-import { Box, BoxProps } from '../Box'
+import { BoxProps } from '../Box'
+import { AccourdionStyled } from './styled'
 
 export type AccordionProps = BoxProps
 
 const Accordion: FC<AccordionProps> = ({ children, ...props }) => {
-  return <Box {...props}>{children}</Box>
+  return <AccourdionStyled {...props}>{children}</AccourdionStyled>
 }
 
 export { Accordion, AccordionItem }

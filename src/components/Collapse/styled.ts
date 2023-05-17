@@ -12,10 +12,12 @@ export const CollapseStyled = styled.div<CollapseProp>`
     'expanded',
     css`
       overflow: hidden;
+      opacity: 0;
       max-height: 0px;
     `,
     css`
-      max-height: 100%;
+      opacity: 1;
+      max-height: 100vh;
     `
   )}
 `

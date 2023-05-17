@@ -2,7 +2,7 @@ import React, { useState, FC, ReactNode, useEffect } from 'react'
 import { Collapse } from '../Collapse'
 import { Icon } from '../Icon'
 import { FlexProps } from '../Flex'
-import { SummaryStyled, BorderStyled } from './styled'
+import { SummaryStyled } from './styled'
 import { noop } from '../../utility'
 
 interface AccordionItemProps extends FlexProps {
@@ -44,14 +44,13 @@ const AccordionItem: FC<AccordionItemProps> = ({
   }
 
   return (
-    <>
+    <div>
       <SummaryStyled {...props} onClick={handleExpanded}>
         {summary}
         <Icon name={expanded ? 'expand_less' : 'expand_more'} />
       </SummaryStyled>
       <Collapse expanded={expanded}>{children}</Collapse>
-      <BorderStyled expanded={expanded} />
-    </>
+    </div>
   )
 }
 
