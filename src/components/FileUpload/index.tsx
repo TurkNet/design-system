@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, DragEvent, useState } from 'react'
+import React, { ChangeEvent, FC, DragEvent, useState, useEffect } from 'react'
 import { FileUploadStyled } from './styled'
 import { Flex } from '../Flex'
 import { Icon } from '../Icon'
@@ -13,10 +13,20 @@ export interface FileUploadProps {
   accept?: string[]
   onUpload?(fileList: Array<File>): void
   label?: string
+  labelAlign?: ILabelAlign
+  showFileNameOnLabel?: boolean
+  buttonLabel?: string
+  paddingX?: number
+  paddingY?: number
+  paddingLeft?: number
+  paddingRight?: number
+  paddingBottom?: number
+  paddingTop?: number
 }
 
 type IVariant = 'success' | 'danger' | 'sky'
-
+type ILabelAlign = 'top' | 'right' | 'bottom' | 'left'
+type IFlexDirection = 'row' | 'column'
 const FileTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']
 const MaxSize = 10
 
@@ -27,12 +37,25 @@ export const FileUpload: FC<FileUploadProps> = ({
   accept = FileTypes,
   onlyButton,
   label = 'Resmi tutup, sürükleyin veya',
+  labelAlign = 'left',
+  showFileNameOnLabel,
+  buttonLabel = 'Yükleyin',
+  paddingX,
+  paddingY,
+  paddingLeft,
+  paddingRight,
+  paddingBottom,
+  paddingTop,
 }) => {
   const inputRef = React.createRef<HTMLInputElement>()
 
   const [files, setFiles] = useState<Array<File>>([])
   const [variant, setVariant] = useState<IVariant>('sky')
   const [dragCounter, setDragCounter] = useState(0)
+  const [flexDirection, setFlexDirection] = useState<IFlexDirection>('row')
+  const [customLabel, setCustomLabel] = useState<React.ReactNode>(
+    <span>{label}</span>
+  )
 
   const onlyUnique = (file: File, index: number, self: File[]) => {
     const item = self.find(item => item.name === file.name) as File
@@ -125,7 +148,55 @@ export const FileUpload: FC<FileUploadProps> = ({
     onUpload(list)
     setFiles(list)
   }
+  useEffect(() => {
+    if (labelAlign === 'left' || labelAlign === 'right') {
+      setFlexDirection('row')
+    }
+    if (labelAlign === 'top' || labelAlign === 'bottom') {
+      setFlexDirection('column')
+    }
+  }, [])
 
+  const checkAvaibleFileNameOnLabel =
+    files.length === 1 && !multiple && showFileNameOnLabel
+  useEffect(() => {
+    if (checkAvaibleFileNameOnLabel) {
+      setCustomLabel(
+        <Flex
+          justifyContent={flexDirection === 'row' ? 'space-between' : 'center'}
+          width="100%"
+          alignItems="center"
+        >
+          <Flex alignItems="center">
+            <Icon name="check_circle" color="success.normal" size={20} />
+            <Box flex="1 1 100%">
+              <Typography ml={10}>{files[0].name}</Typography>
+            </Box>
+          </Flex>
+          <Flex alignItems="center">
+            <Icon
+              name="close"
+              color="sky.dark"
+              size={20}
+              cursor="pointer"
+              onClick={deleteFile(files[0])}
+            />
+          </Flex>
+        </Flex>
+      )
+    } else {
+      setCustomLabel(<span>{label}</span>)
+    }
+  }, [files])
+
+  const leftLabelComponent =
+    (labelAlign === 'left' || labelAlign === 'top') &&
+    !onlyButton &&
+    customLabel
+  const rightLabelComponent =
+    (labelAlign === 'right' || labelAlign === 'bottom') &&
+    !onlyButton &&
+    customLabel
   return (
     <>
       <FileUploadStyled
@@ -135,40 +206,55 @@ export const FileUpload: FC<FileUploadProps> = ({
         onDrop={handleDrop}
         variant={variant}
       >
-        {!onlyButton && <span>{label}</span>}
-        <input
-          ref={inputRef}
-          onChange={handleChooseUpload}
-          multiple={multiple}
-          accept={accept.join(',')}
-          type="file"
-        />
-        <button type="button" onClick={() => inputRef.current?.click()}>
-          Yükleyin
-        </button>
-      </FileUploadStyled>
-      {files.map((file: File) => (
         <Flex
-          key={file.lastModified}
-          justifyContent="space-between"
+          justifyContent="center"
           alignItems="center"
-          mt={16}
+          flexDirection={flexDirection}
+          width="100%"
+          paddingX={paddingX}
+          paddingY={paddingY}
+          paddingLeft={!paddingLeft ? paddingX : paddingLeft}
+          paddingRight={!paddingRight ? paddingX : paddingRight}
+          paddingBottom={!paddingBottom ? paddingY : paddingBottom}
+          paddingTop={!paddingTop ? paddingY : paddingTop}
         >
-          <Flex alignItems="center">
-            <Icon name="check_circle" color="success.normal" size={20} />
-            <Box flex="1 1 100%">
-              <Typography ml={10}>{file.name}</Typography>
-            </Box>
-          </Flex>
-          <Icon
-            name="close"
-            color="sky.dark"
-            size={20}
-            cursor="pointer"
-            onClick={deleteFile(file)}
+          <input
+            ref={inputRef}
+            onChange={handleChooseUpload}
+            multiple={multiple}
+            accept={accept.join(',')}
+            type="file"
           />
+          {leftLabelComponent}
+          <button type="button" onClick={() => inputRef.current?.click()}>
+            {buttonLabel}
+          </button>
+          {rightLabelComponent}
         </Flex>
-      ))}
+      </FileUploadStyled>
+      {!checkAvaibleFileNameOnLabel &&
+        files.map((file: File) => (
+          <Flex
+            key={file.lastModified}
+            justifyContent="space-between"
+            alignItems="center"
+            mt={16}
+          >
+            <Flex alignItems="center">
+              <Icon name="check_circle" color="success.normal" size={20} />
+              <Box flex="1 1 100%">
+                <Typography ml={10}>{file.name}</Typography>
+              </Box>
+            </Flex>
+            <Icon
+              name="close"
+              color="sky.dark"
+              size={20}
+              cursor="pointer"
+              onClick={deleteFile(file)}
+            />
+          </Flex>
+        ))}
     </>
   )
 }

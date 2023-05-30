@@ -23,7 +23,7 @@ const variants = {
 export const FileUploadStyled = styled.div<
   Record<'variant', 'success' | 'danger' | 'sky'>
 >`
-  height: 48px;
+  min-height: 48px;
   width: 100%;
   display: flex;
   align-items: center;
