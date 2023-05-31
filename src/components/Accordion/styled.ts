@@ -1,29 +1,63 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { color, fontSize, fontWeight, ifProp } from '../../utility/styled'
 import { Flex } from '../Flex'
+import { Box } from '../Box'
 
-export const SummaryStyled = styled(Flex)`
+interface SummaryProps {
+  expanded?: boolean
+}
+
+export const AccordionStyled = styled(Box)`
+  > div:not(:last-child) {
+    border-bottom: 1px solid ${color('grey.300')};
+  }
+`
+export const SummaryStyled = styled(Flex)<SummaryProps>`
   cursor: pointer;
   user-select: none;
   justify-content: space-between;
   align-items: center;
   font-size: ${fontSize('15')};
   font-weight: ${fontWeight('semi-bold')};
-  padding: 12px 0;
+  ${ifProp(
+    { expanded: true },
+    css`
+      margin-bottom: 16px;
+    `
+  )}
   position: relative;
-  padding-right: 40px;
   span {
     position: absolute;
-    right: 16px;
+    right: 0;
   }
 `
+
 interface BorderProps {
-  expanded: boolean
+  hasBorder?: boolean
+  expanded?: boolean
+  bg?: string
 }
 
 export const BorderStyled = styled.div<BorderProps>`
-  height: 1px;
-  background-color: ${color('grey.300')};
-  margin-top: ${ifProp('expanded', '24px', '0px')};
-  transition: margin 0.3s ease;
+  padding: 16px;
+  ${({ bg }) => {
+    return ifProp(
+      { hasBorder: true },
+      css`
+        border-radius: 8px;
+        border: 1px solid ${color('grey.300')};
+        ${ifProp(
+          { expanded: true },
+          bg &&
+            css`
+          border: 1px solid ${color(bg, 0.1)}};
+          background-color: ${color(bg, 0.03)};
+        `
+        )}
+        :not(:last-child) {
+          margin-bottom: 16px;
+        }
+      `
+    )
+  }}
 `
