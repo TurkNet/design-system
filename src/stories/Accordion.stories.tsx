@@ -53,8 +53,29 @@ const ControlledTemplate: Story<AccordionProps> = props => {
         voluptate distinctio hic esse suscipit porro officiis et dolores minima.
       </AccordionItem>
       <AccordionItem
+        id="acc-11"
+        summary="Başlık 11"
+        expandedId={expanded}
+        onExpand={handleExpand}
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
+        voluptate distinctio hic esse suscipit porro officiis et dolores minima.
+      </AccordionItem>
+      <AccordionItem
+        id="acc-113"
+        summary="Başlık 1133333"
+        expandedId={expanded}
+        onExpand={handleExpand}
+        hasBorder
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
+        voluptate distinctio hic esse suscipit porro officiis et dolores minima.
+      </AccordionItem>
+      <AccordionItem
         id="acc-2"
         summary="Başlık 2"
+        expandIcon={['unfold_less', 'unfold_more']}
+        expandIconColor={['success.normal', 'sky.dark']}
         expandedId={expanded}
         onExpand={handleExpand}
       >
@@ -64,8 +85,24 @@ const ControlledTemplate: Story<AccordionProps> = props => {
       <AccordionItem
         id="acc-3"
         summary="Başlık 3"
+        expandIconColor={['info.normal', 'sky.dark']}
         expandedId={expanded}
         onExpand={handleExpand}
+        hasBorder
+      >
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
+        voluptate distinctio hic esse suscipit porro officiis et dolores minima.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
+        voluptate distinctio hic esse suscipit porro officiis et dolores minima.
+      </AccordionItem>
+      <AccordionItem
+        id="acc-4"
+        summary="Başlık 4"
+        expandIcon={['unfold_more']}
+        expandIconColor={['success.normal', 'sky.dark']}
+        expandedId={expanded}
+        onExpand={handleExpand}
+        hasBorder
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque velit
         voluptate distinctio hic esse suscipit porro officiis et dolores minima.
