@@ -41,7 +41,6 @@ interface BorderProps {
 export const BorderStyled = styled.div<BorderProps>`
   padding: 16px;
   ${({ bg }) => {
-    console.log('props', bg)
     return ifProp(
       { hasBorder: true },
       css`
