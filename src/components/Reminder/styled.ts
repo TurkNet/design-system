@@ -1,8 +1,18 @@
 import styled from 'styled-components'
-import { space, SpaceProps } from 'styled-system'
+import {
+  space,
+  SpaceProps,
+  flexbox,
+  FlexboxProps,
+  layout,
+  LayoutProps,
+} from 'styled-system'
 import { propColor, borderRadius, color, fontSize } from '../../utility/styled'
 
-export interface ReminderStyledProps extends SpaceProps {
+export interface ReminderStyledProps
+  extends SpaceProps,
+    FlexboxProps,
+    LayoutProps {
   severity: 'success' | 'warning' | 'danger' | 'info'
   colorTone?: 'light' | 'normal' | 'dark'
 }
@@ -20,4 +30,6 @@ export const ReminderStyled = styled.div<ReminderStyledProps>`
     margin-right: 16px;
   }
   ${space}
+  ${flexbox}
+  ${layout}
 `
