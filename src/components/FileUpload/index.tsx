@@ -6,6 +6,9 @@ import { Typography } from '../Typography'
 import { noop } from '../../utility'
 import { Box } from '../Box'
 
+type IVariant = 'success' | 'danger' | 'sky'
+type ILabelAlign = 'top' | 'right' | 'bottom' | 'left'
+type IFlexDirection = 'row' | 'column'
 export interface FileUploadProps {
   onlyButton?: boolean
   multiple?: boolean
@@ -24,9 +27,6 @@ export interface FileUploadProps {
   paddingTop?: number
 }
 
-type IVariant = 'success' | 'danger' | 'sky'
-type ILabelAlign = 'top' | 'right' | 'bottom' | 'left'
-type IFlexDirection = 'row' | 'column'
 const FileTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']
 const MaxSize = 10
 
