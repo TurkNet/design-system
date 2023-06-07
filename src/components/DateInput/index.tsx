@@ -13,9 +13,11 @@ export type DateInputProps = ReactDatePickerProps &
   InputProps & {
     selected: DateType
     dateFormat: string
+    minYear?: number
+    maxYear?: number
   }
 
-const years = [...Array(100).keys()].map(i => i + 1950).reverse()
+const CURRENT_YEAR = new Date().getFullYear()
 const months = [
   'OCAK',
   'ŞUBAT',
@@ -50,10 +52,15 @@ export const DateInput = React.forwardRef<HTMLInputElement, DateInputProps>(
       onChange,
       selectsRange,
       placeholderText,
+      maxYear = 2050,
+      minYear = 1950,
       ...props
     },
     ref
   ) => {
+    const topYear =
+      maxYear > CURRENT_YEAR ? maxYear - minYear : CURRENT_YEAR - minYear
+    const years = [...Array(topYear + 1).keys()].map(i => i + minYear).reverse()
     const [value, setValue] = useState<DateType>(selected)
     const [show, setShow] = useState(false)
 
