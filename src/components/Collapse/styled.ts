@@ -17,7 +17,7 @@ export const CollapseStyled = styled.div<CollapseProp>`
     `,
     css`
       opacity: 1;
-      max-height: 100vh;
+      max-height: 100%;
     `
   )}
 `
