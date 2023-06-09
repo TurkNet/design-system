@@ -11,7 +11,9 @@ const Template: Story<ReminderProps> = args => {
   const { colorTone, severity } = args
   return (
     <Reminder {...args}>
-      I am a {colorTone} {severity} Reminder. Also I have lots of variants
+      I am a {colorTone} {severity} Reminder. Also I have lots of variants I am
+      a {colorTone} {severity} Reminder. Also I have lots of variants I am a{' '}
+      {colorTone} {severity} Reminder. Also I have lots of variants
     </Reminder>
   )
 }
