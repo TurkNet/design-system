@@ -1,21 +1,19 @@
 import React, { ChangeEvent, FC, DragEvent, useState } from 'react'
-import { FileUploadStyled } from './styled'
-import { Flex } from '../Flex'
-import { Icon } from '../Icon'
-import { Typography } from '../Typography'
+import { FileUploadStyled, FileUploadStyledProps } from './styled'
 import { noop } from '../../utility'
-import { Box } from '../Box'
+import { FileName } from './FileName'
 
-export interface FileUploadProps {
+type IVariant = 'success' | 'danger' | 'sky'
+export interface FileUploadProps extends FileUploadStyledProps {
   onlyButton?: boolean
   multiple?: boolean
   maxSize?: number
   accept?: string[]
   onUpload?(fileList: Array<File>): void
   label?: string
+  inner?: boolean
+  uploadedButtonLabel?: string
 }
-
-type IVariant = 'success' | 'danger' | 'sky'
 
 const FileTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf']
 const MaxSize = 10
@@ -27,6 +25,9 @@ export const FileUpload: FC<FileUploadProps> = ({
   accept = FileTypes,
   onlyButton,
   label = 'Resmi tutup, sürükleyin veya',
+  inner = false,
+  uploadedButtonLabel,
+  ...props
 }) => {
   const inputRef = React.createRef<HTMLInputElement>()
 
@@ -126,16 +127,29 @@ export const FileUpload: FC<FileUploadProps> = ({
     setFiles(list)
   }
 
+  const buttonLabel = (files.length && uploadedButtonLabel) || 'Yükleyin'
+  const showLabel = !onlyButton && !(inner && files.length)
   return (
     <>
       <FileUploadStyled
+        {...props}
         onDragEnter={handleDragIn}
         onDragLeave={handleDragOut}
         onDragOver={handleDrag}
         onDrop={handleDrop}
         variant={variant}
+        inner={inner}
+        showLabel={showLabel}
       >
-        {!onlyButton && <span>{label}</span>}
+        {showLabel && <span>{label}</span>}
+        {inner &&
+          files.map((file: File) => (
+            <FileName
+              key={file.lastModified}
+              file={file}
+              deleteFile={deleteFile}
+            />
+          ))}
         <input
           ref={inputRef}
           onChange={handleChooseUpload}
@@ -144,31 +158,17 @@ export const FileUpload: FC<FileUploadProps> = ({
           type="file"
         />
         <button type="button" onClick={() => inputRef.current?.click()}>
-          Yükleyin
+          {buttonLabel}
         </button>
       </FileUploadStyled>
-      {files.map((file: File) => (
-        <Flex
-          key={file.lastModified}
-          justifyContent="space-between"
-          alignItems="center"
-          mt={16}
-        >
-          <Flex alignItems="center">
-            <Icon name="check_circle" color="success.normal" size={20} />
-            <Box flex="1 1 100%">
-              <Typography ml={10}>{file.name}</Typography>
-            </Box>
-          </Flex>
-          <Icon
-            name="close"
-            color="sky.dark"
-            size={20}
-            cursor="pointer"
-            onClick={deleteFile(file)}
+      {!inner &&
+        files.map((file: File) => (
+          <FileName
+            key={file.lastModified}
+            file={file}
+            deleteFile={deleteFile}
           />
-        </Flex>
-      ))}
+        ))}
     </>
   )
 }
