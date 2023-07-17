@@ -42,7 +42,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <WrapperStyled>
         <InputStyled {...props} variant={variant} ref={ref} />
         {icon && <IconStyled onClick={handleIconClick}>{icon}</IconStyled>}
-        {copied && copiable && <CopiedMessage>{copiedText}</CopiedMessage>}
+        {copiable && copied && <CopiedMessage>{copiedText}</CopiedMessage>}
       </WrapperStyled>
     )
   }
