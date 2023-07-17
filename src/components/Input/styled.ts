@@ -78,15 +78,3 @@ export const IconStyled = styled.span`
   display: flex;
   height: auto;
 `
-export const CopiedMessage = styled.span`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${color('success.light')};
-  color: #fff;
-`

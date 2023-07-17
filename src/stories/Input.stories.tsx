@@ -19,16 +19,6 @@ const Template: Story<InputProps> = args => {
       <br />
       <br />
       <Input {...args} />
-      <br />
-      <br />
-      <br />
-      <Input
-        {...args}
-        copiable
-        copiedText="Kopyalandı!"
-        disabled
-        icon={<Icon name="content_copy" color="currentColor" />}
-      />
     </>
   )
 }
