@@ -27,13 +27,7 @@ const Template: Story<InputProps> = args => {
         copiable
         copiedText="Kopyalandı!"
         disabled
-        icon={
-          <Icon
-            name="content_copy"
-            color="currentColor"
-            style={{ zIndex: 5 }}
-          />
-        }
+        icon={<Icon name="content_copy" color="currentColor" />}
       />
     </>
   )
