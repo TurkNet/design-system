@@ -19,6 +19,22 @@ const Template: Story<InputProps> = args => {
       <br />
       <br />
       <Input {...args} />
+      <br />
+      <br />
+      <br />
+      <div style={{ position: 'relative' }}>
+        <Input
+          {...args}
+          copiedText="KOPYALANDI"
+          icon={
+            <Icon
+              name="content_copy"
+              color="currentColor"
+              style={{ zIndex: 5 }}
+            />
+          }
+        />
+      </div>
     </>
   )
 }
