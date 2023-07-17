@@ -11,8 +11,6 @@ export interface InputProps
     InputHTMLAttributes<HTMLInputElement> {
   icon?: ReactNode
   onClickIcon?(): void
-  copiedText?: string
-  copiable?: boolean
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
