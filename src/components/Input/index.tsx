@@ -13,18 +13,28 @@ export interface InputProps
   icon?: ReactNode
   onClickIcon?(): void
   copiedText?: string
+  copiable?: boolean
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
-    { variant = 'primary', onClickIcon, icon, copiedText = 'Copied', ...props },
+    {
+      variant = 'primary',
+      onClickIcon,
+      icon,
+      copiedText = 'Copied',
+      copiable,
+      ...props
+    },
     ref
   ) => {
     const [copied, setCopied] = useState(false)
 
     const handleIconClick = () => {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      if (copiable) {
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
+      }
       onClickIcon?.()
     }
 
@@ -32,7 +42,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <WrapperStyled>
         <InputStyled {...props} variant={variant} ref={ref} />
         {icon && <IconStyled onClick={handleIconClick}>{icon}</IconStyled>}
-        {copied && <CopiedMessage>{copiedText}</CopiedMessage>}
+        {copied && copiable && <CopiedMessage>{copiedText}</CopiedMessage>}
       </WrapperStyled>
     )
   }

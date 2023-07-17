@@ -22,10 +22,11 @@ const Template: Story<InputProps> = args => {
       <br />
       <br />
       <br />
-
       <Input
         {...args}
-        copiedText="KOPYALANDI"
+        copiable
+        copiedText="Kopyalandı!"
+        disabled
         icon={
           <Icon
             name="content_copy"
