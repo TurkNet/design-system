@@ -1,13 +1,11 @@
-import React, { InputHTMLAttributes, ReactNode, useState } from 'react'
+import React, { useState } from 'react'
 import { CopiedMessage, WrapperStyled } from './styled'
 import { Icon } from '../Icon'
 import { Typography } from '../Typography'
 
 export interface ClipboardProps {
-  icon?: ReactNode
   onClickIcon?(): void
   copiedText?: string
-  copiable?: boolean
   name?: string
   size?: number
   color?: string
@@ -20,7 +18,6 @@ export const Clipboard: React.FC<ClipboardProps> = ({
   name = 'content_copy',
   size = 20,
   color = 'primary.normal',
-  copiable,
   content,
   ...props
 }) => {

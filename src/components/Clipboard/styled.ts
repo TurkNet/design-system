@@ -1,8 +1,5 @@
-import styled, { css } from 'styled-components'
-import type { SpaceProps } from 'styled-system'
-import { space as systemSpace } from 'styled-system'
+import styled from 'styled-components'
 import { color } from '../../utility/styled'
-import { Typography } from '../Typography'
 
 export const WrapperStyled = styled.div`
   display: flex;

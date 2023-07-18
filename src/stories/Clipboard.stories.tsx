@@ -1,6 +1,6 @@
 import React from 'react'
 import { Story } from '@storybook/react'
-import { Clipboard, ClipboardProps, Icon } from '../components'
+import { Clipboard, ClipboardProps } from '../components'
 
 export default {
   title: 'Design System/Clipboard',
@@ -10,12 +10,7 @@ export default {
 const Template: Story<ClipboardProps> = args => {
   return (
     <>
-      <Clipboard
-        {...args}
-        copiable
-        copiedText="Kopyalandı!"
-        content="236496275"
-      />
+      <Clipboard {...args} copiedText="Kopyalandı!" content="236496275" />
     </>
   )
 }
