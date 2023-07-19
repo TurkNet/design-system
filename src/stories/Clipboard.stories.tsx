@@ -8,11 +8,7 @@ export default {
 }
 
 const Template: Story<ClipboardProps> = args => {
-  return (
-    <>
-      <Clipboard {...args} copiedText="Kopyalandı!" content="236496275" />
-    </>
-  )
+  return <Clipboard {...args} copiedText="Kopyalandı!" content="236496275" />
 }
 
 export const Standart = Template.bind({})
