@@ -7,15 +7,12 @@ import {
   ifProp,
 } from '../../utility/styled'
 
-export const BorderWrapped = styled.div`
-  border: 2px solid ${color('grey.400')};
-  border-radius: ${borderRadius('large')};
-`
-
 export const Wrapped = styled.div`
   position: relative;
   width: 100%;
   overflow: auto;
+  border: 2px solid ${color('grey.400')};
+  border-radius: ${borderRadius('large')};
 `
 
 export const TableStyled = styled.table`
