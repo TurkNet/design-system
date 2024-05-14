@@ -112,16 +112,18 @@ export const Table: FC<TableProps> = ({
                   sortable={column.sortable}
                   onClick={column.sortable && handleSort(column.accessor)}
                 >
-                  <span> {column.Header}</span>
-                  {column.sortable && (
-                    <Icon
-                      name={
-                        SortMap[sort[column.accessor]] === 'desc'
-                          ? 'expand_more'
-                          : 'expand_less'
-                      }
-                    />
-                  )}
+                  <Flex alignItems="center" justifyContent="flex-start">
+                    <span> {column.Header}</span>
+                    {column.sortable && (
+                      <Icon
+                        name={
+                          SortMap[sort[column.accessor]] === 'desc'
+                            ? 'expand_more'
+                            : 'expand_less'
+                        }
+                      />
+                    )}
+                  </Flex>
                 </TableThStyled>
               )
             })}

@@ -8,6 +8,9 @@ import {
 } from '../../utility/styled'
 
 export const Wrapped = styled.div`
+  position: relative;
+  width: 100%;
+  overflow: auto;
   border: 2px solid ${color('grey.400')};
   border-radius: ${borderRadius('large')};
 `
@@ -15,12 +18,11 @@ export const Wrapped = styled.div`
 export const TableStyled = styled.table`
   width: 100%;
   border-collapse: collapse;
-  position: relative;
 `
 export const TableThStyled = styled.th<Record<string, any>>`
   position: relative;
   height: 64px;
-  padding: 16px;
+  padding: 8px;
   font-size: ${fontSize('15')};
   font-weight: ${fontWeight('semi-bold')};
   background-color: transparent !important;
@@ -31,14 +33,12 @@ export const TableThStyled = styled.th<Record<string, any>>`
   user-select: none;
   cursor: ${ifProp('sortable', 'pointer', 'inherit')};
 
-  :last-of-type {
-    border-right-width: 0;
+  span {
+    margin-right: 8px;
   }
 
-  .material-icons {
-    position: absolute;
-    right: 16px;
-    top: 20px;
+  :last-of-type {
+    border-right-width: 0;
   }
 `
 
